@@ -25,18 +25,18 @@
                      <Font size="22.0" />
                  </font>
              </Label>
-            <Label fx:id="LbEsqueceuSenha" layoutX="111.0" layoutY="262.0" text="Esqueceu a Senha?" textAlignment="CENTER" textFill="WHITE" underline="true" wrapText="true">
+            <Label fx:id="LbEsqueceuSenha" layoutX="111.0" layoutY="262.0" onMouseClicked="#EsqueceuSenha" text="Esqueceu a Senha?" textAlignment="CENTER" textFill="WHITE" underline="true" wrapText="true">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
-            <Button fx:id="BtnEntrar" layoutX="46.0" layoutY="201.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="232.0" style="-fx-background-color: #E14658;" text="Entrar" textFill="WHITE">
+            <Button fx:id="BtnEntrar" layoutX="46.0" layoutY="201.0" mnemonicParsing="false" onAction="#Entrar" prefHeight="40.0" prefWidth="232.0" style="-fx-background-color: #E14658;" text="Entrar" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <TextField layoutX="43.0" layoutY="76.0" prefHeight="25.0" prefWidth="239.0" promptText="Usuário" />
-            <PasswordField layoutX="43.0" layoutY="139.0" prefHeight="25.0" prefWidth="239.0" promptText="Senha" />
+            <TextField fx:id="txtUsuario" layoutX="43.0" layoutY="76.0" prefHeight="25.0" prefWidth="239.0" promptText="Usuário" />
+            <PasswordField fx:id="txtSenha" layoutX="43.0" layoutY="139.0" prefHeight="25.0" prefWidth="239.0" promptText="Senha" />
          </children>
         </AnchorPane>
       <Label fx:id="Lb1" layoutX="4.0" layoutY="131.0" text="Seja bem-vindo ao CineAlgumaCoisa!" textAlignment="CENTER" textFill="WHITE">
