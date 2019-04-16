@@ -13,7 +13,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class ControllerLogin implements Initializable{
     @FXML
@@ -45,12 +47,12 @@ public class ControllerLogin implements Initializable{
             if (f1.getTipo().equals("Atendente"))
             {
                 try {
-
                     Parent root = FXMLLoader.load(getClass().getResource("../View/HomeAtendente.fxml"));
                     Stage stage = new Stage();
                     Scene scene = new Scene(root);
                     stage.setScene(scene);
                     stage.show();
+
 
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -66,10 +68,13 @@ public class ControllerLogin implements Initializable{
                         stage.setScene(scene);
                         stage.show();
 
+
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
             }
+            Stage Login = (Stage)BtnEntrar.getScene().getWindow();
+            Login.close();
         }
         else if (txtUsuario.getText().equals(f2.getUsuario())&&(Integer.parseInt(txtSenha.getText()))==f2.getSenha())
         {
@@ -81,6 +86,9 @@ public class ControllerLogin implements Initializable{
                     Stage stage = new Stage();
                     Scene scene = new Scene(root);
                     stage.setScene(scene);
+                    stage.centerOnScreen();
+                    stage.initStyle(StageStyle.UNDECORATED);
+                    stage.setMaximized(true);
                     stage.show();
 
                 } catch (IOException e) {
@@ -101,6 +109,8 @@ public class ControllerLogin implements Initializable{
                     e.printStackTrace();
                 }
             }
+            Stage Login = (Stage)BtnEntrar.getScene().getWindow();
+            Login.close();
         }
     }
     @Override
