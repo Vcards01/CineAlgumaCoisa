@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.ArrayList;
+
 public class Funcionario {
     private String cpf;
     private String nome;
@@ -18,6 +20,7 @@ public class Funcionario {
     {
 
     }
+
     //Getters
 
     public String getCpf() {
