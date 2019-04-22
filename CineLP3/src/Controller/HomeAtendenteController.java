@@ -40,20 +40,26 @@ import java.util.ResourceBundle;
 
 public class HomeAtendenteController implements Initializable {
     public Pane PnInfo;
+
+    public AnchorPane PnRoot;
+    public Label LbTituloJanela;
+    public Pane PnButton;
     @FXML
-    public Label LbData;
+    private Label LbData;
     @FXML
-    public AnchorPane PnMenu;
+    private AnchorPane PnMenu;
     @FXML
-    public Pane PnVenda;
+    private Pane PnVenda;
     @FXML
-    public Pane PnDataHora;
+    private Pane PnDataHora;
     @FXML
-    public AnchorPane PnTopo;
+    private AnchorPane PnTopo;
     @FXML
-    public Label LbClose;
+    private Label LbClose;
     @FXML
-    public Label LbVendasRealizadas;
+    private Label LbVendasRealizadas;
+    @FXML
+    private AnchorPane PnJanelas;
     @FXML
     private ImageView ImgCapaFilme;
     @FXML
@@ -177,6 +183,27 @@ public class HomeAtendenteController implements Initializable {
     {
         Platform.exit();
         System.exit(0);
+    }
+    @FXML
+    public void OpenVendaIngresso(MouseEvent Event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/VendaIngressos.fxml"));
+        AnchorPane pane = loader.load();
+        VendaIngressosController controller = loader.getController();
+        controller.GetMedidas(PnJanelas.getHeight(),PnJanelas.getWidth());
+        PnRoot.setStyle("-fx-background-color: #A978A5");
+        PnMenu.setStyle("-fx-background-color: #681759");
+        PnTopo.setStyle("-fx-background-color: #681759");
+        LbTituloJanela.setText("Venda de ingressos");
+        PnJanelas.getChildren().setAll(pane);
+    }
+    public void OpenHome(MouseEvent Event){
+        PnJanelas.getChildren().clear();
+        PnRoot.setStyle("-fx-background-color: #cc4645");
+        PnMenu.setStyle("-fx-background-color:  #81001f");
+        PnTopo.setStyle("-fx-background-color:  #81001f");
+        LbTituloJanela.setText("Home Screen");
+        PnJanelas.getChildren().setAll(PnDataHora,PnVenda,Tabela,PnInfo,PnButton);
+
     }
     }
 

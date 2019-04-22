@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="820.0" prefWidth="1134.0" style="-fx-background-color: #b32f3d;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.HomeAtendenteController">
+<AnchorPane fx:id="PnRoot" prefHeight="820.0" prefWidth="1134.0" style="-fx-background-color: #cc4645;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.HomeAtendenteController">
    <children>
-      <AnchorPane fx:id="PnMenu" layoutX="14.0" layoutY="74.0" prefHeight="716.0" prefWidth="248.0" style="-fx-background-color: #81001f;" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="74.0">
+      <AnchorPane fx:id="PnMenu" layoutX="14.0" layoutY="74.0" prefHeight="739.0" prefWidth="248.0" style="-fx-background-color: #81001f;" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="74.0">
          <children>
             <Pane fx:id="PnLogout" layoutX="14.0" layoutY="754.0" onMouseClicked="#Logout" prefHeight="28.0" prefWidth="152.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="82.0">
                <children>
@@ -50,7 +50,7 @@
             </Pane>
             <AnchorPane layoutX="18.0" layoutY="211.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="30.0">
                <children>
-                  <Pane layoutX="1.0" layoutY="14.0" prefHeight="38.0" prefWidth="200.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="47.0" AnchorPane.topAnchor="14.0">
+                  <Pane layoutX="1.0" layoutY="14.0" onMouseClicked="#OpenHome" prefHeight="38.0" prefWidth="200.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="47.0" AnchorPane.topAnchor="14.0">
                      <children>
                         <Label layoutX="56.0" layoutY="4.0" text="Home" textFill="WHITE">
                            <font>
@@ -78,7 +78,7 @@
                         </ImageView>
                      </children>
                   </Pane>
-                  <Pane layoutX="1.0" layoutY="81.0" prefHeight="38.0" prefWidth="200.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="47.0">
+                  <Pane layoutX="1.0" layoutY="81.0" onMouseClicked="#OpenVendaIngresso" prefHeight="38.0" prefWidth="200.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="47.0">
                      <children>
                         <Label layoutX="56.0" layoutY="4.0" text="Ingressos" textFill="WHITE">
                            <font>
@@ -96,9 +96,9 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="pnteste" layoutX="266.0" prefHeight="820.0" prefWidth="868.0" style="-fx-background-color: #b32f3d;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="266.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="PnJanelas" layoutX="266.0" layoutY="27.0" prefHeight="793.0" prefWidth="868.0" style="-fx-background-color: #cc4645;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="266.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0">
          <children>
-            <Pane fx:id="PnDataHora" layoutX="530.0" layoutY="75.0" prefHeight="133.0" prefWidth="296.0" style="-fx-background-color: #81001f;" AnchorPane.rightAnchor="54.0" AnchorPane.topAnchor="75.0">
+            <Pane fx:id="PnDataHora" layoutX="517.0" layoutY="52.0" prefHeight="133.0" prefWidth="296.0" style="-fx-background-color: #81001f;" AnchorPane.rightAnchor="55.0" AnchorPane.topAnchor="52.0">
                <children>
                   <Label fx:id="LbHora" layoutX="131.0" layoutY="79.0" text="Hora" textFill="WHITE">
                      <font>
@@ -116,7 +116,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Pane fx:id="PnVenda" layoutX="59.0" layoutY="75.0" prefHeight="133.0" prefWidth="273.0" style="-fx-background-color: #81001f;" AnchorPane.leftAnchor="59.0" AnchorPane.topAnchor="75.0">
+            <Pane fx:id="PnVenda" layoutX="58.0" layoutY="52.0" prefHeight="133.0" prefWidth="273.0" style="-fx-background-color: #81001f;" AnchorPane.leftAnchor="58.0" AnchorPane.topAnchor="52.0">
                <children>
                   <ImageView fitHeight="133.0" fitWidth="115.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -134,7 +134,7 @@
                      </font>
                   </Label>
                </children></Pane>
-            <Pane fx:id="PnInfo" layoutX="59.0" layoutY="463.0" prefHeight="271.0" prefWidth="771.0" style="-fx-background-color: #570c18;" AnchorPane.leftAnchor="59.0" AnchorPane.rightAnchor="56.0">
+            <Pane fx:id="PnInfo" layoutX="58.0" layoutY="451.0" prefHeight="271.0" prefWidth="771.0" style="-fx-background-color: #570c18;" AnchorPane.leftAnchor="58.0" AnchorPane.rightAnchor="57.0">
                <children>
                   <ImageView fx:id="ImgCapaFilme" fitHeight="246.0" fitWidth="170.0" layoutX="14.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color: #FFFFFF;">
                      <image>
@@ -183,15 +183,15 @@
                   </Label>
                </children>
             </Pane>
-            <TableView fx:id="Tabela" layoutX="238.0" layoutY="297.0" prefHeight="200.0" prefWidth="388.0" style="-fx-background-color: #b32f3d;" AnchorPane.bottomAnchor="323.0" AnchorPane.leftAnchor="238.0" AnchorPane.rightAnchor="260.0">
+            <TableView fx:id="Tabela" layoutX="238.0" layoutY="297.0" prefHeight="200.0" prefWidth="388.0" style="-fx-background-color: #cc4645;" AnchorPane.bottomAnchor="323.0" AnchorPane.leftAnchor="238.0" AnchorPane.rightAnchor="260.0">
               <columns>
-                <TableColumn fx:id="ColunaFilme" prefWidth="349.0" style="-fx-border-color: #570c18; -fx-font-weight: bold; -fx-font-size: 16px; -fx-background-color: #b32f3d;" text="Filmes" />
+                <TableColumn fx:id="ColunaFilme" prefWidth="349.0" style="-fx-border-color: #570c18; -fx-font-weight: bold; -fx-font-size: 16px; -fx-background-color: #cc4645;" text="Filmes" />
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
             </TableView>
-            <Pane layoutX="612.0" layoutY="313.0" prefHeight="38.0" prefWidth="200.0" AnchorPane.rightAnchor="56.0">
+            <Pane fx:id="PnButton" layoutX="612.0" layoutY="313.0" prefHeight="38.0" prefWidth="200.0" AnchorPane.rightAnchor="56.0">
                <children>
                   <Button fx:id="btnVerMais" layoutX="60.0" layoutY="8.0" mnemonicParsing="false" onAction="#VerMais" style="-fx-background-color: #81001f; -fx-border-color: #FFFFFF;" text="Ver Mais" textFill="WHITE">
                      <font>
@@ -203,7 +203,7 @@
          </children></AnchorPane>
       <AnchorPane fx:id="PnTopo" layoutX="-5.0" prefHeight="28.0" prefWidth="1141.0" style="-fx-background-color: #81001f;" AnchorPane.leftAnchor="-5.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label layoutX="633.0" layoutY="4.0" prefHeight="21.0" prefWidth="115.0" text="Home Screen" textFill="WHITE" AnchorPane.bottomAnchor="3.0" AnchorPane.topAnchor="4.0">
+            <Label fx:id="LbTituloJanela" layoutX="637.0" layoutY="4.0" prefHeight="21.0" prefWidth="166.0" text="Home Screen" textFill="WHITE" AnchorPane.bottomAnchor="3.0" AnchorPane.topAnchor="4.0">
                <font>
                   <Font size="15.0" />
                </font>
