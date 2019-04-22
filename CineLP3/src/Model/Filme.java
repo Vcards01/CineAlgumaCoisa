@@ -14,6 +14,7 @@ public class Filme {
     private String duracao;
     private int qtddVendida;
     private ArrayList<Sessao> sessoes= new ArrayList<Sessao>();
+    private String Img;
     private Image image ;
 
     public Filme(int id, String nome, String genero, String sinopse, String duracao,String Img) throws FileNotFoundException {
@@ -22,6 +23,7 @@ public class Filme {
         this.genero = genero;
         this.sinopse = sinopse;
         this.duracao = duracao;
+        this.Img=Img;
         image=new Image(Img);
     }
     public Filme()  {
@@ -70,5 +72,9 @@ public class Filme {
 
     public Image getImage() {
         return image;
+    }
+
+    public String getImg() {
+        return Img;
     }
 }

@@ -2,30 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controller/HomeAtendenteController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataBaseSimulation/FilmesDataBase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataBaseSimulation/FuncionariosDataBase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Resources/Exclamação.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Resources/Home.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Resources/Ingresso.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Resources/Pipoca.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Resources/senha.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Resources/usuario.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CineLP3/Controller/ControllerLogin.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CineLP3/Main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CineLP3/Main/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CineLP3/Model/Filme.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CineLP3/Model/Filme.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CineLP3/View/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CineLP3/View/Login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ControllerHomeAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeAdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ControllerHomeAtendente.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ControllerLogin.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/HomeAtendenteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeAtendenteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Filme.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Filme.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Funcionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Funcionario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/HomeAdmin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/HomeAdmin.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Resources/Exclamação.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Resources/Exclamação.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Resources/Logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Resources/Logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Resources/Logout.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Resources/Logout.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Resources/senha.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Resources/senha.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Resources/usuario.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/Resources/usuario.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/HomeAtendente.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/HomeAtendente.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Login.fxml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -85,55 +73,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Controller/HomeAtendenteController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="125" column="4" selection-start-line="125" selection-start-column="4" selection-end-line="125" selection-end-column="4" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#Logout#0;class#ControllerMainAtendente#0" />
-                <element signature="method#setHora#0;class#ControllerMainAtendente#0" />
-                <element signature="method#atualizaHoras#0;class#ControllerMainAtendente#0" />
-                <element signature="method#GetFilmes#0;class#ControllerMainAtendente#0" />
-                <element signature="method#VerMais#0;class#ControllerMainAtendente#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/LoginController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="38" selection-start-line="38" selection-end-line="38" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/View/HomeAtendente.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="812">
-              <caret line="164" column="34" selection-start-line="164" selection-start-column="34" selection-end-line="164" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/Filme.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="24" column="8" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
+            <state relative-caret-position="270">
+              <caret line="79" column="1" lean-forward="true" selection-start-line="79" selection-start-column="1" selection-end-line="79" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#396#404#0" expanded="true" />
+                <element signature="e#1609#1610#0" expanded="true" />
+                <element signature="e#1635#1636#0" expanded="true" />
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/View/HomeAtendente.fxml">
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="121">
+              <caret line="12" column="89" selection-start-line="12" selection-start-column="89" selection-end-line="12" selection-end-column="89" />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
     </leaf>
@@ -178,22 +140,29 @@
         <option value="$PROJECT_DIR$/src/View/HomeAdmin.fxml" />
         <option value="$PROJECT_DIR$/src/View/Login.fxml" />
         <option value="$PROJECT_DIR$/src/Main/Main.java" />
-        <option value="$PROJECT_DIR$/src/View/HomeAtendente.fxml" />
         <option value="$PROJECT_DIR$/src/Controller/ControllerHomeAtendente.java" />
         <option value="$PROJECT_DIR$/src/DataBaseSimulation/FuncionariosDataBase.java" />
-        <option value="$PROJECT_DIR$/src/Model/Funcionario.java" />
         <option value="$PROJECT_DIR$/src/View/MainAtendente.fxml" />
         <option value="$PROJECT_DIR$/src/DataBaseSimulation/FilmesDataBase.java" />
         <option value="$PROJECT_DIR$/src/Controller/ControllerLogin.java" />
         <option value="$PROJECT_DIR$/src/Controller/ControllerMainAtendente.java" />
-        <option value="$PROJECT_DIR$/src/Model/Filme.java" />
+        <option value="$PROJECT_DIR$/src/Model/Funcionario.java" />
+        <option value="$PROJECT_DIR$/src/Controller/LoginController.java" />
         <option value="$PROJECT_DIR$/src/Controller/HomeAtendenteController.java" />
+        <option value="$PROJECT_DIR$/src/Model/Filme.java" />
+        <option value="$PROJECT_DIR$/src/View/HomeAtendente.fxml" />
       </list>
     </option>
   </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-7" />
+    <option name="x" value="430" />
     <option name="width" value="694" />
     <option name="height" value="775" />
   </component>
@@ -220,14 +189,20 @@
             </path>
             <path>
               <item name="CineLP3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CineLP3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="View" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CineLP3" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -359,9 +334,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1376" height="784" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.1656535" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.16793314" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -370,7 +344,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32872504" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.31029186" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.31029186" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -389,8 +363,8 @@
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Maven Projects" order="5" />
-      <window_info anchor="right" id="Ant Build" order="6" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="7" />
+      <window_info anchor="right" id="Maven" order="6" weight="0.32978722" />
+      <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
       <window_info anchor="right" id="Capture Analysis" order="8" />
       <window_info anchor="right" id="Palette&#9;" order="9" />
       <window_info anchor="right" id="Theme Preview" order="10" />
@@ -584,20 +558,20 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/HomeAdmin.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
       <provider editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="174" selection-start-line="8" selection-start-column="174" selection-end-line="8" selection-end-column="174" />
         </state>
       </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/Login.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
           <caret line="58" column="24" selection-start-line="58" selection-start-column="24" selection-end-line="58" selection-end-column="24" />
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main/Main.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -609,31 +583,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Funcionario.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/HomeAtendente.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ControllerHomeAtendente.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="31" column="13" lean-forward="true" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ControllerHomeAtendente.java" />
     <entry file="file://$PROJECT_DIR$/src/DataBaseSimulation/FuncionariosDataBase.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -641,24 +591,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#194#207#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/HomeAtendente.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="812">
-          <caret line="164" column="34" selection-start-line="164" selection-start-column="34" selection-end-line="164" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="38" selection-start-line="38" selection-end-line="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -673,10 +605,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Filme.java">
+    <entry file="file://$PROJECT_DIR$/src/Model/Funcionario.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="24" column="8" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
+        <state relative-caret-position="-479">
+          <caret line="7" column="22" lean-forward="true" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+          <folding>
+            <element signature="e#859#860#0" expanded="true" />
+            <element signature="e#892#893#0" expanded="true" />
+            <element signature="e#955#956#0" expanded="true" />
+            <element signature="e#999#1000#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="125" selection-start-line="125" selection-end-line="125" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -685,18 +630,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/HomeAtendenteController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="125" column="4" selection-start-line="125" selection-start-column="4" selection-end-line="125" selection-end-column="4" />
+        <state relative-caret-position="366">
+          <caret line="183" lean-forward="true" selection-start-line="183" selection-end-line="183" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Logout#0;class#ControllerMainAtendente#0" />
-            <element signature="method#setHora#0;class#ControllerMainAtendente#0" />
-            <element signature="method#atualizaHoras#0;class#ControllerMainAtendente#0" />
-            <element signature="method#GetFilmes#0;class#ControllerMainAtendente#0" />
-            <element signature="method#VerMais#0;class#ControllerMainAtendente#0" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Filme.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="79" column="1" lean-forward="true" selection-start-line="79" selection-start-column="1" selection-end-line="79" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#396#404#0" expanded="true" />
+            <element signature="e#1609#1610#0" expanded="true" />
+            <element signature="e#1635#1636#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/HomeAtendente.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="12" column="89" selection-start-line="12" selection-start-column="89" selection-end-line="12" selection-end-column="89" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
   </component>
   <component name="masterDetails">

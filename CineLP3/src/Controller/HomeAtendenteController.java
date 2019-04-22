@@ -5,6 +5,7 @@ import Model.Filme;
 import Model.Funcionario;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -40,6 +41,20 @@ import java.util.ResourceBundle;
 public class HomeAtendenteController implements Initializable {
     public Pane PnInfo;
     @FXML
+    public Label LbData;
+    @FXML
+    public AnchorPane PnMenu;
+    @FXML
+    public Pane PnVenda;
+    @FXML
+    public Pane PnDataHora;
+    @FXML
+    public AnchorPane PnTopo;
+    @FXML
+    public Label LbClose;
+    @FXML
+    public Label LbVendasRealizadas;
+    @FXML
     private ImageView ImgCapaFilme;
     @FXML
     private Button btnVerMais;
@@ -67,15 +82,19 @@ public class HomeAtendenteController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         PnInfo.setVisible(false);
+        GetData();
         setHora();
         ColunaFilme.setCellValueFactory(new PropertyValueFactory<>("nome"));
-        ColunaGenero.setCellValueFactory(new PropertyValueFactory<>("genero"));
         Tabela.setItems(GetFilmes());
-    }
+        Shadow();
+
+      }
     @FXML
     public  void GetUser(Funcionario f)
     {
         lbUsuario.setText(f.getUsuario());
+        LbVendasRealizadas.setText(Integer.toString(f.getQtddVendas()));
+
     }
     @FXML
     public void Logout(MouseEvent event)
@@ -96,7 +115,7 @@ public class HomeAtendenteController implements Initializable {
     @FXML
     public void setHora()
     {
-        LbHora.setEffect(new DropShadow(10, Color.WHITE));
+
         KeyFrame frame = new KeyFrame(Duration.millis(1000), e -> atualizaHoras());
         Timeline timeline = new Timeline(frame);
         timeline.setCycleCount(Timeline.INDEFINITE);
@@ -107,8 +126,13 @@ public class HomeAtendenteController implements Initializable {
         Date agora = new Date();
         SimpleDateFormat formatador = new SimpleDateFormat("hh:mm:ss a");
         LbHora.setText(formatador.format(agora));
-    }
 
+    }
+    private void GetData(){
+        Date date = new Date();
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        LbData.setText(format.format(date));
+    }
     private ObservableList<Filme> GetFilmes() {
         FilmesDataBase f = null;
         try {
@@ -120,7 +144,6 @@ public class HomeAtendenteController implements Initializable {
         return Filmes;
 
     }
-
     @FXML
     public void VerMais(ActionEvent evente)
     {
@@ -131,6 +154,29 @@ public class HomeAtendenteController implements Initializable {
         LbSinopse.setText(f.getSinopse());
         ImgCapaFilme.setImage(f.getImage());
         PnInfo.setVisible(true);
+    }
+    public void Shadow()
+    {
+        DropShadow Shad = new DropShadow();
+        Shad.setOffsetX(4);
+        Shad.setOffsetY(6);
+        Shad.setColor(Color.rgb(0, 0, 0));
+        DropShadow Shad2 = new DropShadow();
+        Shad.setOffsetX(2);
+        Shad.setOffsetY(4);
+        Shad.setColor(Color.rgb(0, 0, 0));
+        PnInfo.setEffect(Shad);
+        PnVenda.setEffect(Shad);
+        PnDataHora.setEffect(Shad);
+        PnTopo.setEffect(Shad2);
+        PnMenu.setEffect(Shad);
+        Tabela.setEffect(Shad2);
+    }
+    @FXML
+    public void HandleClose(MouseEvent Event)
+    {
+        Platform.exit();
+        System.exit(0);
     }
     }
 
