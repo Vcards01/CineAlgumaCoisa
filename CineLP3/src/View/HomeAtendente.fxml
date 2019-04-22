@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="820.0" prefWidth="1134.0" style="-fx-background-color: #b32f3d;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.HomeAtendenteController">
+   <children>
+      <AnchorPane fx:id="PnMenu" layoutX="14.0" layoutY="74.0" prefHeight="716.0" prefWidth="248.0" style="-fx-background-color: #81001f;" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="74.0">
+         <children>
+            <Pane fx:id="PnLogout" layoutX="14.0" layoutY="754.0" onMouseClicked="#Logout" prefHeight="28.0" prefWidth="152.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="82.0">
+               <children>
+                  <Label layoutX="33.0" layoutY="1.0" text="Logout" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="28.0" fitWidth="25.0" layoutX="2.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Resources/Logout.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <ImageView fitHeight="150.0" fitWidth="152.0" layoutX="43.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="43.0" AnchorPane.rightAnchor="55.0" AnchorPane.topAnchor="14.0">
+               <image>
+                  <Image url="@../Resources/Logo.png" />
+               </image>
+            </ImageView>
+            <Pane layoutX="-18.0" layoutY="350.0" prefHeight="27.0" prefWidth="200.0" AnchorPane.bottomAnchor="52.0" AnchorPane.leftAnchor="-18.0" AnchorPane.rightAnchor="66.0">
+               <children>
+                  <Label layoutX="62.0" layoutY="3.0" text="Logado como:" textFill="WHITE" />
+                  <Label fx:id="lbUsuario" layoutX="145.0" layoutY="2.0" text="Label" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="imgLogado" fitHeight="21.0" fitWidth="25.0" layoutX="37.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Resources/usuario.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <AnchorPane layoutX="18.0" layoutY="211.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="30.0">
+               <children>
+                  <Pane layoutX="1.0" layoutY="14.0" prefHeight="38.0" prefWidth="200.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="47.0" AnchorPane.topAnchor="14.0">
+                     <children>
+                        <Label layoutX="56.0" layoutY="4.0" text="Home" textFill="WHITE">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Label>
+                        <ImageView fx:id="imgLogado111" fitHeight="43.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Resources/Home.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="1.0" layoutY="148.0" prefHeight="38.0" prefWidth="200.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="47.0">
+                     <children>
+                        <Label layoutX="56.0" layoutY="4.0" text="Alimentação" textFill="WHITE">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Label>
+                        <ImageView fx:id="imgLogado112" fitHeight="43.0" fitWidth="38.0" layoutX="-5.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Resources/Pipoca.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="1.0" layoutY="81.0" prefHeight="38.0" prefWidth="200.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="47.0">
+                     <children>
+                        <Label layoutX="56.0" layoutY="4.0" text="Ingressos" textFill="WHITE">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Label>
+                        <ImageView fx:id="imgLogado11" fitHeight="43.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Resources/Ingresso.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="pnteste" layoutX="266.0" prefHeight="820.0" prefWidth="868.0" style="-fx-background-color: #b32f3d;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="266.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Pane fx:id="PnDataHora" layoutX="530.0" layoutY="75.0" prefHeight="133.0" prefWidth="296.0" style="-fx-background-color: #81001f;" AnchorPane.rightAnchor="54.0" AnchorPane.topAnchor="75.0">
+               <children>
+                  <Label fx:id="LbHora" layoutX="131.0" layoutY="79.0" text="Hora" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font></Label>
+                  <Label fx:id="LbData" layoutX="133.0" layoutY="19.0" text="Data" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="ImgDataHora" fitHeight="133.0" fitWidth="95.0" layoutX="14.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Resources/Clock.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane fx:id="PnVenda" layoutX="59.0" layoutY="75.0" prefHeight="133.0" prefWidth="273.0" style="-fx-background-color: #81001f;" AnchorPane.leftAnchor="59.0" AnchorPane.topAnchor="75.0">
+               <children>
+                  <ImageView fitHeight="133.0" fitWidth="115.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Resources/Vendas.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="123.0" layoutY="14.0" text="Vendas Realizadas" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="LbVendasRealizadas" layoutX="164.0" layoutY="51.0" text="0" textFill="WHITE">
+                     <font>
+                        <Font size="37.0" />
+                     </font>
+                  </Label>
+               </children></Pane>
+            <Pane fx:id="PnInfo" layoutX="59.0" layoutY="463.0" prefHeight="271.0" prefWidth="771.0" style="-fx-background-color: #570c18;" AnchorPane.leftAnchor="59.0" AnchorPane.rightAnchor="56.0">
+               <children>
+                  <ImageView fx:id="ImgCapaFilme" fitHeight="246.0" fitWidth="170.0" layoutX="14.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color: #FFFFFF;">
+                     <image>
+                        <Image url="@../Resources/Capas/InfinityWar.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="LbNomeTitulo" layoutX="188.0" layoutY="29.0" text="Titulo:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="LbTitulo" layoutX="254.0" layoutY="33.0" text="Bla" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="LbNomeGenero" layoutX="188.0" layoutY="97.0" text="Gênero:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="LbGenero" layoutX="266.0" layoutY="101.0" text="Bla" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="LbDuracaoNome" layoutX="188.0" layoutY="165.0" text="Duração:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="LbDuracao" layoutX="276.0" layoutY="169.0" text="Bla" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="LbNomeSinopse" layoutX="554.0" layoutY="30.0" text="Sinopse:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="LbSinopse" layoutX="550.0" layoutY="54.0" prefHeight="200.0" prefWidth="407.0" text="Bla" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <TableView fx:id="Tabela" layoutX="238.0" layoutY="297.0" prefHeight="200.0" prefWidth="388.0" style="-fx-background-color: #b32f3d;" AnchorPane.bottomAnchor="323.0" AnchorPane.leftAnchor="238.0" AnchorPane.rightAnchor="260.0">
+              <columns>
+                <TableColumn fx:id="ColunaFilme" prefWidth="349.0" style="-fx-border-color: #570c18; -fx-font-weight: bold; -fx-font-size: 16px; -fx-background-color: #b32f3d;" text="Filmes" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+            <Pane layoutX="612.0" layoutY="313.0" prefHeight="38.0" prefWidth="200.0" AnchorPane.rightAnchor="56.0">
+               <children>
+                  <Button fx:id="btnVerMais" layoutX="60.0" layoutY="8.0" mnemonicParsing="false" onAction="#VerMais" style="-fx-background-color: #81001f; -fx-border-color: #FFFFFF;" text="Ver Mais" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+         </children></AnchorPane>
+      <AnchorPane fx:id="PnTopo" layoutX="-5.0" prefHeight="28.0" prefWidth="1141.0" style="-fx-background-color: #81001f;" AnchorPane.leftAnchor="-5.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label layoutX="633.0" layoutY="4.0" prefHeight="21.0" prefWidth="115.0" text="Home Screen" textFill="WHITE" AnchorPane.bottomAnchor="3.0" AnchorPane.topAnchor="4.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="LbClose" layoutX="1114.0" onMouseClicked="#HandleClose" prefHeight="28.0" prefWidth="11.0" text="X" textFill="WHITE" AnchorPane.rightAnchor="14.0">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

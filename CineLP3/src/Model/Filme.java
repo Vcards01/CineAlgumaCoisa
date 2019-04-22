@@ -1,4 +1,9 @@
 package Model;
+import Main.Main;
+import javafx.scene.image.Image;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class Filme {
@@ -9,15 +14,19 @@ public class Filme {
     private String duracao;
     private int qtddVendida;
     private ArrayList<Sessao> sessoes= new ArrayList<Sessao>();
+    private String Img;
+    private Image image ;
 
-    public Filme(int id, String nome, String genero, String sinopse, String duracao) {
+    public Filme(int id, String nome, String genero, String sinopse, String duracao,String Img) throws FileNotFoundException {
         this.id = id;
         this.nome = nome;
         this.genero = genero;
         this.sinopse = sinopse;
         this.duracao = duracao;
+        this.Img=Img;
+        image=new Image(Img);
     }
-    public Filme(){
+    public Filme()  {
 
     }
     public void AddSessao(Sessao s)
@@ -59,5 +68,13 @@ public class Filme {
 
     public ArrayList<Sessao> getSessoes() {
         return sessoes;
+    }
+
+    public Image getImage() {
+        return image;
+    }
+
+    public String getImg() {
+        return Img;
     }
 }
