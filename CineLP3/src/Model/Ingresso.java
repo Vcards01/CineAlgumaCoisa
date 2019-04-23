@@ -6,14 +6,17 @@ public class Ingresso {
     private Filme filme;
     private Sala sala;
     private String horario;
+    private String tipo;
 
-    public Ingresso(int id, Sessao sessão, Filme filme, Sala sala, String horario) {
+
+    public Ingresso(int id, Sessao sessão, Filme filme, Sala sala, String horario,String tipo) {
         this.id = id;
         this.sessão = sessão;
         this.filme = filme;
         this.sala = sala;
         this.horario = horario;
-    }
+        this.tipo=tipo;
+     }
 
     public int getId() {
         return id;
@@ -34,4 +37,10 @@ public class Ingresso {
     public String getHorario() {
         return horario;
     }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+
 }

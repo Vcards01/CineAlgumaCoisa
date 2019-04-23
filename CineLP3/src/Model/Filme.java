@@ -77,4 +77,9 @@ public class Filme {
     public String getImg() {
         return Img;
     }
+    @Override
+    public String toString()
+    {
+        return nome;
+    }
 }

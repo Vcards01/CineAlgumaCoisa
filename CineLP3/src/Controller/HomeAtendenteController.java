@@ -190,17 +190,17 @@ public class HomeAtendenteController implements Initializable {
         AnchorPane pane = loader.load();
         VendaIngressosController controller = loader.getController();
         controller.GetMedidas(PnJanelas.getHeight(),PnJanelas.getWidth());
-        PnRoot.setStyle("-fx-background-color: #A978A5");
-        PnMenu.setStyle("-fx-background-color: #681759");
-        PnTopo.setStyle("-fx-background-color: #681759");
+        PnRoot.setStyle("-fx-background-color:  #80CBC4");
+        PnMenu.setStyle("-fx-background-color:  #009688");
+        PnTopo.setStyle("-fx-background-color:  #009688");
         LbTituloJanela.setText("Venda de ingressos");
         PnJanelas.getChildren().setAll(pane);
     }
     public void OpenHome(MouseEvent Event){
         PnJanelas.getChildren().clear();
-        PnRoot.setStyle("-fx-background-color: #cc4645");
-        PnMenu.setStyle("-fx-background-color:  #81001f");
-        PnTopo.setStyle("-fx-background-color:  #81001f");
+        PnRoot.setStyle("-fx-background-color:  #8DBFDA");
+        PnMenu.setStyle("-fx-background-color:   #36769A");
+        PnTopo.setStyle("-fx-background-color:  #36769A");
         LbTituloJanela.setText("Home Screen");
         PnJanelas.getChildren().setAll(PnDataHora,PnVenda,Tabela,PnInfo,PnButton);
 

@@ -2,6 +2,8 @@ package DataBaseSimulation;
 
 import Model.Filme;
 import Model.Funcionario;
+import Model.Sala;
+import Model.Sessao;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -28,7 +30,45 @@ public class FilmesDataBase {
         FilmesSimulation.add(f3);
         FilmesSimulation.add(f4);
         FilmesSimulation.add(f5);
+        SetSessões();
         return FilmesSimulation;
+    }
+    public void SetSessões()
+    {
+        Sala s1 = new Sala(1,40);
+        Sala s2 = new Sala(2,40);
+        Sala s3 = new Sala(3,30);
+        Sessao se1 = new Sessao(1, "14:30", f1, s1,22.00,11.00);
+        Sessao se2 = new Sessao(2, "16:00", f1, s2,20.00,10.00);
+        Sessao se3 = new Sessao(3, "19:30", f1, s3,25.00,12.50);
+        Sessao se4 = new Sessao(4, "21:00", f1, s1,30.00,15.00);
+        Sessao se5 = new Sessao(5, "14:45", f1, s2,21.00,10.50);
+        f1.AddSessao(se1);
+        f1.AddSessao(se2);
+        f1.AddSessao(se3);
+        f1.AddSessao(se4);
+        f1.AddSessao(se5);
+        f2.AddSessao(se1);
+        f2.AddSessao(se2);
+        f2.AddSessao(se3);
+        f2.AddSessao(se4);
+        f2.AddSessao(se5);
+        f3.AddSessao(se1);
+        f3.AddSessao(se2);
+        f3.AddSessao(se3);
+        f3.AddSessao(se4);
+        f3.AddSessao(se5);
+        f4.AddSessao(se1);
+        f4.AddSessao(se2);
+        f4.AddSessao(se3);
+        f4.AddSessao(se4);
+        f4.AddSessao(se5);
+        f5.AddSessao(se1);
+        f5.AddSessao(se2);
+        f5.AddSessao(se3);
+        f5.AddSessao(se4);
+        f5.AddSessao(se5);
+
     }
 
 }
