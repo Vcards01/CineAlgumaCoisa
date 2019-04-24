@@ -9,11 +9,10 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.Spinner;
-import javafx.scene.control.SpinnerValueFactory;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -22,6 +21,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -41,6 +41,8 @@ public class VendaIngressosController implements Initializable {
     public Label LbSala;
     public Label LbPrecoInteira;
     public Label LbPrecoMeia;
+    public Button BtnCancelar;
+    public Button BtnConfirmar;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -123,6 +125,23 @@ public class VendaIngressosController implements Initializable {
         }
         ObservableList<Filme> Filmes = FXCollections.observableArrayList(f.getSimulation());
         return Filmes;
+
+    }
+    public void Cancelar(ActionEvent evente)
+    {
+        SpnInt.getValueFactory().setValue(0.0);
+        SpnMeia.getValueFactory().setValue(0.0);
+    }
+    public void Confirma(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/EscolhaLugar.fxml"));
+       AnchorPane pane = loader.load();
+       EscolhaLugarController controller = loader.getController();
+       Sessao s = (Sessao)CbSessao.getValue();
+       controller.getSala(s.getSala());
+        Scene scene = new Scene(pane);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
 
     }
 
