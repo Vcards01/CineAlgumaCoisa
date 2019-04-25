@@ -137,7 +137,7 @@ public class VendaIngressosController implements Initializable {
        AnchorPane pane = loader.load();
        EscolhaLugarController controller = loader.getController();
        Sessao s = (Sessao)CbSessao.getValue();
-       controller.getSala(s.getSala());
+       controller.setSala(s.getSala());
         Scene scene = new Scene(pane);
         Stage stage = new Stage();
         stage.setScene(scene);
