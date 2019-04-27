@@ -1,10 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="342.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.EscolhaLugarController">
+<AnchorPane prefHeight="415.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.EscolhaLugarController">
    <children>
-      <AnchorPane fx:id="PnPoltronasEsc" layoutX="14.0" layoutY="20.0" prefHeight="301.0" prefWidth="250.0" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="20.0" />
-      <AnchorPane fx:id="PnPoltronasDi" layoutX="336.0" layoutY="20.0" prefHeight="301.0" prefWidth="250.0" AnchorPane.bottomAnchor="21.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="20.0" />
+      <AnchorPane fx:id="PnPoltronasDi" prefHeight="336.0" prefWidth="250.0" AnchorPane.bottomAnchor="21.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="58.0" />
+      <AnchorPane fx:id="PnPoltronasEsc" layoutX="14.0" layoutY="58.0" prefHeight="336.0" prefWidth="250.0" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="58.0" />
+      <ImageView fitHeight="50.0" fitWidth="2000.0" layoutX="50.0" layoutY="363.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+         <image>
+            <Image url="@../Resources/Tela.jpg" />
+         </image>
+         <viewport>
+            <Rectangle2D />
+         </viewport>
+      </ImageView>
+      <Label layoutX="30.0" layoutY="14.0" text="1          2          3          4          5" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="14.0">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="578.0" layoutY="14.0" text="1          2          3          4          5" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="14.0">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

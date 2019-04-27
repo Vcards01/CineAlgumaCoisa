@@ -47,7 +47,6 @@
             </Label>
          </children>
       </Pane>
-      <Pane fx:id="PnBilheteria" layoutX="36.0" layoutY="56.0" prefHeight="107.0" prefWidth="314.0" style="-fx-background-color: #009688;" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="310.0" AnchorPane.topAnchor="56.0" />
       <AnchorPane fx:id="PnIngressos" layoutX="36.0" layoutY="187.0" maxHeight="406.0" maxWidth="426.0" prefHeight="406.0" prefWidth="426.0" style="-fx-background-color: #009688;" AnchorPane.bottomAnchor="56.0" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="310.0">
          <children>
             <GridPane alignment="CENTER" layoutX="23.0" layoutY="91.0" prefHeight="301.0" prefWidth="385.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="91.0">
@@ -87,7 +86,7 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="LbValorTotal" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                  <Label fx:id="LbValorTotal" text="0.0" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -119,11 +118,25 @@
                   </Label>
                </children>
             </GridPane>
-            <Label contentDisplay="CENTER" layoutX="103.0" layoutY="23.0" text="Quantidade de Ingressos" textAlignment="CENTER" textFill="WHITE" AnchorPane.topAnchor="23.0">
+            <Label contentDisplay="CENTER" layoutX="103.0" layoutY="23.0" text="Quantidade de Ingressos" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="103.0" AnchorPane.rightAnchor="103.0">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="PnBilheteria" layoutX="36.0" layoutY="66.0" prefHeight="78.0" prefWidth="426.0" style="-fx-background-color: #009688;" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="310.0" AnchorPane.topAnchor="66.0">
+         <children>
+            <Label layoutX="74.0" layoutY="7.0" text="BILHETERIA" textFill="WHITE" AnchorPane.bottomAnchor="8.0" AnchorPane.topAnchor="7.0">
+               <font>
+                  <Font name="System Bold Italic" size="50.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="89.0" fitWidth="108.0" layoutX="356.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.9943466186523438" AnchorPane.topAnchor="-1.0">
+               <image>
+                  <Image url="@../Resources/pet.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>

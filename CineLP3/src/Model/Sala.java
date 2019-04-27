@@ -7,6 +7,7 @@ public class Sala {
     private int qtddLugares;
     private ArrayList<Sessao> sessoes= new ArrayList<Sessao>();
 
+
     public Sala(int id, int qtddLugares) {
         this.id = id;
         this.qtddLugares = qtddLugares;
@@ -23,7 +24,9 @@ public class Sala {
     {
         sessoes.remove(s);
     }
+
     //Getters e Setters
+
 
 
     public int getId() {

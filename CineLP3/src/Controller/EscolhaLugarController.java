@@ -1,6 +1,11 @@
 package Controller;
 
+import DataBaseSimulation.FilmesDataBase;
+import Model.Filme;
+import Model.Lugares;
 import Model.Sala;
+import Model.Sessao;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,7 +14,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
+import javax.lang.model.type.NullType;
+import java.io.FileNotFoundException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class EscolhaLugarController implements Initializable {
@@ -19,88 +27,82 @@ public class EscolhaLugarController implements Initializable {
     private AnchorPane PnPoltronasEsc;
     @FXML
     private AnchorPane PnPoltronasDi;
-    private Sala sala ;
     private Image Ocupada = new Image("Resources/CadeiraOcupada.png");
     private Image Livre = new Image("Resources/CadeiraLivre.png");
+    private int id=1;//Id de cada botão
+    private int pular=1;//Contador para pular de fileira
+    private int y=14;//Valor da coordenada Y
+    private int x=0;//Valor da coordenada X
+    private int lado=0;
+    private ArrayList<ImageView>Poltronas = new ArrayList<>();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
-    public void setSala(Sala s)
-    {
-        int lugares=s.getQtddLugares()/2;
-        int id=0;
-        int pular=1;
-        int y=14;
-        int x=0;
-        boolean ocupado =false;
-        for(int i=0;i<lugares ;i++)
-        {
-            ImageView  b= new ImageView();
-            b.setLayoutX(90.0*x);
-            b.setLayoutY(y);
-            b.setImage(Livre);
-            PnPoltronasEsc.getChildren().add(b);
-            if(pular==5)
-            {
-                y=y+70;
-                x=0;
-                pular=1;
-                id++;
-                continue;
-            }
-            id++;
-            x++;
-            pular++;
 
-        }
+    public void SetTela(Sessao s) throws FileNotFoundException {
 
-        pular=1;
-        y=14;
-        x=0;
-
-        for(int i=0;i<lugares ;i++)
-        {
-            ImageView  b= new ImageView();
-
-            b.setLayoutX(90.0*x);
+        for (int i = 0; i < s.getSala().getQtddLugares(); i++) {
+            ImageView b = new ImageView();
+            b.setId(Integer.toString(id));
+            b.setLayoutX(90.0 * x);
             b.setLayoutY(y);
             b.setImage(Livre);
             b.setOnMouseClicked(event -> {
-                if(b.getImage().equals(Livre))
-                {
+                if (b.getImage().equals(Livre)) {
                     b.setImage(Ocupada);
-                }
-                else {
+                } else {
                     b.setImage(Livre);
-                }
 
+                }
             });
-            PnPoltronasDi.getChildren().add(b);
-            if(pular==5)
-            {
-                y=y+70;
-                x=0;
-                pular=1;
+            if (i < s.getSala().getQtddLugares() / 2) {
+                PnPoltronasEsc.getChildren().add(b);
+            } else if (i >= s.getSala().getQtddLugares() / 2) {
+                if (lado == 0) {
+                    x = 0;
+                    y = 14;//Valor da coordenada Y
+                    b.setLayoutX(90.0 * x);
+                    b.setLayoutY(y);
+                    pular = 1;//Contador para pular de fileira
+                    lado = 1;
+                }
+                PnPoltronasDi.getChildren().add(b);
+            }
+            if (pular == 5) {
+                y = y + 70;
+                x = 0;
+                pular = 1;
                 id++;
+                Poltronas.add(b);
                 continue;
             }
             id++;
             x++;
             pular++;
-
+            Poltronas.add(b);
+            ocuparlugares(s);
         }
-        System.out.println(id);
+        System.out.println(Poltronas.size());
     }
-
-
-    public void Ocupar(ActionEvent event,ImageView b)
-    {
-        b.setImage(Ocupada);
-    }
-    public void setLugares()
+   private void ocuparlugares(Sessao s)
     {
 
+        ArrayList<Lugares> sessao = s.getLugares();
+        if (!sessao.isEmpty()) {
+            for (int i = 0; i < Poltronas.size(); i++) {
+                if (Poltronas.get(i).getId().equals(Integer.toString(sessao.get(i).getId()))) {
+                    if (sessao.get(i).isOcupado()) {
+                        Poltronas.get(i).setImage(Ocupada);
+                        Poltronas.get(i).setOnMouseClicked(event -> {
+                            System.out.println("Lugar ja ocupado");
+                        });
+                    }
+                }
+            }
+        }
     }
+
+
 }

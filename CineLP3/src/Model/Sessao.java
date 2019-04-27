@@ -1,14 +1,16 @@
 package Model;
 
+import java.util.ArrayList;
+
 public class Sessao {
     private int id;
     private String horario;
     private Filme filme;
     private Sala sala;
-    private int lugaresdisponiveis;
     private int IngressosVendidos;
     private double precoEntradaInteira;
     private double precoEntradaMeia;
+    private ArrayList<Lugares> lugares= new ArrayList<>();
 
     public Sessao(int id, String horario, Filme filme, Sala sala,double precoEntradaInteira,double precoEntradaMeia) {
         this.id = id;
@@ -25,6 +27,14 @@ public class Sessao {
     public String toString()
     {
         return horario;
+    }
+    public void AddLugares(Lugares s)
+    {
+        lugares.add(s);
+    }
+    public void RmvLugares(Lugares s)
+    {
+        lugares.remove(s);
     }
     //Getters e Setters
 
@@ -44,11 +54,16 @@ public class Sessao {
         return sala;
     }
 
-    public int getLugaresdisponiveis() {
-        return lugaresdisponiveis;
-    }
-    public void setLugaresdisponiveis(int lugaresdisponiveis) {
-        this.lugaresdisponiveis = lugaresdisponiveis;
+    public Lugares GetPoltrona(int id)
+    {
+        for(int i=0;i<lugares.size();i++)
+        {
+            if(id==lugares.get(i).getId())
+            {
+                return lugares.get(i);
+            }
+        }
+        return null;
     }
 
     public int getIngressosVendidos() {
@@ -64,5 +79,8 @@ public class Sessao {
 
     public double getPrecoEntradaMeia() {
         return precoEntradaMeia;
+    }
+    public ArrayList<Lugares> getLugares() {
+        return lugares;
     }
 }
