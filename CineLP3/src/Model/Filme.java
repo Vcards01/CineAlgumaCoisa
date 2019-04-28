@@ -77,6 +77,11 @@ public class Filme {
     public String getImg() {
         return Img;
     }
+
+    public void setSessoes(ArrayList<Sessao> sessoes) {
+        this.sessoes = sessoes;
+    }
+
     @Override
     public String toString()
     {

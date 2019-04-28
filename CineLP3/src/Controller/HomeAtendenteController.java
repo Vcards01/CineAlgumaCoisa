@@ -1,6 +1,6 @@
 package Controller;
 
-import DataBaseSimulation.FilmesDataBase;
+import DataBaseSimulation.FilmesDAO;
 import Model.Filme;
 import Model.Funcionario;
 import javafx.animation.KeyFrame;
@@ -12,20 +12,16 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.effect.DropShadow;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
@@ -34,7 +30,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.ResourceBundle;
 
@@ -140,13 +135,13 @@ public class HomeAtendenteController implements Initializable {
         LbData.setText(format.format(date));
     }
     private ObservableList<Filme> GetFilmes() {
-        FilmesDataBase f = null;
+        FilmesDAO f = null;
         try {
-            f = new FilmesDataBase();
+            f = new FilmesDAO();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        ObservableList<Filme> Filmes = FXCollections.observableArrayList(f.getSimulation());
+        ObservableList<Filme> Filmes = FXCollections.observableArrayList(f.getFilmes());
         return Filmes;
 
     }

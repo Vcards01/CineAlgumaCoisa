@@ -54,16 +54,8 @@ public class Sessao {
         return sala;
     }
 
-    public Lugares GetPoltrona(int id)
-    {
-        for(int i=0;i<lugares.size();i++)
-        {
-            if(id==lugares.get(i).getId())
-            {
-                return lugares.get(i);
-            }
-        }
-        return null;
+    public void setLugares(ArrayList<Lugares> lugares) {
+        this.lugares = lugares;
     }
 
     public int getIngressosVendidos() {

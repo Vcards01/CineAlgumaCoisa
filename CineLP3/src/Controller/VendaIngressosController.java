@@ -1,6 +1,8 @@
 package Controller;
 
-import DataBaseSimulation.FilmesDataBase;
+import DataBaseSimulation.FilmesDAO;
+import DataBaseSimulation.LugaresDAO;
+import DataBaseSimulation.SessaoDAO;
 import Model.Filme;
 import Model.Sessao;
 import javafx.beans.value.ChangeListener;
@@ -19,10 +21,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Set;
 
 public class VendaIngressosController implements Initializable {
     @FXML
@@ -55,10 +60,15 @@ public class VendaIngressosController implements Initializable {
     public Button BtnCancelar;
     @FXML
     public Button BtnConfirmar;
+    private SessaoDAO SDAO = new SessaoDAO();
+    private LugaresDAO LDAO = new LugaresDAO();
+    private int contador=0;
+    public VendaIngressosController() throws FileNotFoundException {
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        SetSpinner();
+        SetSpinner(100);
         Shadow();
         CbFilme.setItems(GetFilmes());
         ChangeCapa();
@@ -66,20 +76,19 @@ public class VendaIngressosController implements Initializable {
         ChangeSala();
     }
     @FXML
-    private void SetSpinner()
+    private void SetSpinner(double disponiveis)
     {
-        SpinnerValueFactory<Double> valueFactoryInt = new SpinnerValueFactory.DoubleSpinnerValueFactory(0,100);
-        SpinnerValueFactory<Double> valueFactoryMeia = new SpinnerValueFactory.DoubleSpinnerValueFactory(0,100);
+        SpinnerValueFactory<Double> valueFactoryInt = new SpinnerValueFactory.DoubleSpinnerValueFactory(0,disponiveis);
+        SpinnerValueFactory<Double> valueFactoryMeia = new SpinnerValueFactory.DoubleSpinnerValueFactory(0,disponiveis);
         SpnInt.setValueFactory(valueFactoryInt);
         SpnMeia.setValueFactory(valueFactoryMeia);
     }
     @FXML
     private void ChangeCapa()
     {
-
             CbFilme.valueProperty().addListener(new ChangeListener<Filme>() {
                 @Override public void changed(ObservableValue ov, Filme f, Filme f1) {
-
+                    f1.setSessoes(SDAO.findbyFilme(f1));
                     ImgCapa.setImage(f1.getImage());
                     ObservableList<Sessao> Sessões = FXCollections.observableArrayList(f1.getSessoes());
                     CbSessao.setItems(Sessões);
@@ -91,7 +100,6 @@ public class VendaIngressosController implements Initializable {
                 }
             });
     }
-
     @FXML
     private void ChangeSala(){
         CbSessao.valueProperty().addListener(new ChangeListener<Sessao>() {
@@ -104,6 +112,7 @@ public class VendaIngressosController implements Initializable {
                     LbValorTotal.setText("0.0");
                     SpnInt.getValueFactory().setValue(0.0);
                     SpnMeia.getValueFactory().setValue(0.0);
+                    VerificaSessão(s1);
                 }
                 else
                 {
@@ -111,6 +120,31 @@ public class VendaIngressosController implements Initializable {
                 }
              }
         });
+    }
+    private void VerificaSessão(Sessao s) {
+        contador=0;
+        s.setLugares(LDAO.FindBySessao(s));
+        for (int i = 0; i < s.getLugares().size(); i++) {
+            if (s.getLugares().get(i).isOcupado()) {
+                contador++;
+            }
+        }
+        if (contador == s.getLugares().size()) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Sala cheia");
+            alert.setHeaderText(null);
+            alert.setContentText("Sem lugares disponiveis");
+            alert.showAndWait();
+            SpnInt.setDisable(true);
+            SpnMeia.setDisable(true);
+        }
+        else
+        {
+            SetSpinner(s.getLugares().size()-contador);
+            SpnInt.setDisable(false);
+            SpnMeia.setDisable(false);
+
+        }
     }
     @FXML
     private void ChangeTotal()
@@ -144,15 +178,14 @@ public class VendaIngressosController implements Initializable {
         PnSelecionar.setEffect(Shad);
     }
     private ObservableList<Filme> GetFilmes() {
-        FilmesDataBase f = null;
+        FilmesDAO f = null;
         try {
-            f = new FilmesDataBase();
+            f = new FilmesDAO();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        ObservableList<Filme> Filmes = FXCollections.observableArrayList(f.getSimulation());
+        ObservableList<Filme> Filmes = FXCollections.observableArrayList(f.getFilmes());
         return Filmes;
-
     }
     @FXML
     public void Cancelar(ActionEvent evente)
@@ -168,11 +201,13 @@ public class VendaIngressosController implements Initializable {
             AnchorPane pane = loader.load();
             EscolhaLugarController controller = loader.getController();
             Sessao s = (Sessao)CbSessao.getValue();
-            controller.SetTela(s);
-            Scene scene = new Scene(pane,1000,500);
+            controller.SetLugares(s);
+            controller.GetIngressos((double)SpnInt.getValue()+(double)SpnMeia.getValue());
+            Scene scene = new Scene(pane,1200,600);
             Stage stage = new Stage();
+            stage.initStyle(StageStyle.UNDECORATED);
             stage.setScene(scene);
-            stage.show();
+            stage.showAndWait();
         }
         else
         {
@@ -182,8 +217,6 @@ public class VendaIngressosController implements Initializable {
             alert.setContentText("Verifique se todos os passos para compra de um ingresso foram executados!");
             alert.showAndWait();
         }
-
-
     }
 
 }
