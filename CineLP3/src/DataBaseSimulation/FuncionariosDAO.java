@@ -4,7 +4,7 @@ import Model.Funcionario;
 
 import java.util.ArrayList;
 
-public class FuncionariosDataBase {
+public class FuncionariosDAO {
     private ArrayList<Funcionario> FuncionariosSimulation = new ArrayList<Funcionario>();
     private  Funcionario f1 = new Funcionario("123","Victor",123,"VictorUser","Atendente");
     private  Funcionario f2 = new Funcionario("123","Victor",123,"VictorAdmin","Administrador");

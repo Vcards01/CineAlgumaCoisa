@@ -10,7 +10,7 @@
 <AnchorPane fx:id="PnFundo" prefHeight="500.0" prefWidth="1200.0" style="-fx-background-color: #E3E3E3;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.EscolhaLugarController">
    <children>
       <AnchorPane fx:id="PnPoltronasDi" layoutX="922.0" layoutY="60.0" prefHeight="350.0" prefWidth="250.0" AnchorPane.bottomAnchor="90.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="60.0" />
-      <AnchorPane fx:id="PnPoltronasEsc" layoutX="25.0" layoutY="60.0" prefHeight="350.0" prefWidth="250.0" AnchorPane.bottomAnchor="90.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="60.0" />
+      <AnchorPane fx:id="PnPoltronasEsc" layoutY="70.0" prefHeight="350.0" prefWidth="250.0" AnchorPane.bottomAnchor="90.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="60.0" />
       <ImageView fitHeight="50.0" fitWidth="2000.0" layoutX="150.0" layoutY="429.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0">
          <image>
             <Image url="@../Resources/Tela.jpg" />

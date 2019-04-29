@@ -5,7 +5,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import DataBaseSimulation.FuncionariosDataBase;
+import DataBaseSimulation.FuncionariosDAO;
 import Model.Funcionario;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -58,7 +58,7 @@ public class LoginController implements Initializable{
     }
     @FXML
     public void Entrar(ActionEvent actionEvent) {
-        FuncionariosDataBase f1 = new FuncionariosDataBase();
+        FuncionariosDAO f1 = new FuncionariosDAO();
         ArrayList<Funcionario> list = f1.getSimulation();
         int flag = 0;
         for (Funcionario x:list)

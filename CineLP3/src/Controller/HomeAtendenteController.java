@@ -25,7 +25,6 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
@@ -34,10 +33,13 @@ import java.util.Date;
 import java.util.ResourceBundle;
 
 public class HomeAtendenteController implements Initializable {
+    @FXML
     public Pane PnInfo;
-
+    @FXML
     public AnchorPane PnRoot;
+    @FXML
     public Label LbTituloJanela;
+    @FXML
     public Pane PnButton;
     @FXML
     private Label LbData;
@@ -88,14 +90,12 @@ public class HomeAtendenteController implements Initializable {
         ColunaFilme.setCellValueFactory(new PropertyValueFactory<>("nome"));
         Tabela.setItems(GetFilmes());
         Shadow();
-
-      }
+     }
     @FXML
     public  void GetUser(Funcionario f)
     {
         lbUsuario.setText(f.getUsuario());
         LbVendasRealizadas.setText(Integer.toString(f.getQtddVendas()));
-
     }
     @FXML
     public void Logout(MouseEvent event)
@@ -116,7 +116,6 @@ public class HomeAtendenteController implements Initializable {
     @FXML
     public void setHora()
     {
-
         KeyFrame frame = new KeyFrame(Duration.millis(1000), e -> atualizaHoras());
         Timeline timeline = new Timeline(frame);
         timeline.setCycleCount(Timeline.INDEFINITE);
@@ -127,7 +126,6 @@ public class HomeAtendenteController implements Initializable {
         Date agora = new Date();
         SimpleDateFormat formatador = new SimpleDateFormat("hh:mm:ss a");
         LbHora.setText(formatador.format(agora));
-
     }
     private void GetData(){
         Date date = new Date();
@@ -143,7 +141,6 @@ public class HomeAtendenteController implements Initializable {
         }
         ObservableList<Filme> Filmes = FXCollections.observableArrayList(f.getFilmes());
         return Filmes;
-
     }
     @FXML
     public void VerMais(ActionEvent evente)
@@ -191,6 +188,7 @@ public class HomeAtendenteController implements Initializable {
         LbTituloJanela.setText("Venda de ingressos");
         PnJanelas.getChildren().setAll(pane);
     }
+    @FXML
     public void OpenHome(MouseEvent Event){
         PnJanelas.getChildren().clear();
         PnRoot.setStyle("-fx-background-color:  #8DBFDA");
