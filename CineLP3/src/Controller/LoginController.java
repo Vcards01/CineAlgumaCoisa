@@ -86,6 +86,7 @@ public class LoginController implements Initializable{
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
+
                         }
                         else if(x.getTipo().equals("Administrador"))
                         {
@@ -102,7 +103,10 @@ public class LoginController implements Initializable{
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
+
                         }
+                        Stage login = (Stage)BtnEntrar.getScene().getWindow();
+                        login.close();
                     }
                     else
                     {
@@ -113,14 +117,14 @@ public class LoginController implements Initializable{
                     LbSenhaIncorreta.setVisible(true);
                     imgAviso.setVisible(true);
                 }
-                Stage login = (Stage)BtnEntrar.getScene().getWindow();
-                login.close();
+
             }
             if(flag==0)
             {
                 LbSenhaIncorreta.setVisible(true);
                 imgAviso.setVisible(true);
             }
+
         }
     }
 }

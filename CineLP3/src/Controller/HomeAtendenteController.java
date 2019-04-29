@@ -42,6 +42,12 @@ public class HomeAtendenteController implements Initializable {
     @FXML
     public Pane PnButton;
     @FXML
+    public Pane PnHome;
+    @FXML
+    public Pane PnIngressos;
+    @FXML
+    public Pane PnAlimentação;
+    @FXML
     private Label LbData;
     @FXML
     private AnchorPane PnMenu;
@@ -90,6 +96,10 @@ public class HomeAtendenteController implements Initializable {
         ColunaFilme.setCellValueFactory(new PropertyValueFactory<>("nome"));
         Tabela.setItems(GetFilmes());
         Shadow();
+        HomeHighlight();
+
+
+
      }
     @FXML
     public  void GetUser(Funcionario f)
@@ -187,6 +197,7 @@ public class HomeAtendenteController implements Initializable {
         PnTopo.setStyle("-fx-background-color:  #009688");
         LbTituloJanela.setText("Venda de ingressos");
         PnJanelas.getChildren().setAll(pane);
+        IngressosHighlight();
     }
     @FXML
     public void OpenHome(MouseEvent Event){
@@ -196,8 +207,47 @@ public class HomeAtendenteController implements Initializable {
         PnTopo.setStyle("-fx-background-color:  #36769A");
         LbTituloJanela.setText("Home Screen");
         PnJanelas.getChildren().setAll(PnDataHora,PnVenda,Tabela,PnInfo,PnButton);
+        HomeHighlight();
+    }
+    @FXML
+    public void OpenAlimentos(MouseEvent Event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/VendaAlimentos.fxml"));
+        AnchorPane pane = loader.load();
+        VendaAlimentosController controller = loader.getController();
+        controller.GetMedidas(PnJanelas.getHeight(),PnJanelas.getWidth());
+        PnRoot.setStyle("-fx-background-color:  B39DDB");
+        PnMenu.setStyle("-fx-background-color:  #7E57C2");
+        PnTopo.setStyle("-fx-background-color:  #7E57C2");
+        LbTituloJanela.setText("Venda de Alimentos");
+        PnJanelas.getChildren().setAll(pane);
+        AlimentosHighlight();
+    }
+
+    private void HomeHighlight() {
+        PnHome.setOnMouseEntered(event -> { PnHome.setStyle("-fx-background-color:  #8DBFDA");});
+        PnHome.setOnMouseExited(event -> {PnHome.setStyle("-fx-background-color:  transparent");});
+        PnIngressos.setOnMouseEntered(event -> { PnIngressos.setStyle("-fx-background-color:  #8DBFDA");});
+        PnIngressos.setOnMouseExited(event -> {PnIngressos.setStyle("-fx-background-color:  transparent");});
+        PnAlimentação.setOnMouseEntered(event -> {PnAlimentação.setStyle("-fx-background-color:  #8DBFDA");});
+        PnAlimentação.setOnMouseExited(event -> {PnAlimentação.setStyle("-fx-background-color:  transparent");});
+    }
+    private void IngressosHighlight(){
+        PnHome.setOnMouseEntered(event -> { PnHome.setStyle("-fx-background-color:   #80CBC4");});
+        PnHome.setOnMouseExited(event -> {PnHome.setStyle("-fx-background-color:  transparent");});
+        PnIngressos.setOnMouseEntered(event -> { PnIngressos.setStyle("-fx-background-color:   #80CBC4");});
+        PnIngressos.setOnMouseExited(event -> {PnIngressos.setStyle("-fx-background-color:  transparent");});
+        PnAlimentação.setOnMouseEntered(event -> {PnAlimentação.setStyle("-fx-background-color:   #80CBC4");});
+        PnAlimentação.setOnMouseExited(event -> {PnAlimentação.setStyle("-fx-background-color:  transparent");});
 
     }
-    }
+    private void AlimentosHighlight(){
+        PnHome.setOnMouseEntered(event -> { PnHome.setStyle("-fx-background-color:   #B39DDB");});
+        PnHome.setOnMouseExited(event -> {PnHome.setStyle("-fx-background-color:  transparent");});
+        PnIngressos.setOnMouseEntered(event -> { PnIngressos.setStyle("-fx-background-color:    #B39DDB");});
+        PnIngressos.setOnMouseExited(event -> {PnIngressos.setStyle("-fx-background-color:  transparent");});
+        PnAlimentação.setOnMouseEntered(event -> {PnAlimentação.setStyle("-fx-background-color:    #B39DDB");});
+        PnAlimentação.setOnMouseExited(event -> {PnAlimentação.setStyle("-fx-background-color:  transparent");});
 
+    }
+}
 

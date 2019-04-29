@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -50,7 +51,7 @@
             </Pane>
             <AnchorPane layoutX="18.0" layoutY="211.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="30.0">
                <children>
-                  <Pane layoutX="1.0" layoutY="14.0" onMouseClicked="#OpenHome" prefHeight="38.0" prefWidth="200.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="47.0" AnchorPane.topAnchor="14.0">
+                  <Pane fx:id="PnHome" layoutX="1.0" layoutY="14.0" onMouseClicked="#OpenHome" prefHeight="38.0" prefWidth="181.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="14.0">
                      <children>
                         <Label layoutX="56.0" layoutY="4.0" text="Home" textFill="WHITE">
                            <font>
@@ -63,8 +64,11 @@
                            </image>
                         </ImageView>
                      </children>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Pane>
-                  <Pane layoutX="1.0" layoutY="148.0" prefHeight="38.0" prefWidth="200.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="47.0">
+                  <Pane fx:id="PnAlimentação" layoutX="1.0" layoutY="148.0" onMouseClicked="#OpenAlimentos" prefHeight="38.0" prefWidth="181.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="18.0">
                      <children>
                         <Label layoutX="56.0" layoutY="4.0" text="Alimentação" textFill="WHITE">
                            <font>
@@ -77,8 +81,11 @@
                            </image>
                         </ImageView>
                      </children>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Pane>
-                  <Pane layoutX="1.0" layoutY="81.0" onMouseClicked="#OpenVendaIngresso" prefHeight="38.0" prefWidth="200.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="47.0">
+                  <Pane fx:id="PnIngressos" layoutX="1.0" layoutY="81.0" onMouseClicked="#OpenVendaIngresso" prefHeight="38.0" prefWidth="181.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="18.0">
                      <children>
                         <Label layoutX="56.0" layoutY="4.0" text="Ingressos" textFill="WHITE">
                            <font>
@@ -91,6 +98,9 @@
                            </image>
                         </ImageView>
                      </children>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Pane>
                </children>
             </AnchorPane>

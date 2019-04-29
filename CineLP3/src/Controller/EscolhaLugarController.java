@@ -109,6 +109,28 @@ public class EscolhaLugarController implements Initializable {
                     b.setImage(Livre);
                 }
             });
+            //Setting eventos para os numeros
+            LbNumeroCima.setOnMouseClicked(event -> {
+                if (b.getImage().equals(Livre)) {
+                    if(LugaresEscolhidos.size()<QuantidadeIngressos)
+                    {
+                        LugaresEscolhidos.add(b);
+                        b.setImage(Ocupada);
+                    }
+                    else
+                    {
+                        Alert alert =new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Limite de lugares por ingresso");
+                        alert.setHeaderText(null);
+                        alert.setContentText("Para escolher mais lugares compre mais ingressos.");
+                        alert.showAndWait();
+                    }
+                }
+                else {
+                    LugaresEscolhidos.remove(b);
+                    b.setImage(Livre);
+                }
+            });
             //Verifica e Adiciona Assentos e numeros do lado esquerdo
             if (i < s.getSala().getQtddLugares() / 2) {
 
