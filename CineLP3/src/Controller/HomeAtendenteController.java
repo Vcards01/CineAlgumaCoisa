@@ -1,6 +1,6 @@
 package Controller;
 
-import DataBaseSimulation.FilmesDataBase;
+import DataBaseSimulation.FilmesDAO;
 import Model.Filme;
 import Model.Funcionario;
 import javafx.animation.KeyFrame;
@@ -12,48 +12,51 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.effect.DropShadow;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.ResourceBundle;
 
 public class HomeAtendenteController implements Initializable {
+    @FXML
     public Pane PnInfo;
     @FXML
-    public Label LbData;
+    public AnchorPane PnRoot;
     @FXML
-    public AnchorPane PnMenu;
+    public Label LbTituloJanela;
     @FXML
-    public Pane PnVenda;
+    public Pane PnButton;
     @FXML
-    public Pane PnDataHora;
+    private Label LbData;
     @FXML
-    public AnchorPane PnTopo;
+    private AnchorPane PnMenu;
     @FXML
-    public Label LbClose;
+    private Pane PnVenda;
     @FXML
-    public Label LbVendasRealizadas;
+    private Pane PnDataHora;
+    @FXML
+    private AnchorPane PnTopo;
+    @FXML
+    private Label LbClose;
+    @FXML
+    private Label LbVendasRealizadas;
+    @FXML
+    private AnchorPane PnJanelas;
     @FXML
     private ImageView ImgCapaFilme;
     @FXML
@@ -87,14 +90,12 @@ public class HomeAtendenteController implements Initializable {
         ColunaFilme.setCellValueFactory(new PropertyValueFactory<>("nome"));
         Tabela.setItems(GetFilmes());
         Shadow();
-
-      }
+     }
     @FXML
     public  void GetUser(Funcionario f)
     {
         lbUsuario.setText(f.getUsuario());
         LbVendasRealizadas.setText(Integer.toString(f.getQtddVendas()));
-
     }
     @FXML
     public void Logout(MouseEvent event)
@@ -115,7 +116,6 @@ public class HomeAtendenteController implements Initializable {
     @FXML
     public void setHora()
     {
-
         KeyFrame frame = new KeyFrame(Duration.millis(1000), e -> atualizaHoras());
         Timeline timeline = new Timeline(frame);
         timeline.setCycleCount(Timeline.INDEFINITE);
@@ -126,7 +126,6 @@ public class HomeAtendenteController implements Initializable {
         Date agora = new Date();
         SimpleDateFormat formatador = new SimpleDateFormat("hh:mm:ss a");
         LbHora.setText(formatador.format(agora));
-
     }
     private void GetData(){
         Date date = new Date();
@@ -134,15 +133,14 @@ public class HomeAtendenteController implements Initializable {
         LbData.setText(format.format(date));
     }
     private ObservableList<Filme> GetFilmes() {
-        FilmesDataBase f = null;
+        FilmesDAO f = null;
         try {
-            f = new FilmesDataBase();
+            f = new FilmesDAO();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        ObservableList<Filme> Filmes = FXCollections.observableArrayList(f.getSimulation());
+        ObservableList<Filme> Filmes = FXCollections.observableArrayList(f.getFilmes());
         return Filmes;
-
     }
     @FXML
     public void VerMais(ActionEvent evente)
@@ -177,6 +175,28 @@ public class HomeAtendenteController implements Initializable {
     {
         Platform.exit();
         System.exit(0);
+    }
+    @FXML
+    public void OpenVendaIngresso(MouseEvent Event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/VendaIngressos.fxml"));
+        AnchorPane pane = loader.load();
+        VendaIngressosController controller = loader.getController();
+        controller.GetMedidas(PnJanelas.getHeight(),PnJanelas.getWidth());
+        PnRoot.setStyle("-fx-background-color:  #80CBC4");
+        PnMenu.setStyle("-fx-background-color:  #009688");
+        PnTopo.setStyle("-fx-background-color:  #009688");
+        LbTituloJanela.setText("Venda de ingressos");
+        PnJanelas.getChildren().setAll(pane);
+    }
+    @FXML
+    public void OpenHome(MouseEvent Event){
+        PnJanelas.getChildren().clear();
+        PnRoot.setStyle("-fx-background-color:  #8DBFDA");
+        PnMenu.setStyle("-fx-background-color:   #36769A");
+        PnTopo.setStyle("-fx-background-color:  #36769A");
+        LbTituloJanela.setText("Home Screen");
+        PnJanelas.getChildren().setAll(PnDataHora,PnVenda,Tabela,PnInfo,PnButton);
+
     }
     }
 

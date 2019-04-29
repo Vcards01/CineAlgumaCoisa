@@ -3,13 +3,12 @@ package Model;
 import java.util.ArrayList;
 
 public class Sala {
-    private String nome;
     private int id;
     private int qtddLugares;
     private ArrayList<Sessao> sessoes= new ArrayList<Sessao>();
 
-    public Sala(String nome, int id, int qtddLugares) {
-        this.nome = nome;
+
+    public Sala(int id, int qtddLugares) {
         this.id = id;
         this.qtddLugares = qtddLugares;
     }
@@ -25,12 +24,10 @@ public class Sala {
     {
         sessoes.remove(s);
     }
+
     //Getters e Setters
 
 
-    public String getNome() {
-        return nome;
-    }
 
     public int getId() {
         return id;
