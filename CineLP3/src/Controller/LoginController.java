@@ -80,12 +80,13 @@ public class LoginController implements Initializable{
                                 stage.centerOnScreen();
                                 stage.initStyle(StageStyle.UNDECORATED);
                                 stage.setMaximized(true);
-                                HomeAtendenteController controle = (HomeAtendenteController)loader.getController();
-                                controle.GetUser(x);
+                                HomeAtendenteController controle =loader.getController();
+                                controle.SetUser(x);
                                 stage.show();
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
+
                         }
                         else if(x.getTipo().equals("Administrador"))
                         {
@@ -98,11 +99,16 @@ public class LoginController implements Initializable{
                                 stage.centerOnScreen();
                                 stage.initStyle(StageStyle.UNDECORATED);
                                 stage.setMaximized(true);
+                                HomeAdminController controller = loader.getController();
+                                controller.SetUser(x);
                                 stage.show();
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
+
                         }
+                        Stage login = (Stage)BtnEntrar.getScene().getWindow();
+                        login.close();
                     }
                     else
                     {
@@ -113,14 +119,14 @@ public class LoginController implements Initializable{
                     LbSenhaIncorreta.setVisible(true);
                     imgAviso.setVisible(true);
                 }
-                Stage login = (Stage)BtnEntrar.getScene().getWindow();
-                login.close();
+
             }
             if(flag==0)
             {
                 LbSenhaIncorreta.setVisible(true);
                 imgAviso.setVisible(true);
             }
+
         }
     }
 }
