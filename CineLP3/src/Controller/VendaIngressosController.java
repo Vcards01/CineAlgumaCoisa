@@ -13,6 +13,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.effect.DropShadow;
@@ -202,7 +203,7 @@ public class VendaIngressosController implements Initializable {
             EscolhaLugarController controller = loader.getController();
             Sessao s = (Sessao)CbSessao.getValue();
             controller.SetLugares(s);
-            controller.GetIngressos((double)SpnInt.getValue()+(double)SpnMeia.getValue());
+            controller.GetIngressos((double)SpnInt.getValue()+(double)SpnMeia.getValue(),Double.parseDouble(LbValorTotal.getText()));
             Scene scene = new Scene(pane,1200,600);
             Stage stage = new Stage();
             stage.initStyle(StageStyle.UNDECORATED);
@@ -217,6 +218,17 @@ public class VendaIngressosController implements Initializable {
             alert.setContentText("Verifique se todos os passos para compra de um ingresso foram executados!");
             alert.showAndWait();
         }
+    }
+    public void GetValorToOpenAlimentos() throws IOException {
+        System.out.println("pipipi");
+        PnPrincipal.getChildren().clear();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/HomeAtendente.fxml"));
+        HomeAtendenteController controller = loader.getController();
+        controller.OpenAlimentos();
+        System.out.println("pipipi2222");
+
+
+
     }
 
 }

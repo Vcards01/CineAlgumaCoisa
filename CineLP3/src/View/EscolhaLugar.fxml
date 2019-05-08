@@ -20,7 +20,7 @@
          </viewport>
       </ImageView>
       <Button fx:id="BtnCancelar" layoutX="860.0" layoutY="15.0" mnemonicParsing="false" onAction="#Close" text="Cancelar" AnchorPane.topAnchor="15.0" />
-      <Button fx:id="BtnConfirmar" layoutX="944.0" layoutY="15.0" mnemonicParsing="false" text="Confirmar" />
+      <Button fx:id="BtnConfirmar" layoutX="944.0" layoutY="15.0" mnemonicParsing="false" onAction="#Confirma" text="Confirmar" />
       <Label layoutX="536.0" layoutY="19.0" text="Ingressos:" />
       <Label fx:id="LbQtddIngressos" layoutX="636.0" layoutY="19.0" text="Label" />
       <ImageView fitHeight="50.0" fitWidth="265.0" layoutX="164.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">

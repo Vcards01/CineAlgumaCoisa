@@ -215,11 +215,23 @@ public class HomeAtendenteController implements Initializable {
         AnchorPane pane = loader.load();
         VendaAlimentosController controller = loader.getController();
         controller.GetMedidas(PnJanelas.getHeight(),PnJanelas.getWidth());
-        PnRoot.setStyle("-fx-background-color:  B39DDB");
-        PnMenu.setStyle("-fx-background-color:  #7E57C2");
-        PnTopo.setStyle("-fx-background-color:  #7E57C2");
+        PnRoot.setStyle("-fx-background-color:   #B32F3D");
+        PnMenu.setStyle("-fx-background-color:   #81001F");
+        PnTopo.setStyle("-fx-background-color:   #81001F");
         LbTituloJanela.setText("Venda de Alimentos");
         PnJanelas.getChildren().setAll(pane);
+        AlimentosHighlight();
+    }
+    public void OpenAlimentos() throws IOException {
+        PnJanelas.getChildren().clear();
+    }
+    @FXML
+    public void SetAlimentos(Double valor) throws IOException {
+        System.out.println(valor);
+        PnRoot.setStyle("-fx-background-color:   #B32F3D");
+        PnMenu.setStyle("-fx-background-color:   #81001F");
+        PnTopo.setStyle("-fx-background-color:   #81001F");
+        LbTituloJanela.setText("Venda de Alimentos");
         AlimentosHighlight();
     }
 

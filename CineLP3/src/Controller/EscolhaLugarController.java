@@ -6,20 +6,24 @@ import Model.Sessao;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class EscolhaLugarController implements Initializable {
@@ -47,6 +51,7 @@ public class EscolhaLugarController implements Initializable {
     private LugaresDAO LDAO = new LugaresDAO();
     //Quantidade de Ingressos Comprados pelo Cliente
     private int QuantidadeIngressos;
+    private double precoIngressos;
     private ArrayList<ImageView>LugaresEscolhidos = new ArrayList<>();
 
 
@@ -198,11 +203,46 @@ public class EscolhaLugarController implements Initializable {
         Stage tela =(Stage)PnFundo.getScene().getWindow();
         tela.close();
     }
-    public void GetIngressos(double quantidade)
+    public void GetIngressos(double quantidade,double valor)
     {
         QuantidadeIngressos=(int)quantidade;
         LbQtddIngressos.setText(Integer.toString(QuantidadeIngressos));
+        precoIngressos=valor;
     }
 
+    public void Confirma(ActionEvent event) throws IOException {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Continuar comprando?");
+        alert.setHeaderText(null);
+        alert.setContentText("Deseja obter alimentos ou acompanhamentos para saborear enquanto assiste o filme?");
+        ButtonType buttonTypeNao = new ButtonType("Não,finalizar compra");
+        ButtonType buttonTypeSim = new ButtonType("Sim,continuar comprando");
 
-}
+        alert.getButtonTypes().setAll(buttonTypeNao, buttonTypeSim);
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == buttonTypeNao) {
+            alert.close();
+            Alert aviso = new Alert(Alert.AlertType.INFORMATION);
+            aviso.setTitle("Venda finalizada");
+            aviso.setHeaderText(null);
+            aviso.setContentText("A venda no valor de R$" + precoIngressos + ",foi concluida com sucesso");
+            aviso.showAndWait();
+        }
+        else if (result.get() == buttonTypeSim)
+        {
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/VendaIngressos.fxml"));
+            Parent root = loader.load();
+            VendaIngressosController controller = loader.getController();
+            controller.GetValorToOpenAlimentos();
+            Stage stage = (Stage)PnFundo.getScene().getWindow();
+            stage.close();
+
+        }
+
+    }
+
+   }
+
+
+
