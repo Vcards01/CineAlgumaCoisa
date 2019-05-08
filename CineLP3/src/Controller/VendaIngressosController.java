@@ -13,24 +13,29 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
-import java.util.Set;
 
 public class VendaIngressosController implements Initializable {
+    @FXML
+    public Pane PnFundo;
+    @FXML
+    public Button BtnConfirma;
+    @FXML
+    public Button BtnVoltar;
+    @FXML
+    public Button BtnProximo;
+    @FXML
+    public Pane PnBotoes;
     @FXML
     private AnchorPane PnPrincipal;
     @FXML
@@ -59,11 +64,12 @@ public class VendaIngressosController implements Initializable {
     public Label LbPrecoMeia;
     @FXML
     public Button BtnCancelar;
-    @FXML
-    public Button BtnConfirmar;
+    //DAO de sessões
     private SessaoDAO SDAO = new SessaoDAO();
+    //DAO de lugares
     private LugaresDAO LDAO = new LugaresDAO();
-    private int contador=0;
+    //
+    private int qtddLugaresOcupados=0;
     public VendaIngressosController() throws FileNotFoundException {
     }
 
@@ -75,7 +81,10 @@ public class VendaIngressosController implements Initializable {
         ChangeCapa();
         ChangeTotal();
         ChangeSala();
+        BtnConfirma.setVisible(false);
+        BtnVoltar.setVisible(false);
     }
+//Configura os Spinners de Ingresso
     @FXML
     private void SetSpinner(double disponiveis)
     {
@@ -84,6 +93,7 @@ public class VendaIngressosController implements Initializable {
         SpnInt.setValueFactory(valueFactoryInt);
         SpnMeia.setValueFactory(valueFactoryMeia);
     }
+//Atualiza a capa do filme selecionado.
     @FXML
     private void ChangeCapa()
     {
@@ -101,6 +111,7 @@ public class VendaIngressosController implements Initializable {
                 }
             });
     }
+//Atualzia a sala da sessão escolhida.
     @FXML
     private void ChangeSala(){
         CbSessao.valueProperty().addListener(new ChangeListener<Sessao>() {
@@ -122,15 +133,16 @@ public class VendaIngressosController implements Initializable {
              }
         });
     }
+//Verifica quantos lugares ocupados tem na sessão e se ela ja esta lotada.
     private void VerificaSessão(Sessao s) {
-        contador=0;
+        qtddLugaresOcupados=0;
         s.setLugares(LDAO.FindBySessao(s));
         for (int i = 0; i < s.getLugares().size(); i++) {
             if (s.getLugares().get(i).isOcupado()) {
-                contador++;
+                qtddLugaresOcupados++;
             }
         }
-        if (contador == s.getLugares().size()) {
+        if (qtddLugaresOcupados == s.getLugares().size()) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Sala cheia");
             alert.setHeaderText(null);
@@ -141,12 +153,13 @@ public class VendaIngressosController implements Initializable {
         }
         else
         {
-            SetSpinner(s.getLugares().size()-contador);
+            SetSpinner(s.getLugares().size()-qtddLugaresOcupados);
             SpnInt.setDisable(false);
             SpnMeia.setDisable(false);
 
         }
     }
+//Atualiza o valor total do preço.
     @FXML
     private void ChangeTotal()
     {
@@ -163,11 +176,13 @@ public class VendaIngressosController implements Initializable {
             }
         });
     }
-    public void GetMedidas(Double h,double w)
+//Pega as mediadas do painel principal e configura a tela.
+    public void SetMedidas(Double h,double w)
     {
         PnPrincipal.setPrefWidth(w);
         PnPrincipal.setPrefHeight(h);
     }
+//Adiciona Sombra aos paineis
     private void Shadow()
     {
         DropShadow Shad = new DropShadow();
@@ -177,7 +192,9 @@ public class VendaIngressosController implements Initializable {
         PnIngressos.setEffect(Shad);
         PnBilheteria.setEffect(Shad);
         PnSelecionar.setEffect(Shad);
+        PnBotoes.setEffect(Shad);
     }
+//Retorna uma ObservableList de filmes para popular a combobox.
     private ObservableList<Filme> GetFilmes() {
         FilmesDAO f = null;
         try {
@@ -188,47 +205,84 @@ public class VendaIngressosController implements Initializable {
         ObservableList<Filme> Filmes = FXCollections.observableArrayList(f.getFilmes());
         return Filmes;
     }
+//Configura o botão de cancelar
     @FXML
     public void Cancelar(ActionEvent evente)
     {
         SpnInt.getValueFactory().setValue(0.0);
         SpnMeia.getValueFactory().setValue(0.0);
     }
+//Configurar o botão de Proximo.
     @FXML
-    public void Confirma(ActionEvent event) throws IOException {
-        if(Double.parseDouble(LbValorTotal.getText())!=0.0)
-        {
+    public void Proximo(ActionEvent event) throws IOException {
+        if (Double.parseDouble(LbValorTotal.getText()) != 0.0) {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/EscolhaLugar.fxml"));
             AnchorPane pane = loader.load();
             EscolhaLugarController controller = loader.getController();
-            Sessao s = (Sessao)CbSessao.getValue();
+            Sessao s = (Sessao) CbSessao.getValue();
             controller.SetLugares(s);
-            controller.GetIngressos((double)SpnInt.getValue()+(double)SpnMeia.getValue(),Double.parseDouble(LbValorTotal.getText()));
-            Scene scene = new Scene(pane,1200,600);
-            Stage stage = new Stage();
-            stage.initStyle(StageStyle.UNDECORATED);
-            stage.setScene(scene);
-            stage.showAndWait();
-        }
-        else
-        {
-            Alert alert =new Alert(Alert.AlertType.INFORMATION);
+            controller.SetIngressos((double) SpnInt.getValue() + (double) SpnMeia.getValue(), Double.parseDouble(LbValorTotal.getText()));
+            controller.SetMedidas(PnFundo.getHeight(), PnFundo.getWidth());
+            PnFundo.getChildren().setAll(pane);
+            BtnConfirma.setVisible(true);
+            BtnVoltar.setVisible(true);
+            BtnProximo.setVisible(false);
+            BtnCancelar.setVisible(false);
+        } else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Valor total invalido");
             alert.setHeaderText(null);
             alert.setContentText("Verifique se todos os passos para compra de um ingresso foram executados!");
             alert.showAndWait();
         }
     }
-    public void GetValorToOpenAlimentos() throws IOException {
-        System.out.println("pipipi");
-        PnPrincipal.getChildren().clear();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/HomeAtendente.fxml"));
-        HomeAtendenteController controller = loader.getController();
-        controller.OpenAlimentos();
-        System.out.println("pipipi2222");
-
-
-
+//Configura o botão de Confirmar.
+    public void Confirmar(ActionEvent event) throws IOException {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Continuar comprando?");
+        alert.setHeaderText(null);
+        alert.setContentText("Deseja obter alimentos ou acompanhamentos para saborear enquanto assiste o filme?");
+        ButtonType buttonTypeNao = new ButtonType("Não,finalizar compra");
+        ButtonType buttonTypeSim = new ButtonType("Sim,continuar comprando");
+        alert.getButtonTypes().setAll(buttonTypeNao, buttonTypeSim);
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == buttonTypeNao) {
+            alert.close();
+            PnFundo.getChildren().clear();
+            PnFundo.getChildren().setAll(PnIngressos,PnSelecionar);
+            BtnConfirma.setVisible(false);
+            BtnVoltar.setVisible(false);
+            BtnProximo.setVisible(true);
+            BtnCancelar.setVisible(true);
+            Alert aviso = new Alert(Alert.AlertType.INFORMATION);
+            aviso.setTitle("Venda finalizada");
+            aviso.setHeaderText(null);
+            aviso.setContentText("A venda no valor de R$" + Double.parseDouble(LbValorTotal.getText()) + ",foi concluida com sucesso");
+            aviso.showAndWait();
+            SpnInt.getValueFactory().setValue(0.0);
+            SpnMeia.getValueFactory().setValue(0.0);
+        }
+        else if (result.get() == buttonTypeSim)
+        {
+            FXMLLoader loaderA = new FXMLLoader(getClass().getResource("../View/VendaAlimentos.fxml"));
+            AnchorPane pane = loaderA.load();
+            VendaAlimentosController controller = loaderA.getController();
+            controller.GetMedidas(PnPrincipal.getHeight(),PnPrincipal.getWidth());
+            controller.SetTotal(Double.parseDouble(LbValorTotal.getText()));
+            controller.SetCollors();
+            PnPrincipal.getChildren().setAll(pane);
+        }
     }
+//Configura o botão voltar.
+    public void Voltar(ActionEvent event)
+    {
+        PnFundo.getChildren().clear();
+        PnFundo.getChildren().setAll(PnIngressos,PnSelecionar);
+        BtnConfirma.setVisible(false);
+        BtnVoltar.setVisible(false);
+        BtnProximo.setVisible(true);
+        BtnCancelar.setVisible(true);
+    }
+
 
 }

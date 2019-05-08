@@ -30,13 +30,7 @@ public class EscolhaLugarController implements Initializable {
     @FXML
     private AnchorPane PnFundo;
     @FXML
-    private Button BtnCancelar;
-    @FXML
-    private Button BtnConfirmar;
-    @FXML
     private Label LbQtddIngressos;
-    @FXML
-    private AnchorPane PnCine;
     @FXML
     private AnchorPane PnPoltronasEsc;
     @FXML
@@ -46,14 +40,13 @@ public class EscolhaLugarController implements Initializable {
     //Imagem de cadeira Desocupada
     private Image Livre = new Image("Resources/CadeiraLivre.png");
     //Array de Poltronas
-    private ArrayList<ImageView>Poltronas = new ArrayList<>();
+    private ArrayList<ImageView> Poltronas = new ArrayList<>();
     //Simulação de DAO de lugares
     private LugaresDAO LDAO = new LugaresDAO();
     //Quantidade de Ingressos Comprados pelo Cliente
     private int QuantidadeIngressos;
     private double precoIngressos;
-    private ArrayList<ImageView>LugaresEscolhidos = new ArrayList<>();
-
+    private ArrayList<ImageView> LugaresEscolhidos = new ArrayList<>();
 
     public EscolhaLugarController() throws FileNotFoundException {
     }
@@ -61,21 +54,23 @@ public class EscolhaLugarController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
     }
+
+//Configura todas as poltronas na tela
     @FXML
     public void SetLugares(Sessao s) throws FileNotFoundException {
         //Variaveis
         //Id de cada botão.
-        int id=1;
+        int id = 1;
         //Contador para pular de fila.
-        int pular=1;
+        int pular = 1;
         //Valor da coordenada Y
-        int layoutY=14;
+        int layoutY = 14;
         //Valor da coordenada X
-        int layoutX=0;
+        int layoutX = 0;
         //Contador para mudar o lado das poltronas
-        int change=0;
+        int change = 0;
         //Valor da coordenada X para os numeros
-        int layoutXN=20;
+        int layoutXN = 20;
         //Font dos numeros
         Font font = Font.font("Arial", FontWeight.BOLD, 25);
         for (int i = 0; i < s.getSala().getQtddLugares(); i++) {
@@ -95,21 +90,17 @@ public class EscolhaLugarController implements Initializable {
             //Set do evento de click no assento
             b.setOnMouseClicked(event -> {
                 if (b.getImage().equals(Livre)) {
-                    if(LugaresEscolhidos.size()<QuantidadeIngressos)
-                    {
+                    if (LugaresEscolhidos.size() < QuantidadeIngressos) {
                         LugaresEscolhidos.add(b);
                         b.setImage(Ocupada);
-                    }
-                    else
-                    {
-                        Alert alert =new Alert(Alert.AlertType.INFORMATION);
+                    } else {
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setTitle("Limite de lugares por ingresso");
                         alert.setHeaderText(null);
                         alert.setContentText("Para escolher mais lugares compre mais ingressos.");
                         alert.showAndWait();
                     }
-                }
-                else {
+                } else {
                     LugaresEscolhidos.remove(b);
                     b.setImage(Livre);
                 }
@@ -117,21 +108,17 @@ public class EscolhaLugarController implements Initializable {
             //Setting eventos para os numeros
             LbNumeroCima.setOnMouseClicked(event -> {
                 if (b.getImage().equals(Livre)) {
-                    if(LugaresEscolhidos.size()<QuantidadeIngressos)
-                    {
+                    if (LugaresEscolhidos.size() < QuantidadeIngressos) {
                         LugaresEscolhidos.add(b);
                         b.setImage(Ocupada);
-                    }
-                    else
-                    {
-                        Alert alert =new Alert(Alert.AlertType.INFORMATION);
+                    } else {
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setTitle("Limite de lugares por ingresso");
                         alert.setHeaderText(null);
                         alert.setContentText("Para escolher mais lugares compre mais ingressos.");
                         alert.showAndWait();
                     }
-                }
-                else {
+                } else {
                     LugaresEscolhidos.remove(b);
                     b.setImage(Livre);
                 }
@@ -148,7 +135,7 @@ public class EscolhaLugarController implements Initializable {
                     //Reset das variaveis para começar o lado direito
                     layoutX = 0;
                     layoutY = 14;
-                    layoutXN=20;
+                    layoutXN = 20;
                     LbNumeroCima.setLayoutX(layoutXN);
                     LbNumeroCima.setLayoutY(layoutY);
                     b.setLayoutX(90.0 * layoutX);
@@ -160,16 +147,16 @@ public class EscolhaLugarController implements Initializable {
                 PnPoltronasDi.getChildren().add(LbNumeroCima);
             }
             //Faz a verificação para pular de linha
-            if (pular == s.getSala().getQtddLugares()/10) {
+            if (pular == s.getSala().getQtddLugares() / 10) {
                 layoutY = layoutY + 70;//Pulou pra a fila de baixo
                 layoutX = 0; //Resetou o eixo X
-                layoutXN=20;//Resetou o eixo X dos numeros
+                layoutXN = 20;//Resetou o eixo X dos numeros
                 pular = 1; //Resetou o contador para pular fila
                 id++;
                 Poltronas.add(b);
                 continue;
             }
-            layoutXN=layoutXN+90; //Incremeto no eixo X dos numeros
+            layoutXN = layoutXN + 90; //Incremeto no eixo X dos numeros
             id++;
             layoutX++; //incremento no eixo X
             pular++; //incremento no contador para pular fila
@@ -177,16 +164,16 @@ public class EscolhaLugarController implements Initializable {
         }
         OcuparLugares(s);
     }
-   private void OcuparLugares(Sessao s)
-    {
+//Verifica quais lugares estão ocupados
+    private void OcuparLugares(Sessao s) {
         s.setLugares(LDAO.FindBySessao(s));
         if (!s.getLugares().isEmpty()) {
-           for (int i = 0; i < Poltronas.size(); i++) {
-               if (Integer.parseInt(Poltronas.get(i).getId())==s.getLugares().get(i).getId()){
+            for (int i = 0; i < Poltronas.size(); i++) {
+                if (Integer.parseInt(Poltronas.get(i).getId()) == s.getLugares().get(i).getId()) {
                     if (s.getLugares().get(i).isOcupado()) {
                         Poltronas.get(i).setImage(Ocupada);
                         Poltronas.get(i).setOnMouseClicked(event -> {
-                            Alert alert =new Alert(Alert.AlertType.INFORMATION);
+                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
                             alert.setTitle("Lugar Ocupado");
                             alert.setHeaderText(null);
                             alert.setContentText("Escolha um dos lugares disponiveis");
@@ -197,52 +184,23 @@ public class EscolhaLugarController implements Initializable {
             }
         }
     }
-    @FXML
-    public void Close(ActionEvent event)
-    {
-        Stage tela =(Stage)PnFundo.getScene().getWindow();
-        tela.close();
-    }
-    public void GetIngressos(double quantidade,double valor)
-    {
-        QuantidadeIngressos=(int)quantidade;
+//Pega a quantidade de ingressos comprados
+    public void SetIngressos(double quantidade, double valor) {
+        QuantidadeIngressos = (int) quantidade;
         LbQtddIngressos.setText(Integer.toString(QuantidadeIngressos));
-        precoIngressos=valor;
+        precoIngressos = valor;
     }
-
-    public void Confirma(ActionEvent event) throws IOException {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Continuar comprando?");
-        alert.setHeaderText(null);
-        alert.setContentText("Deseja obter alimentos ou acompanhamentos para saborear enquanto assiste o filme?");
-        ButtonType buttonTypeNao = new ButtonType("Não,finalizar compra");
-        ButtonType buttonTypeSim = new ButtonType("Sim,continuar comprando");
-
-        alert.getButtonTypes().setAll(buttonTypeNao, buttonTypeSim);
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == buttonTypeNao) {
-            alert.close();
-            Alert aviso = new Alert(Alert.AlertType.INFORMATION);
-            aviso.setTitle("Venda finalizada");
-            aviso.setHeaderText(null);
-            aviso.setContentText("A venda no valor de R$" + precoIngressos + ",foi concluida com sucesso");
-            aviso.showAndWait();
-        }
-        else if (result.get() == buttonTypeSim)
-        {
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/VendaIngressos.fxml"));
-            Parent root = loader.load();
-            VendaIngressosController controller = loader.getController();
-            controller.GetValorToOpenAlimentos();
-            Stage stage = (Stage)PnFundo.getScene().getWindow();
-            stage.close();
-
-        }
-
+//Pega as mediadas do painel principal e configura a tela.
+    public void SetMedidas(double h, double w) {
+        PnFundo.setPrefWidth(w);
+        PnFundo.setPrefHeight(h);
     }
-
-   }
+//Retorna a quantidade de lugares que o usuario selecionou
+    public int GetPoltronas()
+    {
+        return LugaresEscolhidos.size();
+    }
+}
 
 
 

@@ -1,36 +1,48 @@
 package Controller;
 
 import DataBaseSimulation.ProdutosDAO;
-import Model.Filme;
 import Model.Produto;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
-
-import javax.lang.model.element.QualifiedNameable;
 import java.net.URL;
 import java.util.*;
 
 public class VendaAlimentosController implements Initializable {
+    @FXML
     public AnchorPane PnPrincipal;
+    @FXML
     public TableView TabelaProduto;
+    @FXML
     public TableColumn ColunaProdutoTP;
+    @FXML
     public TableColumn ColunaTipoTP;
+    @FXML
     public TableColumn ColunaPrecoTP;
+    @FXML
     public TableColumn ColunaEstoqueTP;
+    @FXML
     public TableView TabelaCarrinho;
+    @FXML
     public TableColumn CProdutoCarrinho;
+    @FXML
     public TableColumn CProdutoQuantidade;
+    @FXML
     public TextField TxtTotal;
+    @FXML
     public Button btnAdd;
+    @FXML
     public Button BtnRmv;
+    //Valor total da compra
     private double total=0;
+    //Lista de Produtos comprados
     ArrayList<Produto> list = new ArrayList<>();
 
     @Override
@@ -39,6 +51,20 @@ public class VendaAlimentosController implements Initializable {
         SetTabelaCarrinho();
         Shadow();
     }
+    //Define as cores quando a venda vem dos ingressos.
+    public void SetCollors()
+    {
+        PnPrincipal.setStyle("-fx-background-color:  #80CBC4");
+        BtnRmv.setStyle("-fx-background-color:  #009688" );
+        btnAdd.setStyle("-fx-background-color:  #009688");
+        ColunaPrecoTP.setStyle("-fx-background-color:  #80CBC4;"+"-fx-font-weight: 14px;"+"-fx-border-color:  #009688;"+"-fx-font-weight:bold;");
+        ColunaTipoTP.setStyle("-fx-background-color:  #80CBC4;"+"-fx-font-weight: 14px;"+"-fx-border-color:  #009688;"+"-fx-font-weight:bold;");
+        ColunaProdutoTP.setStyle("-fx-background-color:  #80CBC4;"+"-fx-font-weight: 14px;"+"-fx-border-color:  #009688;"+"-fx-font-weight:bold;");
+        ColunaEstoqueTP.setStyle("-fx-background-color:  #80CBC4;"+"-fx-font-weight: 14px;"+"-fx-border-color:  #009688;"+"-fx-font-weight:bold;");
+        CProdutoQuantidade.setStyle("-fx-background-color:  #80CBC4;"+"-fx-font-weight: 14px;"+"-fx-border-color:  #009688;"+"-fx-font-weight:bold;");
+        CProdutoCarrinho.setStyle("-fx-background-color:  #80CBC4;"+"-fx-font-weight: 14px;"+"-fx-border-color:  #009688;"+"-fx-font-weight:bold;");
+    }
+//Configura a tabela venda.
     public void SetTabelaVenda()
     {
 
@@ -49,28 +75,27 @@ public class VendaAlimentosController implements Initializable {
         TabelaProduto.setItems(GetProdutos());
 
     }
+//Retorna uma ObservableList de prdoutos para popular a tabela.
     public ObservableList<Produto> GetProdutos()
     {
         ProdutosDAO PDAO= new ProdutosDAO();
         ObservableList<Produto> Produtos = FXCollections.observableArrayList(PDAO.getProduto());
         return Produtos;
     }
-    public void GetMedidas(Double h,double w)
+    public void GetMedidas(double h,double w)
     {
         PnPrincipal.setPrefWidth(w);
         PnPrincipal.setPrefHeight(h);
     }
+//Adiciona produtos ao carrinho
+    @FXML
     public void AddProduto(ActionEvent event)
     {
-
-
         Produto p = (Produto) TabelaProduto.getSelectionModel().getSelectedItem();
-
         if(list.isEmpty())
         {
            p.setQuantidadeDeVenda(1);
            list.add(p);
-
         }
         else
         {
@@ -89,6 +114,8 @@ public class VendaAlimentosController implements Initializable {
         SetTotal(p.getPreco(),true);
         Fill(list);
     }
+//Remove produtos do carrinho
+    @FXML
     public void RmvProduto(ActionEvent evente)
     {
         Produto p = (Produto) TabelaCarrinho.getSelectionModel().getSelectedItem();
@@ -114,18 +141,20 @@ public class VendaAlimentosController implements Initializable {
         SetTotal(p.getPreco(),false);
         Fill(list);
     }
+//Configura o carrinho
     public void SetTabelaCarrinho()
     {
         CProdutoCarrinho.setCellValueFactory(new PropertyValueFactory<>("nome"));
         CProdutoQuantidade.setCellValueFactory(new PropertyValueFactory<>("quantidadeDeVenda"));
     }
+//Popula a tabela carrinho com o usuario adicionar
     public void Fill(ArrayList<Produto> list)
     {
         ObservableList<Produto> Produtos = FXCollections.observableArrayList(list);
         TabelaCarrinho.getItems().removeAll(TabelaCarrinho.getItems());
         TabelaCarrinho.setItems(Produtos);
-
     }
+//Define o tatal da compra
     public void SetTotal(double valor,boolean operação)
     {
         if(operação)
@@ -144,6 +173,7 @@ public class VendaAlimentosController implements Initializable {
         }
 
     }
+//Adiciona sombras
     public void Shadow()
     {
         DropShadow Shad = new DropShadow();
@@ -156,6 +186,8 @@ public class VendaAlimentosController implements Initializable {
         BtnRmv.setEffect(Shad);
         TxtTotal.setEffect(Shad);
     }
+//Configura o botão finalizar
+    @FXML
     public void Finalizar(ActionEvent event)
     {
         Alert alert =new Alert(Alert.AlertType.INFORMATION);
@@ -163,7 +195,13 @@ public class VendaAlimentosController implements Initializable {
         alert.setHeaderText(null);
         alert.setContentText("A venda no valor de R$"+TxtTotal.getText()+(",foi concluida com sucesso"));
         alert.showAndWait();
+        TabelaCarrinho.getItems().removeAll(TabelaCarrinho.getItems());
+        SetTotal(0,false);
+        list.clear();
+        total=0;
     }
+//Configura o botão cancelar
+    @FXML
     public void Cancelar(ActionEvent event)
     {
         Alert alert =new Alert(Alert.AlertType.INFORMATION);
@@ -173,6 +211,14 @@ public class VendaAlimentosController implements Initializable {
         alert.showAndWait();
         TabelaCarrinho.getItems().removeAll(TabelaCarrinho.getItems());
         SetTotal(0,false);
+        list.clear();
+        total=0;
+    }
+//Define o total com o valor vindo dos ingressos
+    public void SetTotal(double valor)
+    {
+        total=valor;
+        TxtTotal.setText(Double.toString(total));
     }
 
 

@@ -80,8 +80,8 @@ public class LoginController implements Initializable{
                                 stage.centerOnScreen();
                                 stage.initStyle(StageStyle.UNDECORATED);
                                 stage.setMaximized(true);
-                                HomeAtendenteController controle = (HomeAtendenteController)loader.getController();
-                                controle.GetUser(x);
+                                HomeAtendenteController controle =loader.getController();
+                                controle.SetUser(x);
                                 stage.show();
                             } catch (IOException e) {
                                 e.printStackTrace();
@@ -99,6 +99,8 @@ public class LoginController implements Initializable{
                                 stage.centerOnScreen();
                                 stage.initStyle(StageStyle.UNDECORATED);
                                 stage.setMaximized(true);
+                                HomeAdminController controller = loader.getController();
+                                controller.SetUser(x);
                                 stage.show();
                             } catch (IOException e) {
                                 e.printStackTrace();

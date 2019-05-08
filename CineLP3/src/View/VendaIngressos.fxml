@@ -16,122 +16,7 @@
 
 <AnchorPane fx:id="PnPrincipal" prefHeight="681.0" prefWidth="1001.0" style="-fx-background-color: #80CBC4;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.VendaIngressosController">
    <children>
-      <Pane fx:id="PnSelecionar" layoutX="500.0" layoutY="221.0" prefHeight="403.0" prefWidth="357.0" style="-fx-background-color: #009688;" AnchorPane.bottomAnchor="57.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="221.0">
-         <children>
-            <Label contentDisplay="CENTER" layoutX="69.0" layoutY="58.0" text="Quantidade de Ingressos" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-            <GridPane alignment="CENTER" layoutX="25.0" layoutY="128.0" prefHeight="317.0" prefWidth="357.0">
-              <columnConstraints>
-                <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="202.0" minWidth="10.0" prefWidth="134.0" />
-                <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="80.0" minWidth="10.0" prefWidth="59.0" />
-                 <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="56.0" minWidth="10.0" prefWidth="56.0" />
-                 <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" maxWidth="130.0" minWidth="10.0" prefWidth="100.0" />
-                 
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints maxHeight="137.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="133.0" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="120.0" minHeight="10.0" prefHeight="76.0" vgrow="SOMETIMES" />
-                 <RowConstraints maxHeight="147.0" minHeight="10.0" prefHeight="91.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="147.0" minHeight="10.0" prefHeight="91.0" vgrow="SOMETIMES" />
-                </rowConstraints>
-               <children>
-                  <Label text="Entrada inteira" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="19.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets />
-                     </GridPane.margin>
-                  </Label>
-                  <Spinner fx:id="SpnInt" prefHeight="0.0" prefWidth="60.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-                  <Label text="Meia entrada" textFill="WHITE" GridPane.rowIndex="1">
-                     <font>
-                        <Font name="System Bold" size="19.0" />
-                     </font>
-                  </Label>
-                  <Spinner fx:id="SpnMeia" prefHeight="0.0" prefWidth="60.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Label text="Total:" textFill="WHITE" GridPane.rowIndex="3">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="LbValorTotal" text="0.0" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="3">
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="LbPrecoInteira" textFill="WHITE" GridPane.columnIndex="3">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="LbPrecoMeia" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="1">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Label>
-                  <Label text="R$" textFill="WHITE" GridPane.columnIndex="2">
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font>
-                  </Label>
-                  <Label text="R$" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font>
-                  </Label>
-                  <Label text="R$" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font>
-                  </Label>
-               </children>
-            </GridPane>
-         </children>
-      </Pane>
-      <AnchorPane fx:id="PnIngressos" layoutX="74.0" layoutY="231.0" maxHeight="412.0" maxWidth="552.0" prefHeight="412.0" prefWidth="459.0" style="-fx-background-color: #009688;" AnchorPane.bottomAnchor="51.0" AnchorPane.leftAnchor="74.0" AnchorPane.topAnchor="218.0">
-         <children>
-            <Button fx:id="BtnConfirmar" layoutX="320.0" layoutY="324.0" mnemonicParsing="false" onAction="#Confirma" text="Confirmar" />
-            <Button fx:id="BtnCancelar" layoutX="113.0" layoutY="324.0" mnemonicParsing="false" onAction="#Cancelar" prefHeight="0.0" prefWidth="69.0" text="Cancelar" />
-            <Label layoutX="239.0" layoutY="109.0" text="Filme:" textFill="WHITE">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-            <ComboBox fx:id="CbFilme" layoutX="291.0" layoutY="107.0" prefHeight="25.0" prefWidth="126.0" />
-            <Label layoutX="234.0" layoutY="183.0" text="Sessão:" textFill="WHITE">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-            <ComboBox fx:id="CbSessao" layoutX="291.0" layoutY="181.0" prefHeight="25.0" prefWidth="126.0" />
-            <Label layoutX="243.0" layoutY="264.0" text="Sala:" textFill="WHITE">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-            <Label fx:id="LbSala" layoutX="291.0" layoutY="265.0" prefHeight="19.0" prefWidth="126.0" text="-" textFill="WHITE">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Label>
-            <ImageView fx:id="ImgCapa" fitHeight="227.0" fitWidth="153.0" layoutX="37.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Resources/Capas/ImagemNãoDisponivel.png" />
-               </image>
-            </ImageView>
-            <Label layoutX="185.0" layoutY="14.0" text="Filmes" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="30.0" />
-               </font>
-            </Label>
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="PnBilheteria" layoutX="266.0" layoutY="64.0" prefHeight="88.0" prefWidth="534.0" style="-fx-background-color: #009688;" AnchorPane.topAnchor="64.0">
+      <AnchorPane fx:id="PnBilheteria" layoutX="57.0" layoutY="50.0" prefHeight="88.0" prefWidth="534.0" style="-fx-background-color: #009688;" AnchorPane.topAnchor="50.0">
          <children>
             <Label layoutX="128.0" layoutY="8.0" text="BILHETERIA" textFill="WHITE">
                <font>
@@ -150,6 +35,130 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <Button layoutX="541.0" layoutY="173.0" mnemonicParsing="false" onAction="#GetValorToOpenAlimentos" text="Button" />
+      <Pane fx:id="PnFundo" layoutX="-1.0" layoutY="178.0" prefHeight="503.0" prefWidth="1001.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="1.0">
+         <children>
+            <Pane fx:id="PnSelecionar" layoutX="540.0" layoutY="59.0" prefHeight="412.0" prefWidth="357.0" style="-fx-background-color: #009688;">
+               <children>
+                  <Label contentDisplay="CENTER" layoutX="69.0" layoutY="58.0" text="Quantidade de Ingressos" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <GridPane alignment="CENTER" layoutX="25.0" layoutY="128.0" prefHeight="317.0" prefWidth="357.0">
+                    <columnConstraints>
+                      <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="202.0" minWidth="10.0" prefWidth="134.0" />
+                      <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="80.0" minWidth="10.0" prefWidth="59.0" />
+                       <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="56.0" minWidth="10.0" prefWidth="56.0" />
+                       <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" maxWidth="130.0" minWidth="10.0" prefWidth="100.0" />
+                       
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="137.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="133.0" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="120.0" minHeight="10.0" prefHeight="76.0" vgrow="SOMETIMES" />
+                       <RowConstraints maxHeight="147.0" minHeight="10.0" prefHeight="91.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="147.0" minHeight="10.0" prefHeight="91.0" vgrow="SOMETIMES" />
+                      </rowConstraints>
+                     <children>
+                        <Label text="Entrada inteira" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets />
+                           </GridPane.margin>
+                        </Label>
+                        <Spinner fx:id="SpnInt" prefHeight="0.0" prefWidth="60.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                        <Label text="Meia entrada" textFill="WHITE" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                        <Spinner fx:id="SpnMeia" prefHeight="0.0" prefWidth="60.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label text="Total:" textFill="WHITE" GridPane.rowIndex="3">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="LbValorTotal" text="0.0" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="LbPrecoInteira" textFill="WHITE" GridPane.columnIndex="3">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="LbPrecoMeia" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label text="R$" textFill="WHITE" GridPane.columnIndex="2">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label text="R$" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label text="R$" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </GridPane>
+               </children>
+            </Pane>
+            <AnchorPane fx:id="PnIngressos" layoutX="42.0" layoutY="59.0" maxHeight="412.0" maxWidth="552.0" prefHeight="412.0" prefWidth="459.0" style="-fx-background-color: #009688;">
+               <children>
+                  <Label layoutX="239.0" layoutY="109.0" text="Filme:" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="CbFilme" layoutX="291.0" layoutY="107.0" prefHeight="25.0" prefWidth="126.0" />
+                  <Label layoutX="234.0" layoutY="183.0" text="Sessão:" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="CbSessao" layoutX="291.0" layoutY="181.0" prefHeight="25.0" prefWidth="126.0" />
+                  <Label layoutX="243.0" layoutY="264.0" text="Sala:" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="LbSala" layoutX="291.0" layoutY="265.0" prefHeight="19.0" prefWidth="126.0" text="-" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="ImgCapa" fitHeight="227.0" fitWidth="153.0" layoutX="37.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Resources/Capas/ImagemNãoDisponivel.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="185.0" layoutY="14.0" text="Filmes" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </Pane>
+      <Pane fx:id="PnBotoes" layoutX="711.0" layoutY="50.0" prefHeight="88.0" prefWidth="200.0" style="-fx-background-color: #009688;">
+         <children>
+            <Button fx:id="BtnVoltar" layoutX="14.0" layoutY="37.0" mnemonicParsing="false" onAction="#Voltar" prefHeight="25.0" prefWidth="69.0" text="&lt;-Voltar" />
+            <Button fx:id="BtnCancelar" layoutX="14.0" layoutY="37.0" mnemonicParsing="false" onAction="#Cancelar" prefHeight="0.0" prefWidth="69.0" text="Cancelar" />
+            <Button fx:id="BtnProximo" layoutX="110.0" layoutY="37.0" mnemonicParsing="false" onAction="#Proximo" text="Proximo -&gt;" />
+            <Button fx:id="BtnConfirma" layoutX="110.0" layoutY="37.0" mnemonicParsing="false" onAction="#Confirmar" prefHeight="25.0" prefWidth="76.0" text="Confirmar" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
