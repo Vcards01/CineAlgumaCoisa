@@ -1,28 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Toda a tela ADM, arrumando o Gerenciador com todas as tabelas">
-      <change afterPath="$PROJECT_DIR$/src/Controller/EstoqueGerTableController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/FilmesGerTableController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/FuncGerTableController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/GerenciamentoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/SalasGerTableController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/SessaoGerTableController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Tables/EstoqueGerTable.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Tables/FilmesGerTable.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Tables/FuncGerTable.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Tables/SalasGerTable.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Tables/SessaoGerTable.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/Gerenciamento.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CineLP3/Controller/HomeAdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CineLP3/Controller/HomeAdminController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CineLP3/Controller/VendaAlimentosController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CineLP3/Controller/VendaAlimentosController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CineLP3/META-INF/CineLP3.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CineLP3/View/HomeAdmin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CineLP3/View/HomeAdmin.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/HomeAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeAdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/HomeAdmin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/HomeAdmin.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Toda a tela ADM, arrumando o Gerenciador com todas as tabelas" />
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -94,8 +73,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/HomeAtendenteController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="236" column="29" lean-forward="true" selection-start-line="236" selection-start-column="29" selection-end-line="236" selection-end-column="29" />
+            <state relative-caret-position="127">
+              <caret line="227" column="98" lean-forward="true" selection-start-line="227" selection-start-column="98" selection-end-line="227" selection-end-column="98" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -217,6 +196,7 @@
     </FindUsagesManager>
   </component>
   <component name="Git.Settings">
+    <option name="UPDATE_TYPE" value="MERGE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
@@ -367,6 +347,14 @@
       <recent name="C:\Users\vhcar\IdeaProjects\CineLP3\src\View" />
     </key>
   </component>
+  <component name="RunAnythingCache">
+    <myKeys>
+      <visibility group="Gradle tasks" flag="false" />
+      <visibility group="Maven goals" flag="false" />
+      <visibility group="Recent projects" flag="false" />
+      <visibility group="Run configurations" flag="false" />
+    </myKeys>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -465,6 +453,14 @@
       <workItem from="1359379250712" duration="1302000" />
       <workItem from="1556576762354" duration="4505000" />
     </task>
+    <task id="LOCAL-00001" summary="Toda a tela ADM, arrumando o Gerenciador com todas as tabelas">
+      <created>1557543231218</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1557543231218</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -472,7 +468,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.21641791" />
       <window_info id="Structure" order="1" weight="0.25" />
@@ -489,12 +484,12 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Application Servers" order="7" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="8" visible="true" weight="0.32936078" />
       <window_info anchor="bottom" id="Problems" order="9" />
       <window_info anchor="bottom" id="Changes" order="10" />
       <window_info anchor="bottom" id="Profiler" order="11" />
       <window_info anchor="bottom" id="Event Log" order="12" />
-      <window_info active="true" anchor="bottom" id="Messages" order="13" visible="true" weight="0.32827735" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.32827735" />
       <window_info anchor="bottom" id="Terminal" order="14" />
       <window_info anchor="bottom" id="Docker" order="15" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="16" />
@@ -550,6 +545,32 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
@@ -1000,8 +1021,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/HomeAtendenteController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="236" column="29" lean-forward="true" selection-start-line="236" selection-start-column="29" selection-end-line="236" selection-end-column="29" />
+        <state relative-caret-position="127">
+          <caret line="227" column="98" lean-forward="true" selection-start-line="227" selection-start-column="98" selection-end-line="227" selection-end-column="98" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
