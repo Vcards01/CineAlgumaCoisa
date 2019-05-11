@@ -44,9 +44,9 @@ public class HomeAdminController implements Initializable {
     @FXML
     public Pane PnHome;
     @FXML
-    public Pane PnIngressos;
+    public Pane PnGerenciamento;
     @FXML
-    public Pane PnAlimentação;
+    public Pane PnCaixa;
     @FXML
     private Label LbData;
     @FXML
@@ -122,6 +122,44 @@ public class HomeAdminController implements Initializable {
         PnTopo.setStyle("-fx-background-color:   #1F72A6");
         LbTituloJanela.setText("Home Screen");
         PnJanelas.getChildren().setAll(PnDataHora,PnVenda,Tabela,PnInfo,PnButton);
+        HomeHighlight();
+    }
+    @FXML
+    public void OpenGerenciador(MouseEvent Event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/Gerenciamento.fxml"));
+        AnchorPane pane = loader.load();
+        GerenciamentoController controller = loader.getController();
+        controller.SetMedidas(PnJanelas.getHeight(),PnJanelas.getWidth());
+        PnRoot.setStyle("-fx-background-color:  #1B0140");
+        PnMenu.setStyle("-fx-background-color:  #4703A6");
+        PnTopo.setStyle("-fx-background-color:  #4703A6");
+        LbTituloJanela.setText("Gerenciamento");
+        PnJanelas.getChildren().setAll(pane);
+        GerenciamentoHighlight();
+    }
+    private void HomeHighlight() {
+        PnHome.setOnMouseEntered(event -> { PnHome.setStyle("-fx-background-color: #082640");});
+        PnHome.setOnMouseExited(event -> {PnHome.setStyle("-fx-background-color:  transparent");});
+        PnGerenciamento.setOnMouseEntered(event -> { PnGerenciamento.setStyle("-fx-background-color:  #082640");});
+        PnGerenciamento.setOnMouseExited(event -> {PnGerenciamento.setStyle("-fx-background-color:  transparent");});
+        PnCaixa.setOnMouseEntered(event -> {PnCaixa.setStyle("-fx-background-color:  #082640");});
+        PnCaixa.setOnMouseExited(event -> {PnCaixa.setStyle("-fx-background-color:  transparent");});
+    }
+    private void GerenciamentoHighlight() {
+        PnHome.setOnMouseEntered(event -> { PnHome.setStyle("-fx-background-color:  #1B0140");});
+        PnHome.setOnMouseExited(event -> {PnHome.setStyle("-fx-background-color:  transparent");});
+        PnGerenciamento.setOnMouseEntered(event -> { PnGerenciamento.setStyle("-fx-background-color:  #1B0140");});
+        PnGerenciamento.setOnMouseExited(event -> {PnGerenciamento.setStyle("-fx-background-color:  transparent");});
+        PnCaixa.setOnMouseEntered(event -> {PnCaixa.setStyle("-fx-background-color:  #1B0140");});
+        PnCaixa.setOnMouseExited(event -> {PnCaixa.setStyle("-fx-background-color:  transparent");});
+    }
+    private void CaixaHighlight() {
+        PnHome.setOnMouseEntered(event -> { PnHome.setStyle("-fx-background-color:  #1B0140");});
+        PnHome.setOnMouseExited(event -> {PnHome.setStyle("-fx-background-color:  transparent");});
+        PnGerenciamento.setOnMouseEntered(event -> { PnGerenciamento.setStyle("-fx-background-color:  #1B0140");});
+        PnGerenciamento.setOnMouseExited(event -> {PnGerenciamento.setStyle("-fx-background-color:  transparent");});
+        PnCaixa.setOnMouseEntered(event -> {PnCaixa.setStyle("-fx-background-color:  #1B0140");});
+        PnCaixa.setOnMouseExited(event -> {PnCaixa.setStyle("-fx-background-color:  transparent");});
     }
     @FXML
     public void SetHora()
@@ -147,15 +185,5 @@ public class HomeAdminController implements Initializable {
         Date date = new Date();
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         LbData.setText(format.format(date));
-    }
-    private ObservableList<Filme> GetFilmes() {
-        FilmesDAO f = null;
-        try {
-            f = new FilmesDAO();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        ObservableList<Filme> Filmes = FXCollections.observableArrayList(f.getFilmes());
-        return Filmes;
     }
 }
