@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="FilmesTable" prefHeight="493.0" prefWidth="641.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TableGerControllers.TableGerFilmeController">
+   <children>
+      <TableView fx:id="Tabela" layoutY="72.0" prefHeight="420.0" prefWidth="641.0">
+         <columns>
+            <TableColumn fx:id="ColunaTitulo" prefWidth="216.0" text="Título" />
+            <TableColumn fx:id="ColunaDuracao" prefWidth="208.0" text="Duração" />
+            <TableColumn fx:id="ColunaGenero" prefWidth="216.0" text="Gênero" />
+         </columns>
+      </TableView>
+      <Pane fx:id="PnBtnCrud" prefHeight="72.0" prefWidth="641.0" style="-fx-background-color: #00796B;">
+         <children>
+            <Pane fx:id="AddBtn" layoutX="14.0" layoutY="15.0" onMouseClicked="#AddFilme" prefHeight="43.0" prefWidth="133.0" style="-fx-border-color: #FFFFFF; -fx-border-radius: 30%;">
+               <children>
+                  <Label layoutX="23.0" layoutY="6.0" text="Adicionar" textFill="WHITE">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Pane>
+            <Pane fx:id="EditBtn" layoutX="254.0" layoutY="15.0" onMouseClicked="#EditFilme" prefHeight="43.0" prefWidth="133.0" style="-fx-border-color: #FFFFFF; -fx-border-radius: 305;">
+               <children>
+                  <Label layoutX="40.0" layoutY="6.0" text="Editar" textFill="WHITE">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Pane>
+            <Pane fx:id="RmvBtn" layoutX="494.0" layoutY="15.0" onMouseClicked="#RmvFilme" prefHeight="43.0" prefWidth="133.0" style="-fx-border-color: #FFFFFF; -fx-border-radius: 30%;">
+               <children>
+                  <Label layoutX="25.0" layoutY="6.0" text="Remover" textFill="WHITE">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Pane>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

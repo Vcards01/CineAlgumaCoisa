@@ -1,13 +1,10 @@
 package Controller;
 
-import DataBaseSimulation.FilmesDAO;
 import Model.Filme;
 import Model.Funcionario;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -17,15 +14,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
-
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
@@ -58,40 +55,22 @@ public class HomeAdminController implements Initializable {
     @FXML
     private AnchorPane PnTopo;
     @FXML
-    private Label LbClose;
-    @FXML
-    private Label LbVendasRealizadas;
-    @FXML
     private AnchorPane PnJanelas;
     @FXML
-    private ImageView ImgCapaFilme;
-    @FXML
-    private Button btnVerMais;
-    @FXML
     private TableView<Filme> Tabela;
-    @FXML
-    private TableColumn<Filme,String> ColunaFilme;
-    @FXML
-    private TableColumn<Filme,String> ColunaGenero;
     @FXML
     private Pane PnLogout;
     @FXML
     private Label lbUsuario;
     @FXML
     private Label LbHora;
-    @FXML
-    private Label LbTitulo;
-    @FXML
-    private Label LbGenero;
-    @FXML
-    private Label LbDuracao;
-    @FXML
-    public Label LbSinopse;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
        PnInfo.setVisible(false);
        SetHora();
        SetData();
+       Shadow();
     }
     @FXML
     public void Logout(MouseEvent event)
@@ -115,6 +94,7 @@ public class HomeAdminController implements Initializable {
         Platform.exit();
         System.exit(0);
     }
+    @FXML
     public void OpenHome(MouseEvent Event){
         PnJanelas.getChildren().clear();
         PnRoot.setStyle("-fx-background-color:   #082640");
@@ -130,12 +110,30 @@ public class HomeAdminController implements Initializable {
         AnchorPane pane = loader.load();
         GerenciamentoController controller = loader.getController();
         controller.SetMedidas(PnJanelas.getHeight(),PnJanelas.getWidth());
-        PnRoot.setStyle("-fx-background-color:  #1B0140");
-        PnMenu.setStyle("-fx-background-color:  #4703A6");
-        PnTopo.setStyle("-fx-background-color:  #4703A6");
+        PnRoot.setStyle("-fx-background-color:  #004D40");
+        PnMenu.setStyle("-fx-background-color:  #00796B");
+        PnTopo.setStyle("-fx-background-color:  #00796B");
         LbTituloJanela.setText("Gerenciamento");
         PnJanelas.getChildren().setAll(pane);
         GerenciamentoHighlight();
+    }
+    //Adiciona Sombra aos paineis
+    public void Shadow()
+    {
+        DropShadow Shad = new DropShadow();
+        Shad.setOffsetX(4);
+        Shad.setOffsetY(6);
+        Shad.setColor(Color.rgb(0, 0, 0));
+        DropShadow Shad2 = new DropShadow();
+        Shad.setOffsetX(2);
+        Shad.setOffsetY(4);
+        Shad.setColor(Color.rgb(0, 0, 0));
+        PnInfo.setEffect(Shad);
+        PnVenda.setEffect(Shad);
+        PnDataHora.setEffect(Shad);
+        PnTopo.setEffect(Shad2);
+        PnMenu.setEffect(Shad);
+        Tabela.setEffect(Shad2);
     }
     private void HomeHighlight() {
         PnHome.setOnMouseEntered(event -> { PnHome.setStyle("-fx-background-color: #082640");});
@@ -175,7 +173,6 @@ public class HomeAdminController implements Initializable {
         lbUsuario.setText(f.getUsuario());
 
     }
-    @FXML
     private void atualizaHoras() {
         Date agora = new Date();
         SimpleDateFormat formatador = new SimpleDateFormat("hh:mm:ss a");

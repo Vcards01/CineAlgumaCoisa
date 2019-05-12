@@ -1,5 +1,8 @@
 package Model;
 
+import DataBaseSimulation.LugaresDAO;
+
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class Sessao {
@@ -19,6 +22,7 @@ public class Sessao {
         this.sala = sala;
         this.precoEntradaInteira=precoEntradaInteira;
         this.precoEntradaMeia=precoEntradaMeia;
+
     }
     public  Sessao()
     {
@@ -64,15 +68,14 @@ public class Sessao {
     public void setIngressosVendidos(int ingressosVendidos) {
         IngressosVendidos = ingressosVendidos;
     }
-
     public double getPrecoEntradaInteira() {
         return precoEntradaInteira;
     }
-
     public double getPrecoEntradaMeia() {
         return precoEntradaMeia;
     }
     public ArrayList<Lugares> getLugares() {
         return lugares;
     }
+
 }

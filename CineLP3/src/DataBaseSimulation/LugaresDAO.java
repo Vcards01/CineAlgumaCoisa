@@ -21,6 +21,7 @@ public class LugaresDAO {
             lugares.add(new Lugares(i+1, false, SDAO.read(1)));
             lugares.add(new Lugares(i+1, false, SDAO.read(4)));
             lugares.add(new Lugares(i+1, true,SDAO.read(7)));
+
         }
         for(int i=0;i<50;i++) {
             lugares.add(new Lugares(i+1, false, SDAO.read(2)));
@@ -37,7 +38,6 @@ public class LugaresDAO {
             lugares.add(new Lugares(i+1, true, SDAO.read(10)));
         }
         lugares.add(new Lugares(40,false,SDAO.read(10)));
-
     }
     public ArrayList<Lugares> getLugares()
     {

@@ -8,22 +8,25 @@ public class Funcionario {
     private int senha;
     private String usuario;
     private String tipo;
+    private double salario;
     private int qtddVendas;
 
-    public Funcionario(String cpf, String nome, int senha, String usuario, String tipo) {
+    public Funcionario(String cpf, String nome, int senha, String usuario, String tipo, double salario) {
         this.cpf = cpf;
         this.nome = nome;
         this.senha = senha;
         this.usuario = usuario;
         this.tipo = tipo;
+        this.salario=salario;
         qtddVendas=20;
     }
-    public Funcionario(String cpf, String nome, int senha, String usuario, String tipo,int qtddVendas) {
+    public Funcionario(String cpf, String nome, int senha, String usuario, String tipo,double salario,int qtddVendas) {
         this.cpf = cpf;
         this.nome = nome;
         this.senha = senha;
         this.usuario = usuario;
         this.tipo = tipo;
+        this.salario=salario;
         this.qtddVendas=qtddVendas;
     }
     public  Funcionario()
@@ -55,6 +58,10 @@ public class Funcionario {
 
     public int getQtddVendas() {
         return qtddVendas;
+    }
+
+    public double getSalario() {
+        return salario;
     }
     //Setters
 

@@ -7,16 +7,16 @@ import java.util.ArrayList;
 
 public class ProdutosDAO {
 
-    private Produto p1 = new Produto(1,10,"Pipoca Pequena","Comida",8.50);
-    private Produto p2 = new Produto(2,5,"Pipoca Media ","Comida",10.00);
-    private Produto p3 = new Produto(3,7,"Pipoca Grande","Comida",12.50);
-    private Produto p4 = new Produto(4,14,"Pipoca Doce","Comida",10.00);
+    private Produto p1 = new Produto(1,10,"Pipoca Pequena","Salgado",8.50);
+    private Produto p2 = new Produto(2,5,"Pipoca Media ","Salgado",10.00);
+    private Produto p3 = new Produto(3,7,"Pipoca Grande","Salgado",12.50);
+    private Produto p4 = new Produto(4,14,"Pipoca Doce","Doce",10.00);
     private Produto p5 = new Produto(5,2,"Coca Cola 350ml","Bebida",5.00);
     private Produto p6 = new Produto(6,8,"Coca Cola 600ml","Bebida",8.50);
     private Produto p7 = new Produto(7,15,"Fanta Uva 350ml","Bebida",8.50);
-    private Produto p8 = new Produto(8,6,"Chocolate","Comida",8.50);
+    private Produto p8 = new Produto(8,6,"Chocolate","Doce",8.50);
     private Produto p9 = new Produto(9,8,"Bala","Doce",8.50);
-    private Produto p10 = new Produto(10,7,"Halls","Bala",8.50);
+    private Produto p10 = new Produto(10,7,"Halls","Doce",8.50);
 
 
     public Produto read(int id)

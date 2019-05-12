@@ -33,7 +33,7 @@ public class EscolhaLugarController implements Initializable {
     private Label LbQtddIngressos;
     @FXML
     private AnchorPane PnPoltronasEsc;
-    @FXML
+
     private AnchorPane PnPoltronasDi;
     //Imagem de cadeira Ocupada
     private Image Ocupada = new Image("Resources/CadeiraOcupada.png");

@@ -24,7 +24,11 @@ public class Sala {
     {
         sessoes.remove(s);
     }
-
+    @Override
+    public String toString()
+    {
+        return Integer.toString(id);
+    }
     //Getters e Setters
 
 

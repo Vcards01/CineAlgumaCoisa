@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="SessaoTable" prefHeight="492.0" prefWidth="634.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TableGerControllers.TableGerSessaoController">
+   <children>
+      <TableView fx:id="TabelaSessao" layoutY="72.0" prefHeight="420.0" prefWidth="642.0">
+         <columns>
+            <TableColumn fx:id="ColunaFilme" prefWidth="170.0" text="Filme" />
+            <TableColumn fx:id="ColunaSala" prefWidth="70.0" text="Sala" />
+            <TableColumn fx:id="ColunaPrecoInteira" minWidth="0.0" prefWidth="115.0" text="Preço inteira" />
+            <TableColumn fx:id="ColunaPrecoMeia" minWidth="0.0" prefWidth="108.0" text="Preço meia" />
+            <TableColumn fx:id="ColunaHoraExib" prefWidth="180.0" text="Horário de Exibição" />
+         </columns>
+      </TableView>
+      <Pane fx:id="PnBtnCrud" prefHeight="72.0" prefWidth="642.0" style="-fx-background-color: #00796B;">
+         <children>
+            <Pane fx:id="AddBtn" layoutX="14.0" layoutY="15.0" onMouseClicked="#AddSessao" prefHeight="43.0" prefWidth="133.0" style="-fx-border-color: #FFFFFF; -fx-border-radius: 30%;">
+               <children>
+                  <Label layoutX="23.0" layoutY="6.0" text="Adicionar" textFill="WHITE">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="EditBtn" layoutX="255.0" layoutY="15.0" onMouseClicked="#EditSessao" prefHeight="43.0" prefWidth="133.0" style="-fx-border-color: #FFFFFF; -fx-border-radius: 305;">
+               <children>
+                  <Label layoutX="40.0" layoutY="6.0" text="Editar" textFill="WHITE">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="RmvBtn" layoutX="495.0" layoutY="15.0" onMouseClicked="#RmvSessao" prefHeight="43.0" prefWidth="133.0" style="-fx-border-color: #FFFFFF; -fx-border-radius: 30%;">
+               <children>
+                  <Label layoutX="25.0" layoutY="6.0" text="Remover" textFill="WHITE">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
