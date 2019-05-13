@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="PnFundo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="702.0" prefWidth="1007.0" style="-fx-background-color: #1B5E20;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.CaixaController">
+   <children>
+      <AnchorPane fx:id="PnStatus" layoutX="731.0" layoutY="73.0" prefHeight="88.0" prefWidth="232.0" style="-fx-background-color: #388E3C;" AnchorPane.rightAnchor="44.0" AnchorPane.topAnchor="73.0">
+         <children>
+            <Label fx:id="LbStatus" layoutX="53.0" layoutY="19.0" text="Fechado" textFill="WHITE">
+               <font>
+                  <Font size="34.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Pane layoutY="184.0" prefHeight="519.0" prefWidth="1007.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <AnchorPane fx:id="PnInicial" layoutX="80.0" layoutY="143.0" prefHeight="88.0" prefWidth="240.0" style="-fx-background-color: #388E3C;">
+               <children>
+                  <Label layoutX="43.0" layoutY="27.0" text="R$" textFill="WHITE">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="LbInicial" layoutX="84.0" layoutY="22.0" text="00.00" textFill="WHITE">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="PnLucro" layoutX="384.0" layoutY="143.0" prefHeight="88.0" prefWidth="240.0" style="-fx-background-color: #388E3C;">
+               <children>
+                  <Label layoutX="44.0" layoutY="27.0" text="R$" textFill="WHITE">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="LbLucro" layoutX="84.0" layoutY="22.0" text="00.00" textFill="WHITE">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="PnTotal" layoutX="705.0" layoutY="143.0" prefHeight="88.0" prefWidth="240.0" style="-fx-background-color: #388E3C;">
+               <children>
+                  <Label layoutX="39.0" layoutY="27.0" text="R$" textFill="WHITE">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="LbTotal" layoutX="75.0" layoutY="22.0" prefHeight="45.0" prefWidth="91.0" text="00.00" textFill="WHITE">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <Label layoutX="100.0" layoutY="110.0" text="Valor Inicial em caixa" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="477.0" layoutY="110.0" text="Lucro" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="801.0" layoutY="110.0" text="Total" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Button fx:id="BtnFechar" layoutX="343.0" layoutY="465.0" mnemonicParsing="false" onAction="#FecharCaixa" text="Fechar Caixa" />
+            <Button fx:id="BtnAbrir" layoutX="588.0" layoutY="465.0" mnemonicParsing="false" onAction="#AbrirCaixa" text="Abrir caixa" />
+         </children>
+      </Pane>
+      <Label layoutX="802.0" layoutY="27.0" text="Status" textFill="WHITE" AnchorPane.rightAnchor="114.0" AnchorPane.topAnchor="27.0">
+         <font>
+            <Font name="System Bold" size="31.0" />
+         </font>
+      </Label>
+      <AnchorPane fx:id="PnTitulo" layoutX="78.0" layoutY="77.0" prefHeight="80.0" prefWidth="458.0" style="-fx-background-color: #388E3C;" AnchorPane.leftAnchor="78.0" AnchorPane.topAnchor="77.0">
+         <children>
+            <Label fx:id="LbStatus1" layoutX="189.0" layoutY="13.0" text="Caixa" textFill="WHITE">
+               <font>
+                  <Font size="34.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="88.0" fitWidth="80.0" layoutX="14.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Resources/Caixa.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="88.0" fitWidth="80.0" layoutX="364.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Resources/Caixa.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

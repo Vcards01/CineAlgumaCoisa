@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.Caixa;
 import Model.Filme;
 import Model.Funcionario;
 import javafx.animation.KeyFrame;
@@ -45,6 +46,8 @@ public class HomeAdminController implements Initializable {
     @FXML
     public Pane PnCaixa;
     @FXML
+    public TableColumn ColunaFilme;
+    @FXML
     private Label LbData;
     @FXML
     private AnchorPane PnMenu;
@@ -71,6 +74,7 @@ public class HomeAdminController implements Initializable {
        SetHora();
        SetData();
        Shadow();
+
     }
     @FXML
     public void Logout(MouseEvent event)
@@ -117,6 +121,19 @@ public class HomeAdminController implements Initializable {
         PnJanelas.getChildren().setAll(pane);
         GerenciamentoHighlight();
     }
+    @FXML
+    public void OpenCaixa(MouseEvent Event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/Caixa.fxml"));
+        AnchorPane pane = loader.load();
+        CaixaController controller = loader.getController();
+        controller.SetMedidas(PnJanelas.getHeight(),PnJanelas.getWidth());
+        PnRoot.setStyle("-fx-background-color:   #1B5E20");
+        PnMenu.setStyle("-fx-background-color:   #388E3C");
+        PnTopo.setStyle("-fx-background-color:   #388E3C");
+        LbTituloJanela.setText("Caixa");
+        PnJanelas.getChildren().setAll(pane);
+        CaixaHighlight();
+    }
     //Adiciona Sombra aos paineis
     public void Shadow()
     {
@@ -144,19 +161,19 @@ public class HomeAdminController implements Initializable {
         PnCaixa.setOnMouseExited(event -> {PnCaixa.setStyle("-fx-background-color:  transparent");});
     }
     private void GerenciamentoHighlight() {
-        PnHome.setOnMouseEntered(event -> { PnHome.setStyle("-fx-background-color:  #1B0140");});
+        PnHome.setOnMouseEntered(event -> { PnHome.setStyle("-fx-background-color:  #004D40");});
         PnHome.setOnMouseExited(event -> {PnHome.setStyle("-fx-background-color:  transparent");});
-        PnGerenciamento.setOnMouseEntered(event -> { PnGerenciamento.setStyle("-fx-background-color:  #1B0140");});
+        PnGerenciamento.setOnMouseEntered(event -> { PnGerenciamento.setStyle("-fx-background-color:  #004D40");});
         PnGerenciamento.setOnMouseExited(event -> {PnGerenciamento.setStyle("-fx-background-color:  transparent");});
-        PnCaixa.setOnMouseEntered(event -> {PnCaixa.setStyle("-fx-background-color:  #1B0140");});
+        PnCaixa.setOnMouseEntered(event -> {PnCaixa.setStyle("-fx-background-color:  #004D40");});
         PnCaixa.setOnMouseExited(event -> {PnCaixa.setStyle("-fx-background-color:  transparent");});
     }
     private void CaixaHighlight() {
-        PnHome.setOnMouseEntered(event -> { PnHome.setStyle("-fx-background-color:  #1B0140");});
+        PnHome.setOnMouseEntered(event -> { PnHome.setStyle("-fx-background-color:  #1B5E20");});
         PnHome.setOnMouseExited(event -> {PnHome.setStyle("-fx-background-color:  transparent");});
-        PnGerenciamento.setOnMouseEntered(event -> { PnGerenciamento.setStyle("-fx-background-color:  #1B0140");});
+        PnGerenciamento.setOnMouseEntered(event -> { PnGerenciamento.setStyle("-fx-background-color: #1B5E20");});
         PnGerenciamento.setOnMouseExited(event -> {PnGerenciamento.setStyle("-fx-background-color:  transparent");});
-        PnCaixa.setOnMouseEntered(event -> {PnCaixa.setStyle("-fx-background-color:  #1B0140");});
+        PnCaixa.setOnMouseEntered(event -> {PnCaixa.setStyle("-fx-background-color:  #1B5E20");});
         PnCaixa.setOnMouseExited(event -> {PnCaixa.setStyle("-fx-background-color:  transparent");});
     }
     @FXML
