@@ -1,8 +1,7 @@
 package Controller.TableGerControllers;
 
-import Controller.CRUDViewControllers.FilmesCRUDViewController;
 import Controller.CRUDViewControllers.SessaoCRUDViewController;
-import DataBaseSimulation.SessaoDAO;
+import DataBase.SessaoDAO;
 import Model.Filme;
 import Model.Sala;
 import Model.Sessao;
@@ -21,7 +20,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -54,12 +52,7 @@ public class TableGerSessaoController implements Initializable {
     }
 
     private ObservableList<Sessao> GetSessao(){
-        SessaoDAO s = null;
-        try {
-            s = new SessaoDAO();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        SessaoDAO s = new SessaoDAO();
         ObservableList<Sessao> Sessao = FXCollections.observableArrayList(s.getSessao());
         return Sessao;
     }

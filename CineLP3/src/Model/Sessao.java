@@ -1,8 +1,5 @@
 package Model;
 
-import DataBaseSimulation.LugaresDAO;
-
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class Sessao {
@@ -10,7 +7,8 @@ public class Sessao {
     private String horario;
     private Filme filme;
     private Sala sala;
-    private int IngressosVendidos;
+    private int qtddVendidos;
+    private int lugaresDisponiveis;
     private double precoEntradaInteira;
     private double precoEntradaMeia;
     private ArrayList<Lugares> lugares= new ArrayList<>();
@@ -20,6 +18,19 @@ public class Sessao {
         this.horario = horario;
         this.filme = filme;
         this.sala = sala;
+        this.qtddVendidos=0;
+        this.lugaresDisponiveis= sala.getQtddLugares();
+        this.precoEntradaInteira=precoEntradaInteira;
+        this.precoEntradaMeia=precoEntradaMeia;
+
+    }
+    public Sessao(int id, String horario, Filme filme, Sala sala,int qtddVendidos,double precoEntradaInteira,double precoEntradaMeia,int lugaresDisponiveis) {
+        this.id = id;
+        this.horario = horario;
+        this.filme = filme;
+        this.sala = sala;
+        this.qtddVendidos=qtddVendidos;
+        this.lugaresDisponiveis=lugaresDisponiveis;
         this.precoEntradaInteira=precoEntradaInteira;
         this.precoEntradaMeia=precoEntradaMeia;
 
@@ -62,11 +73,11 @@ public class Sessao {
         this.lugares = lugares;
     }
 
-    public int getIngressosVendidos() {
-        return IngressosVendidos;
+    public int getqtddVendidos() {
+        return qtddVendidos;
     }
-    public void setIngressosVendidos(int ingressosVendidos) {
-        IngressosVendidos = ingressosVendidos;
+    public void setQtddVendidos(int ingressosVendidos) {
+        qtddVendidos = ingressosVendidos;
     }
     public double getPrecoEntradaInteira() {
         return precoEntradaInteira;
@@ -78,4 +89,7 @@ public class Sessao {
         return lugares;
     }
 
+    public int getLugaresDisponiveis() {
+        return lugaresDisponiveis;
+    }
 }

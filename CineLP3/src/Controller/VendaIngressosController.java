@@ -1,8 +1,8 @@
 package Controller;
 
-import DataBaseSimulation.FilmesDAO;
-import DataBaseSimulation.LugaresDAO;
-import DataBaseSimulation.SessaoDAO;
+import DataBase.FilmeDAO;
+import DataBase.LugarDAO;
+import DataBase.SessaoDAO;
 import Model.Filme;
 import Model.Sessao;
 import javafx.beans.value.ChangeListener;
@@ -67,7 +67,7 @@ public class VendaIngressosController implements Initializable {
     //DAO de sessões
     private SessaoDAO SDAO = new SessaoDAO();
     //DAO de lugares
-    private LugaresDAO LDAO = new LugaresDAO();
+    private LugarDAO LDAO = new LugarDAO();
     //
     private int qtddLugaresOcupados=0;
     public VendaIngressosController() throws FileNotFoundException {
@@ -99,7 +99,7 @@ public class VendaIngressosController implements Initializable {
     {
             CbFilme.valueProperty().addListener(new ChangeListener<Filme>() {
                 @Override public void changed(ObservableValue ov, Filme f, Filme f1) {
-                    f1.setSessoes(SDAO.findbyFilme(f1));
+                    f1.setSessoes(SDAO.getSessao(f1));
                     ImgCapa.setImage(f1.getImage());
                     ObservableList<Sessao> Sessões = FXCollections.observableArrayList(f1.getSessoes());
                     CbSessao.setItems(Sessões);
@@ -136,7 +136,7 @@ public class VendaIngressosController implements Initializable {
 //Verifica quantos lugares ocupados tem na sessão e se ela ja esta lotada.
     private void VerificaSessão(Sessao s) {
         qtddLugaresOcupados=0;
-        s.setLugares(LDAO.FindBySessao(s));
+        s.setLugares(LDAO.getLugares(s));
         for (int i = 0; i < s.getLugares().size(); i++) {
             if (s.getLugares().get(i).isOcupado()) {
                 qtddLugaresOcupados++;
@@ -196,13 +196,8 @@ public class VendaIngressosController implements Initializable {
     }
 //Retorna uma ObservableList de filmes para popular a combobox.
     private ObservableList<Filme> GetFilmes() {
-        FilmesDAO f = null;
-        try {
-            f = new FilmesDAO();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        ObservableList<Filme> Filmes = FXCollections.observableArrayList(f.getFilmes());
+        FilmeDAO fDAO = new FilmeDAO();
+        ObservableList<Filme> Filmes = FXCollections.observableArrayList(fDAO.getFilmes());
         return Filmes;
     }
 //Configura o botão de cancelar

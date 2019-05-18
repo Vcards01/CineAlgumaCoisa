@@ -17,12 +17,23 @@ public class Filme {
     private String Img;
     private Image image ;
 
-    public Filme(int id, String nome, String genero, String sinopse, String duracao,String Img) throws FileNotFoundException {
+    public Filme(int id, String nome, String genero, String sinopse, String duracao,String Img)  {
         this.id = id;
         this.nome = nome;
         this.genero = genero;
         this.sinopse = sinopse;
         this.duracao = duracao;
+        this.qtddVendida=0;
+        this.Img=Img;
+        image=new Image(Img);
+    }
+    public Filme(int id, String nome, String genero, String sinopse, String duracao,int qtddVendida,String Img) {
+        this.id = id;
+        this.nome = nome;
+        this.genero = genero;
+        this.sinopse = sinopse;
+        this.duracao = duracao;
+        this.qtddVendida=qtddVendida;
         this.Img=Img;
         image=new Image(Img);
     }

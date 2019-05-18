@@ -1,6 +1,6 @@
 package Controller;
 
-import DataBaseSimulation.FilmesDAO;
+import DataBase.FilmeDAO;
 import Model.Filme;
 import Model.Funcionario;
 import javafx.animation.KeyFrame;
@@ -25,7 +25,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
-import java.io.FileNotFoundException;
+
 import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
@@ -153,13 +153,8 @@ public class HomeAtendenteController implements Initializable {
 
 //Retorna uma ObservableList de filmes para popular a tabela.
     private ObservableList<Filme> GetFilmes() {
-        FilmesDAO f = null;
-        try {
-            f = new FilmesDAO();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        ObservableList<Filme> Filmes = FXCollections.observableArrayList(f.getFilmes());
+        FilmeDAO fDAO = new FilmeDAO();
+        ObservableList<Filme> Filmes = FXCollections.observableArrayList(fDAO.getFilmes());
         return Filmes;
     }
 //Ação do botão ver mais.

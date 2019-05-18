@@ -1,10 +1,7 @@
 package Controller.TableGerControllers;
 
 import Controller.CRUDViewControllers.FuncionarioCRUDViewController;
-import Controller.CRUDViewControllers.SalaCRUDViewController;
-import DataBaseSimulation.FilmesDAO;
-import DataBaseSimulation.FuncionariosDAO;
-import Model.Filme;
+import DataBase.FuncionarioDAO;
 import Model.Funcionario;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -21,7 +18,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -53,8 +49,8 @@ public class TableGerFuncionarioController implements Initializable {
 
     }
     private ObservableList<Funcionario> GetFuncionario() {
-        FuncionariosDAO f = new FuncionariosDAO();
-        ObservableList<Funcionario> Funcionarios = FXCollections.observableArrayList(f.getSimulation());
+        FuncionarioDAO f = new FuncionarioDAO();
+        ObservableList<Funcionario> Funcionarios = FXCollections.observableArrayList(f.getFuncionarios());
         return Funcionarios;
     }
     @FXML

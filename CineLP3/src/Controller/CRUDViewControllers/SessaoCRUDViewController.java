@@ -1,7 +1,7 @@
 package Controller.CRUDViewControllers;
 
-import DataBaseSimulation.FilmesDAO;
-import DataBaseSimulation.SalaDAO;
+import DataBase.FilmeDAO;
+import DataBase.SalaDAO;
 import Model.Filme;
 import Model.Sala;
 import Model.Sessao;
@@ -15,7 +15,7 @@ import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import java.io.FileNotFoundException;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -49,12 +49,7 @@ public class SessaoCRUDViewController implements Initializable {
         SpnMin.setValueFactory(valueFactoryMin);
     }
     public void FillComboBox() {
-        FilmesDAO FDAO = null;
-        try {
-            FDAO = new FilmesDAO();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        FilmeDAO FDAO = new FilmeDAO();
         SalaDAO SDAO = new SalaDAO();
         ObservableList<Filme> Filmes = FXCollections.observableArrayList(FDAO.getFilmes());
         ObservableList<Sala> Salas = FXCollections.observableArrayList(SDAO.getSalas());

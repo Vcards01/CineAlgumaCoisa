@@ -16,7 +16,14 @@ public class Produto {
         this.preco = preco;
         quantidadeDeVenda=0;
     }
-
+    public Produto(int id, int quantidade, String nome, String tipo, double preco, int quantidadeDeVenda) {
+        this.id = id;
+        this.quantidade = quantidade;
+        this.nome = nome;
+        this.tipo = tipo;
+        this.preco = preco;
+        this.quantidadeDeVenda=quantidadeDeVenda;
+    }
     public  Produto()
     {
 

@@ -1,6 +1,6 @@
 package Controller;
 
-import DataBaseSimulation.ProdutosDAO;
+import DataBase.ProdutoDAO;
 import Model.Produto;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -78,8 +78,8 @@ public class VendaAlimentosController implements Initializable {
 //Retorna uma ObservableList de prdoutos para popular a tabela.
     public ObservableList<Produto> GetProdutos()
     {
-        ProdutosDAO PDAO= new ProdutosDAO();
-        ObservableList<Produto> Produtos = FXCollections.observableArrayList(PDAO.getProduto());
+        ProdutoDAO PDAO= new ProdutoDAO();
+        ObservableList<Produto> Produtos = FXCollections.observableArrayList(PDAO.getProdutos());
         return Produtos;
     }
     public void GetMedidas(double h,double w)

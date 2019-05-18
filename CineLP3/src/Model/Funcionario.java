@@ -5,22 +5,22 @@ import java.util.ArrayList;
 public class Funcionario {
     private String cpf;
     private String nome;
-    private int senha;
+    private String senha;
     private String usuario;
     private String tipo;
     private double salario;
     private int qtddVendas;
 
-    public Funcionario(String cpf, String nome, int senha, String usuario, String tipo, double salario) {
+    public Funcionario(String cpf, String nome, String senha, String usuario, String tipo, double salario) {
         this.cpf = cpf;
         this.nome = nome;
         this.senha = senha;
         this.usuario = usuario;
         this.tipo = tipo;
         this.salario=salario;
-        qtddVendas=20;
+        qtddVendas=0;
     }
-    public Funcionario(String cpf, String nome, int senha, String usuario, String tipo,double salario,int qtddVendas) {
+    public Funcionario(String cpf, String nome, String senha, String usuario, String tipo,double salario,int qtddVendas) {
         this.cpf = cpf;
         this.nome = nome;
         this.senha = senha;
@@ -44,7 +44,7 @@ public class Funcionario {
         return nome;
     }
 
-    public int getSenha() {
+    public String getSenha() {
         return senha;
     }
 

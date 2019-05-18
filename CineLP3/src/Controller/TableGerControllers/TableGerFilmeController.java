@@ -1,13 +1,10 @@
 package Controller.TableGerControllers;
 
 import Controller.CRUDViewControllers.FilmesCRUDViewController;
-import Controller.GerenciamentoController;
-import Controller.HomeAdminController;
-import DataBaseSimulation.FilmesDAO;
+import DataBase.FilmeDAO;
 import Model.Filme;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -22,7 +19,6 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -58,13 +54,8 @@ public class TableGerFilmeController implements Initializable {
     }
 
     private ObservableList<Filme> GetFilmes() {
-        FilmesDAO f = null;
-        try {
-            f = new FilmesDAO();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        ObservableList<Filme> Filmes = FXCollections.observableArrayList(f.getFilmes());
+        FilmeDAO fDAO = new FilmeDAO();
+        ObservableList<Filme> Filmes = FXCollections.observableArrayList(fDAO.getFilmes());
         return Filmes;
     }
     @FXML

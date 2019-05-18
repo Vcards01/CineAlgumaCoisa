@@ -1,9 +1,7 @@
 package Controller.TableGerControllers;
 
 import Controller.CRUDViewControllers.SalaCRUDViewController;
-import Controller.CRUDViewControllers.SessaoCRUDViewController;
-import DataBaseSimulation.SalaDAO;
-import Model.Filme;
+import DataBase.SalaDAO;
 import Model.Sala;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

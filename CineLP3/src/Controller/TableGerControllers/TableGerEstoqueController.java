@@ -1,7 +1,7 @@
 package Controller.TableGerControllers;
 
 import Controller.CRUDViewControllers.ProdutoCRUDViewController;
-import DataBaseSimulation.ProdutosDAO;
+import DataBase.ProdutoDAO;
 import Model.Produto;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -46,8 +46,8 @@ public class TableGerEstoqueController implements Initializable{
     }
 
     private ObservableList<Produto> GetProduto() {
-        ProdutosDAO p = new ProdutosDAO();
-        ObservableList<Produto> Produtos = FXCollections.observableArrayList(p.getProduto());
+        ProdutoDAO p = new ProdutoDAO();
+        ObservableList<Produto> Produtos = FXCollections.observableArrayList(p.getProdutos());
         return Produtos;
      }
     @FXML

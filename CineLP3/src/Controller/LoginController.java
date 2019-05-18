@@ -5,7 +5,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import DataBaseSimulation.FuncionariosDAO;
+import DataBase.FuncionarioDAO;
+import DataBase.LugarDAO;
+import DataBase.SessaoDAO;
 import Model.Funcionario;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -40,6 +42,8 @@ public class LoginController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         LbSenhaIncorreta.setVisible(false);
         imgAviso.setVisible(false);
+        SessaoDAO sDAO = new SessaoDAO();
+        LugarDAO lDAO = new LugarDAO();
     }
     @FXML
     public void HandleClose(MouseEvent Event)
@@ -58,8 +62,8 @@ public class LoginController implements Initializable{
     }
     @FXML
     public void Entrar(ActionEvent actionEvent) {
-        FuncionariosDAO f1 = new FuncionariosDAO();
-        ArrayList<Funcionario> list = f1.getSimulation();
+        FuncionarioDAO fDAO = new FuncionarioDAO();
+        ArrayList<Funcionario> list = fDAO.getFuncionarios();
         int flag = 0;
         for (Funcionario x:list)
         {
@@ -67,9 +71,9 @@ public class LoginController implements Initializable{
             {
                 flag =1;
                 try{
-                    if(x.getSenha()==Integer.parseInt(txtSenha.getText()))
+                    if(x.getSenha().equals(txtSenha.getText()))
                     {
-                        if (x.getTipo().equals("Atendente"))
+                        if (x.getTipo().toUpperCase().equals("Atendente".toUpperCase()))
                         {
                             try {
                                 FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/HomeAtendente.fxml"));
@@ -88,7 +92,7 @@ public class LoginController implements Initializable{
                             }
 
                         }
-                        else if(x.getTipo().equals("Administrador"))
+                        else if(x.getTipo().toUpperCase().equals("Administrador".toUpperCase()))
                         {
                             try {
                                 FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/HomeAdmin.fxml"));

@@ -1,29 +1,21 @@
 package Controller;
 
-import DataBaseSimulation.LugaresDAO;
+import DataBase.LugarDAO;
 import Model.Lugares;
 import Model.Sessao;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class EscolhaLugarController implements Initializable {
@@ -42,12 +34,12 @@ public class EscolhaLugarController implements Initializable {
     //Array de Poltronas
     private ArrayList<ImageView> Poltronas = new ArrayList<>();
     //Simulação de DAO de lugares
-    private LugaresDAO LDAO = new LugaresDAO();
+    private LugarDAO LDAO = new LugarDAO();
     //Quantidade de Ingressos Comprados pelo Cliente
     private int QuantidadeIngressos;
     private double precoIngressos;
     private ArrayList<ImageView> LugaresEscolhidos = new ArrayList<>();
-
+    private Sessao sessao;
     public EscolhaLugarController() throws FileNotFoundException {
     }
     @Override
@@ -59,6 +51,7 @@ public class EscolhaLugarController implements Initializable {
     @FXML
     public void SetLugares(Sessao s) throws FileNotFoundException {
         //Variaveis
+        sessao=s;
         //Id de cada botão.
         int id = 1;
         //Contador para pular de fila.
@@ -166,21 +159,13 @@ public class EscolhaLugarController implements Initializable {
     }
 //Verifica quais lugares estão ocupados
     private void OcuparLugares(Sessao s) {
-        s.setLugares(LDAO.FindBySessao(s));
+        s.setLugares(LDAO.getLugares(s));
         if (!s.getLugares().isEmpty()) {
-            for (int i = 0; i < Poltronas.size(); i++) {
-                if (Integer.parseInt(Poltronas.get(i).getId()) == s.getLugares().get(i).getId()) {
-                    if (s.getLugares().get(i).isOcupado()) {
+            for (int i = 0; i < s.getLugares().size(); i++) {
+                if (s.getLugares().get(i).isOcupado()) {
                         Poltronas.get(i).setImage(Ocupada);
-                        Poltronas.get(i).setOnMouseClicked(event -> {
-                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                            alert.setTitle("Lugar Ocupado");
-                            alert.setHeaderText(null);
-                            alert.setContentText("Escolha um dos lugares disponiveis");
-                            alert.showAndWait();
-                        });
-                    }
                 }
+
             }
         }
     }
@@ -195,11 +180,19 @@ public class EscolhaLugarController implements Initializable {
         PnFundo.setPrefWidth(w);
         PnFundo.setPrefHeight(h);
     }
-//Retorna a quantidade de lugares que o usuario selecionou
-    public int GetPoltronas()
+//SetarLuagres
+    public void Feito(ActionEvent event)
     {
-        return LugaresEscolhidos.size();
+        LugarDAO LDAO = new LugarDAO();
+        for(int i=0;i<LugaresEscolhidos.size();i++)
+        {
+            Lugares l = LDAO.read(Integer.parseInt(LugaresEscolhidos.get(i).getId()),sessao.getId());
+            l.setOcupado(true);
+            LDAO.update(l);
+        }
+        LugaresEscolhidos.removeAll(LugaresEscolhidos);
     }
+
 }
 
 

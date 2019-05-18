@@ -40,7 +40,7 @@ public class FuncionarioCRUDViewController implements Initializable {
         TxtNome.setText(f.getNome());
         TxtCPF.setText(f.getCpf());
         TxtSalario.setText(Double.toString(f.getSalario()));
-        TxtSenha.setText(Integer.toString(f.getSenha()));
+        TxtSenha.setText(f.getSenha());
         TxtUsuario.setText(f.getUsuario());
         CbTipo.setValue(f.getTipo());
     }
