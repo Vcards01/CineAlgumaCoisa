@@ -2,59 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Toda a tela ADM, arrumando o Gerenciador com todas as tabelas">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/sqlite_jdbc_3_27_2_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/jfoenix_8_0_8.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CineLP3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CineLP3.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CineLP3/Controller/CRUDViewControllers/FuncionarioCRUDViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CineLP3/Controller/CRUDViewControllers/FuncionarioCRUDViewController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CineLP3/Controller/CRUDViewControllers/SessaoCRUDViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CineLP3/Controller/CRUDViewControllers/SessaoCRUDViewController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CineLP3/Controller/EscolhaLugarController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CineLP3/Controller/EscolhaLugarController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CineLP3/Controller/HomeAtendenteController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CineLP3/Controller/HomeAtendenteController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CineLP3/Controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CineLP3/Controller/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CineLP3/Controller/TableGerControllers/TableGerEstoqueController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CineLP3/Controller/TableGerControllers/TableGerEstoqueController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CineLP3/Controller/TableGerControllers/TableGerFilmeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CineLP3/Controller/TableGerControllers/TableGerFilmeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CineLP3/Controller/TableGerControllers/TableGerFuncionarioController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CineLP3/Controller/TableGerControllers/TableGerFuncionarioController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CineLP3/Controller/TableGerControllers/TableGerSalaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CineLP3/Controller/TableGerControllers/TableGerSalaController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CineLP3/Controller/TableGerControllers/TableGerSessaoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CineLP3/Controller/TableGerControllers/TableGerSessaoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CineLP3/Controller/VendaAlimentosController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CineLP3/Controller/VendaAlimentosController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CineLP3/Controller/VendaIngressosController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CineLP3/Controller/VendaIngressosController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CineLP3/Controller/VendaIngressosController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CineLP3/Controller/VendaIngressosController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CineLP3/DataBaseSimulation/FilmesDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CineLP3/DataBaseSimulation/FuncionariosDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CineLP3/DataBaseSimulation/LugaresDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CineLP3/DataBaseSimulation/ProdutosDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CineLP3/DataBaseSimulation/SalaDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CineLP3/DataBaseSimulation/SalasDataBase.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CineLP3/DataBaseSimulation/SessaoDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CineLP3/Model/Filme.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CineLP3/Model/Filme.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CineLP3/Model/Funcionario.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CineLP3/Model/Funcionario.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CineLP3/Model/Produto.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CineLP3/Model/Produto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CineLP3/Model/Sessao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CineLP3/Model/Sessao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CineLP3/View/EscolhaLugar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CineLP3/View/EscolhaLugar.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/CRUDViewControllers/FuncionarioCRUDViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CRUDViewControllers/FuncionarioCRUDViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/CRUDViewControllers/SessaoCRUDViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CRUDViewControllers/SessaoCRUDViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/EscolhaLugarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/EscolhaLugarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/HomeAtendenteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeAtendenteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/TableGerControllers/TableGerEstoqueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/TableGerControllers/TableGerEstoqueController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/database.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/CRUDViewControllers/FilmesCRUDViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CRUDViewControllers/FilmesCRUDViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/TableGerControllers/TableGerFilmeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/TableGerControllers/TableGerFilmeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/TableGerControllers/TableGerFuncionarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/TableGerControllers/TableGerFuncionarioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/TableGerControllers/TableGerSalaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/TableGerControllers/TableGerSalaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/TableGerControllers/TableGerSessaoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/TableGerControllers/TableGerSessaoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/VendaAlimentosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/VendaAlimentosController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/VendaIngressosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/VendaIngressosController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataBaseSimulation/FilmesDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataBaseSimulation/FuncionariosDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataBaseSimulation/LugaresDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataBaseSimulation/ProdutosDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataBaseSimulation/SalaDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataBaseSimulation/SalasDataBase.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataBaseSimulation/SessaoDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataBase/FilmeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataBase/FilmeDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Filme.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Filme.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Funcionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Funcionario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Produto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Produto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Sessao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Sessao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/EscolhaLugar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/EscolhaLugar.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/CRUDView/FilmesCRUDView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/CRUDView/FilmesCRUDView.fxml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -114,13 +68,98 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/EscolhaLugarController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="162" column="8" selection-start-line="162" selection-start-column="8" selection-end-line="162" selection-end-column="8" />
+            <state relative-caret-position="-67">
+              <caret line="163" selection-start-line="163" selection-end-line="164" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/CRUDViewControllers/FilmesCRUDViewController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="512">
+              <caret line="112" column="8" selection-start-line="112" selection-start-column="8" selection-end-line="112" selection-end-column="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2751#2752#0" expanded="true" />
+                <element signature="e#2776#2777#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Controller/TableGerControllers/TableGerFilmeController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="241">
+              <caret line="102" column="19" selection-start-line="102" selection-start-column="19" selection-end-line="102" selection-end-column="19" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/HomeAtendenteController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-783">
+              <caret line="104" column="8" selection-start-line="104" selection-start-column="8" selection-end-line="104" selection-end-column="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/GerenciamentoController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="429">
+              <caret line="90" column="27" lean-forward="true" selection-start-line="90" selection-start-column="27" selection-end-line="90" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/DataBase/FilmeDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="380">
+              <caret line="78" column="39" selection-start-line="78" selection-start-column="39" selection-end-line="78" selection-end-column="39" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/View/CRUDView/FilmesCRUDView.fxml">
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="298">
+              <caret line="23" column="38" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/Filme.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="224">
+              <caret line="104" column="31" selection-start-line="104" selection-start-column="31" selection-end-line="104" selection-end-column="31" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2441#2442#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -189,26 +228,21 @@
         <option value="$PROJECT_DIR$/src/Model/Sala.java" />
         <option value="$PROJECT_DIR$/src/View/TablesGerenciar/SessaoGerTable.fxml" />
         <option value="$PROJECT_DIR$/src/Controller/TableGerSessaoController.java" />
-        <option value="$PROJECT_DIR$/src/View/CRUDView/FilmesCRUDView.fxml" />
         <option value="$PROJECT_DIR$/src/View/CRUDView/SessaoCRUDView.fxml" />
         <option value="$PROJECT_DIR$/src/View/CRUDView/SalaCRUDView.fxml" />
         <option value="$PROJECT_DIR$/src/View/CRUDView/FuncionarioCRUDView.fxml" />
         <option value="$PROJECT_DIR$/src/View/CRUDView/ProdutoCRUDView.fxml" />
         <option value="$PROJECT_DIR$/src/DataBaseSimulation/ProdutosDAO.java" />
         <option value="$PROJECT_DIR$/src/Controller/GerenciamentoController.java" />
-        <option value="$PROJECT_DIR$/src/Controller/CRUDViewControllers/FilmesCRUDViewController.java" />
         <option value="$PROJECT_DIR$/src/Controller/CRUDViewControllers/ProdutoCRUDViewController.java" />
         <option value="$PROJECT_DIR$/src/Controller/CRUDViewControllers/SalaCRUDViewController.java" />
         <option value="$PROJECT_DIR$/src/View/Caixa.fxml" />
         <option value="$PROJECT_DIR$/src/Controller/HomeAdminController.java" />
         <option value="$PROJECT_DIR$/src/Controller/CaixaController.java" />
         <option value="$PROJECT_DIR$/src/DataBase/DataBase.java" />
-        <option value="$PROJECT_DIR$/src/Model/Filme.java" />
         <option value="$PROJECT_DIR$/src/Controller/HomeAtendenteController.java" />
         <option value="$PROJECT_DIR$/src/DataBaseSimulation/FilmesDAO.java" />
-        <option value="$PROJECT_DIR$/src/Controller/TableGerControllers/TableGerFilmeController.java" />
         <option value="$PROJECT_DIR$/src/DataBaseSimulation/SalasDataBase.java" />
-        <option value="$PROJECT_DIR$/src/DataBase/FilmeDAO.java" />
         <option value="$PROJECT_DIR$/src/Controller/TableGerControllers/TableGerSalaController.java" />
         <option value="$PROJECT_DIR$/src/DataBase/SalaDAO.java" />
         <option value="$PROJECT_DIR$/src/DataBaseSimulation/SessaoDAO.java" />
@@ -230,6 +264,11 @@
         <option value="$PROJECT_DIR$/src/Controller/TableGerControllers/TableGerEstoqueController.java" />
         <option value="$PROJECT_DIR$/src/Controller/LoginController.java" />
         <option value="$PROJECT_DIR$/src/Controller/EscolhaLugarController.java" />
+        <option value="$PROJECT_DIR$/src/View/CRUDView/FilmesCRUDView.fxml" />
+        <option value="$PROJECT_DIR$/src/DataBase/FilmeDAO.java" />
+        <option value="$PROJECT_DIR$/src/Model/Filme.java" />
+        <option value="$PROJECT_DIR$/src/Controller/CRUDViewControllers/FilmesCRUDViewController.java" />
+        <option value="$PROJECT_DIR$/src/Controller/TableGerControllers/TableGerFilmeController.java" />
       </list>
     </option>
   </component>
@@ -255,6 +294,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -273,11 +313,17 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Controller" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="CineLP3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CineLP3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+              <item name="TableGerControllers" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -447,7 +493,7 @@
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.27836612" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.28290468" />
       <window_info id="Structure" order="1" weight="0.24962178" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -576,83 +622,51 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/View/Gerenciamento.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
           <caret line="16" column="22" lean-forward="true" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/CRUDView/FilmesCRUDView.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="23" column="38" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/Login.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="295">
           <caret line="58" column="24" selection-start-line="58" selection-start-column="24" selection-end-line="58" selection-end-column="24" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/TablesGerenciar/FilmesGerTable.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/CRUDView/SessaoCRUDView.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="455">
           <caret line="38" column="14" lean-forward="true" selection-start-line="38" selection-start-column="14" selection-end-line="38" selection-end-column="14" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/CRUDView/SalaCRUDView.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/CRUDView/FuncionarioCRUDView.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="236">
           <caret line="22" column="26" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataBaseSimulation/ProdutosDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="18" column="64" lean-forward="true" selection-start-line="18" selection-start-column="64" selection-end-line="18" selection-end-column="64" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DataBaseSimulation/ProdutosDAO.java" />
     <entry file="file://$PROJECT_DIR$/src/View/CRUDView/ProdutoCRUDView.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="236">
           <caret line="23" column="25" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/CRUDViewControllers/FilmesCRUDViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>
@@ -696,20 +710,20 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/HomeAdmin.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2703">
           <caret line="159" column="42" selection-start-line="159" selection-start-column="42" selection-end-line="159" selection-end-column="42" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/Caixa.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1513">
           <caret line="89" column="28" selection-start-line="89" selection-start-column="28" selection-end-line="89" selection-end-column="28" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/collections/FXCollections.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -718,80 +732,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Filme.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="13" column="27" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/HomeAtendenteController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="104" column="8" selection-start-line="104" selection-start-column="8" selection-end-line="104" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataBase/Tables.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataBaseSimulation/FilmesDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/GerenciamentoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="898">
-          <caret line="90" column="27" lean-forward="true" selection-start-line="90" selection-start-column="27" selection-end-line="90" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/TableGerControllers/TableGerFilmeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="59" column="5" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataBaseSimulation/SalasDataBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataBaseSimulation/SalasDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="31" column="1" selection-start-line="6" selection-start-column="22" selection-end-line="31" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DataBase/Tables.java" />
+    <entry file="file://$PROJECT_DIR$/src/DataBaseSimulation/FilmesDAO.java" />
+    <entry file="file://$PROJECT_DIR$/src/DataBaseSimulation/SalasDataBase.java" />
+    <entry file="file://$PROJECT_DIR$/src/DataBaseSimulation/SalasDAO.java" />
     <entry file="file://$PROJECT_DIR$/src/Controller/CRUDViewControllers/SessaoCRUDViewController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="137">
@@ -840,33 +784,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataBase/Blabla.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataBaseSimulation/SessaosDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataBaseSimulation/LugaresDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DataBase/Blabla.java" />
+    <entry file="file://$PROJECT_DIR$/src/DataBaseSimulation/SessaosDAO.java" />
+    <entry file="file://$PROJECT_DIR$/src/DataBaseSimulation/LugaresDAO.java" />
     <entry file="file://$PROJECT_DIR$/src/DataBase/LugarDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1739">
@@ -919,23 +839,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/EscolhaLugar.fxml">
-      <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/TableGerControllers/TableGerSessaoController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="179">
           <caret line="55" column="87" selection-start-line="55" selection-start-column="87" selection-end-line="55" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataBase/FilmeDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1026,10 +936,89 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/CRUDView/FilmesCRUDView.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="23" column="38" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DataBase/FilmeDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="78" column="39" selection-start-line="78" selection-start-column="39" selection-end-line="78" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Filme.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="104" column="31" selection-start-line="104" selection-start-column="31" selection-end-line="104" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2441#2442#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/EscolhaLugarController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="162" column="8" selection-start-line="162" selection-start-column="8" selection-end-line="162" selection-end-column="8" />
+        <state relative-caret-position="-67">
+          <caret line="163" selection-start-line="163" selection-end-line="164" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/TablesGerenciar/FilmesGerTable.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/GerenciamentoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="90" column="27" lean-forward="true" selection-start-line="90" selection-start-column="27" selection-end-line="90" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/CRUDViewControllers/FilmesCRUDViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="512">
+          <caret line="112" column="8" selection-start-line="112" selection-start-column="8" selection-end-line="112" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2751#2752#0" expanded="true" />
+            <element signature="e#2776#2777#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/HomeAtendenteController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-783">
+          <caret line="104" column="8" selection-start-line="104" selection-start-column="8" selection-end-line="104" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/TableGerControllers/TableGerFilmeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="102" column="19" selection-start-line="102" selection-start-column="19" selection-end-line="102" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

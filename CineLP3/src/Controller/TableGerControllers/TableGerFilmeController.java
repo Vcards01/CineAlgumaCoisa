@@ -58,6 +58,12 @@ public class TableGerFilmeController implements Initializable {
         ObservableList<Filme> Filmes = FXCollections.observableArrayList(fDAO.getFilmes());
         return Filmes;
     }
+    public void SetTable()
+    {
+        Tabela.getItems().clear();
+        Tabela.getItems().addAll(GetFilmes());
+        Tabela.refresh();
+    }
     @FXML
     public void AddFilme(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/CRUDView/FilmesCRUDView.fxml"));
@@ -67,6 +73,8 @@ public class TableGerFilmeController implements Initializable {
         stage.setScene(scene);
         stage.centerOnScreen();
         stage.initStyle(StageStyle.UNDECORATED);
+        FilmesCRUDViewController controller = loader.getController();
+        controller.SetController(this);
         stage.show();
     }
     @FXML
@@ -81,6 +89,7 @@ public class TableGerFilmeController implements Initializable {
             stage.centerOnScreen();
             stage.initStyle(StageStyle.UNDECORATED);
             FilmesCRUDViewController controller = loader.getController();
+            controller.SetController(this);
             controller.OpenEditable(Tabela.getSelectionModel().getSelectedItem());
             stage.show();
         }
@@ -88,6 +97,10 @@ public class TableGerFilmeController implements Initializable {
     @FXML
     public void RmvFilme(MouseEvent event)
     {
+        FilmeDAO fDAO = new FilmeDAO();
+        Filme f = Tabela.getSelectionModel().getSelectedItem();
+        fDAO.delete(f);
+        SetTable();
 
     }
 

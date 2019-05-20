@@ -1,11 +1,15 @@
 package Controller.CRUDViewControllers;
 
+import Controller.TableGerControllers.TableGerFilmeController;
+import DataBase.FilmeDAO;
 import Model.Filme;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -32,7 +36,8 @@ public class FilmesCRUDViewController implements Initializable {
     public TextField TxtDuracao;
     @FXML
     public ImageView ImgCapa;
-
+    private String url;
+    private TableGerFilmeController controller;
     private boolean editavel = false;
 
     @Override
@@ -74,12 +79,16 @@ public class FilmesCRUDViewController implements Initializable {
         File f =fc.showOpenDialog(null);
         if(f!=null)
         {
-            String url = f.getPath();
+            url = f.getPath();
             url = url.replace("\\","/");
             Image img = new Image("file:///"+url);
             ImgCapa.setImage(img);
 
         }
+    }
+    public void SetController(TableGerFilmeController controller)
+    {
+        this.controller = controller;
     }
     @FXML
     public void Cancel(ActionEvent event)
@@ -88,5 +97,22 @@ public class FilmesCRUDViewController implements Initializable {
         janela.close();
 
     }
+    public void Save(ActionEvent event)
+    {
+        FilmeDAO DAO = new FilmeDAO();
+        Filme f = new Filme(TxtTitulo.getText(),CbGenero.getValue().toString(),TxtSinopse.getText(),TxtDuracao.getText(),"file:///"+url);
+        if(!editavel)
+        {
+            DAO.create(f);
+        }
+        else
+        {
+            f.setId(Integer.parseInt(TxtId.getText()));
+            DAO.update(f);
+        }
+        controller.SetTable();
+        Stage janela = (Stage)TxtTitulo.getScene().getWindow();
+        janela.close();
 
+    }
 }

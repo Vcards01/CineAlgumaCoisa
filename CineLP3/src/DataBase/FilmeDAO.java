@@ -76,6 +76,7 @@ public class FilmeDAO {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        System.out.println("Gravado!");
     }
     public void delete(Filme f) {
 

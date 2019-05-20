@@ -27,6 +27,15 @@ public class Filme {
         this.Img=Img;
         image=new Image(Img);
     }
+    public Filme( String nome, String genero, String sinopse, String duracao,String Img)  {
+        this.nome = nome;
+        this.genero = genero;
+        this.sinopse = sinopse;
+        this.duracao = duracao;
+        this.qtddVendida=0;
+        this.Img=Img;
+        image=new Image(Img);
+    }
     public Filme(int id, String nome, String genero, String sinopse, String duracao,int qtddVendida,String Img) {
         this.id = id;
         this.nome = nome;
@@ -91,6 +100,10 @@ public class Filme {
 
     public void setSessoes(ArrayList<Sessao> sessoes) {
         this.sessoes = sessoes;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Override
