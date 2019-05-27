@@ -12,6 +12,9 @@ public class Sala {
         this.id = id;
         this.qtddLugares = qtddLugares;
     }
+    public Sala(int qtddLugares) {
+        this.qtddLugares = qtddLugares;
+    }
     public Sala()
     {
 
@@ -43,5 +46,9 @@ public class Sala {
 
     public ArrayList<Sessao> getSessoes() {
         return sessoes;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

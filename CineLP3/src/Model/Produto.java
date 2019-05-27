@@ -16,6 +16,13 @@ public class Produto {
         this.preco = preco;
         quantidadeDeVenda=0;
     }
+    public Produto( int quantidade, String nome, String tipo, double preco) {
+        this.quantidade = quantidade;
+        this.nome = nome;
+        this.tipo = tipo;
+        this.preco = preco;
+        quantidadeDeVenda=0;
+    }
     public Produto(int id, int quantidade, String nome, String tipo, double preco, int quantidadeDeVenda) {
         this.id = id;
         this.quantidade = quantidade;
@@ -56,5 +63,9 @@ public class Produto {
 
     public void setQuantidadeDeVenda(int quantidadeDeVenda) {
         this.quantidadeDeVenda = quantidadeDeVenda;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

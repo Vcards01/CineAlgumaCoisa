@@ -6,8 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="452.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.CRUDViewControllers.FuncionarioCRUDViewController">
+<AnchorPane prefHeight="452.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.CRUDViewControllers.FuncionarioCRUDViewController">
    <children>
       <TextField fx:id="TxtNome" layoutX="105.0" layoutY="68.0" />
       <TextField fx:id="TxtSenha" layoutX="361.0" layoutY="277.0" />
@@ -22,6 +21,6 @@
       <Label layoutX="312.0" layoutY="70.0" text="CPF:" />
       <ComboBox fx:id="CbTipo" layoutX="105.0" layoutY="163.0" prefWidth="150.0" />
       <Button layoutX="203.0" layoutY="390.0" mnemonicParsing="false" onAction="#Cancelar" text="Cancelar" />
-      <Button layoutX="351.0" layoutY="390.0" mnemonicParsing="false" text="Salvar" />
+      <Button layoutX="351.0" layoutY="390.0" mnemonicParsing="false" onAction="#Save" text="Salvar" />
    </children>
 </AnchorPane>

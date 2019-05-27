@@ -46,6 +46,12 @@ public class TableGerSalaController implements Initializable {
         ObservableList<Sala> Salas = FXCollections.observableArrayList(s.getSalas());
         return Salas;
     }
+    public void SetTable()
+    {
+        TabelaSala.getItems().clear();
+        TabelaSala.getItems().addAll(GetSala());
+        TabelaSala.refresh();
+    }
     @FXML
     public void AddSala(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/CRUDView/SalaCRUDView.fxml"));
@@ -55,6 +61,8 @@ public class TableGerSalaController implements Initializable {
         stage.setScene(scene);
         stage.centerOnScreen();
         stage.initStyle(StageStyle.UNDECORATED);
+        SalaCRUDViewController controller = loader.getController();
+        controller.SetController(this);
         stage.show();
     }
     @FXML
@@ -69,6 +77,7 @@ public class TableGerSalaController implements Initializable {
             stage.centerOnScreen();
             stage.initStyle(StageStyle.UNDECORATED);
             SalaCRUDViewController controller = loader.getController();
+            controller.SetController(this);
             controller.OpenEditable(TabelaSala.getSelectionModel().getSelectedItem());
             stage.show();
         }
@@ -76,6 +85,8 @@ public class TableGerSalaController implements Initializable {
     @FXML
     public void RmvSala(MouseEvent event)
     {
-
+        SalaDAO DAO = new SalaDAO();
+        DAO.delete(TabelaSala.getSelectionModel().getSelectedItem());
+        SetTable();
     }
 }

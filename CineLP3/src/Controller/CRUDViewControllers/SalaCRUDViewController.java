@@ -1,5 +1,7 @@
 package Controller.CRUDViewControllers;
 
+import Controller.TableGerControllers.TableGerSalaController;
+import DataBase.SalaDAO;
 import Model.Sala;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,7 +18,7 @@ public class SalaCRUDViewController implements Initializable {
     @FXML
     public TextField TxtQuantidadeLugares;
     private boolean editavel = false;
-
+    private TableGerSalaController controller;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -32,5 +34,27 @@ public class SalaCRUDViewController implements Initializable {
     {
         Stage janela = (Stage)Txtid.getScene().getWindow();
         janela.close();
+    }
+    public void Save(ActionEvent event)
+    {
+        SalaDAO DAO = new SalaDAO();
+        Sala s = new Sala(Integer.parseInt(TxtQuantidadeLugares.getText()));
+        if(!editavel)
+        {
+            DAO.create(s);
+        }
+        else
+        {
+            s.setId(Integer.parseInt(Txtid.getText()));
+            DAO.update(s);
+        }
+        controller.SetTable();
+        Stage janela = (Stage)TxtQuantidadeLugares.getScene().getWindow();
+        janela.close();
+    }
+
+    public void SetController(TableGerSalaController controller)
+    {
+        this.controller = controller;
     }
 }

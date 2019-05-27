@@ -50,6 +50,12 @@ public class TableGerEstoqueController implements Initializable{
         ObservableList<Produto> Produtos = FXCollections.observableArrayList(p.getProdutos());
         return Produtos;
      }
+    public void SetTable()
+    {
+        TabelaEstoque.getItems().clear();
+        TabelaEstoque.getItems().addAll(GetProduto());
+        TabelaEstoque.refresh();
+    }
     @FXML
     public void AddProduto(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/CRUDView/ProdutoCRUDView.fxml"));
@@ -59,6 +65,8 @@ public class TableGerEstoqueController implements Initializable{
         stage.setScene(scene);
         stage.centerOnScreen();
         stage.initStyle(StageStyle.UNDECORATED);
+        ProdutoCRUDViewController controller = loader.getController();
+        controller.SetController(this);
         stage.show();
     }
     @FXML
@@ -73,6 +81,7 @@ public class TableGerEstoqueController implements Initializable{
             stage.centerOnScreen();
             stage.initStyle(StageStyle.UNDECORATED);
             ProdutoCRUDViewController controller = loader.getController();
+            controller.SetController(this);
             controller.OpenEditable(TabelaEstoque.getSelectionModel().getSelectedItem());
             stage.show();
         }
@@ -80,8 +89,11 @@ public class TableGerEstoqueController implements Initializable{
     @FXML
     public void RmvProduto(MouseEvent event)
     {
-
+        ProdutoDAO DAO = new ProdutoDAO();
+        DAO.delete(TabelaEstoque.getSelectionModel().getSelectedItem());
+        SetTable();
     }
+
 
 
 

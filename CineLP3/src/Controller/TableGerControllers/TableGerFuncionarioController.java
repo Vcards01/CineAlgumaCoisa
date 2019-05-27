@@ -61,8 +61,16 @@ public class TableGerFuncionarioController implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.centerOnScreen();
+        FuncionarioCRUDViewController controller = loader.getController();
+        controller.SetController(this);
         stage.initStyle(StageStyle.UNDECORATED);
         stage.show();
+    }
+    public void SetTable()
+    {
+        TabelaFunc.getItems().clear();
+        TabelaFunc.getItems().addAll(GetFuncionario());
+        TabelaFunc.refresh();
     }
     @FXML
     public void EditFuncionario(MouseEvent event) throws IOException {
@@ -76,6 +84,7 @@ public class TableGerFuncionarioController implements Initializable {
             stage.centerOnScreen();
             stage.initStyle(StageStyle.UNDECORATED);
             FuncionarioCRUDViewController controller = loader.getController();
+            controller.SetController(this);
             controller.OpenEditable(TabelaFunc.getSelectionModel().getSelectedItem());
             stage.show();
         }
@@ -83,7 +92,9 @@ public class TableGerFuncionarioController implements Initializable {
     @FXML
     public void RmvFuncionario(MouseEvent event)
     {
-
+        FuncionarioDAO DAO = new FuncionarioDAO();
+        DAO.delete(TabelaFunc.getSelectionModel().getSelectedItem());
+        SetTable();
     }
 
 

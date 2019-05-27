@@ -55,6 +55,11 @@ public class TableGerSessaoController implements Initializable {
         SessaoDAO s = new SessaoDAO();
         ObservableList<Sessao> Sessao = FXCollections.observableArrayList(s.getSessao());
         return Sessao;
+    }public void SetTable()
+    {
+        TabelaSessao.getItems().clear();
+        TabelaSessao.getItems().addAll(GetSessao());
+        TabelaSessao.refresh();
     }
     @FXML
     public void AddSessao(MouseEvent event) throws IOException {
@@ -65,6 +70,8 @@ public class TableGerSessaoController implements Initializable {
         stage.setScene(scene);
         stage.centerOnScreen();
         stage.initStyle(StageStyle.UNDECORATED);
+        SessaoCRUDViewController controller = loader.getController();
+        controller.SetController(this);
         stage.show();
     }
     @FXML
@@ -80,12 +87,15 @@ public class TableGerSessaoController implements Initializable {
             stage.initStyle(StageStyle.UNDECORATED);
             SessaoCRUDViewController controller = loader.getController();
             controller.OpenEditable(TabelaSessao.getSelectionModel().getSelectedItem());
+            controller.SetController(this);
             stage.show();
         }
     }
     @FXML
     public void RmvSessao(MouseEvent event)
     {
-
+        SessaoDAO DAO = new SessaoDAO();
+        DAO.delete(TabelaSessao.getSelectionModel().getSelectedItem());
+        SetTable();
     }
 }

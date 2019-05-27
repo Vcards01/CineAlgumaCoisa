@@ -1,8 +1,13 @@
 package Controller.CRUDViewControllers;
 
+import Controller.TableGerControllers.TableGerFilmeController;
+import Controller.TableGerControllers.TableGerSessaoController;
 import DataBase.FilmeDAO;
+import DataBase.LugarDAO;
 import DataBase.SalaDAO;
+import DataBase.SessaoDAO;
 import Model.Filme;
+import Model.Lugares;
 import Model.Sala;
 import Model.Sessao;
 import javafx.collections.FXCollections;
@@ -35,7 +40,7 @@ public class SessaoCRUDViewController implements Initializable {
     @FXML
     public TextField TxtId;
     private boolean editavel = false;
-
+    private TableGerSessaoController controller;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         FillComboBox();
@@ -76,5 +81,36 @@ public class SessaoCRUDViewController implements Initializable {
     {
         Stage janela = (Stage)TxtMeia.getScene().getWindow();
         janela.close();
+    }
+
+    public void Save(ActionEvent event)
+    {
+       SessaoDAO DAO = new SessaoDAO();
+        LugarDAO LDAO = new LugarDAO();
+        String hora;
+        hora=SpnHora.getValue()+":"+SpnMin.getValue();
+        Sessao s = new Sessao(hora,(Filme)CbFilme.getValue(),(Sala)CbSala.getValue(),Double.parseDouble(TxtInteira.getText()),Double.parseDouble(TxtMeia.getText()));
+        if(!editavel)
+        {
+            DAO.create(s);
+            for(int i=0;i<s.getSala().getQtddLugares();i++)
+            {
+
+                Lugares l = new Lugares(i+1,false,DAO.getSessao().get(DAO.getSessao().size()-1));
+                LDAO.create(l);
+            }
+        }
+        else
+        {
+            s.setId(Integer.parseInt(TxtId.getText()));
+            DAO.update(s);
+        }
+        controller.SetTable();
+        Stage janela = (Stage)TxtMeia.getScene().getWindow();
+        janela.close();
+    }
+    public void SetController(TableGerSessaoController controller)
+    {
+        this.controller = controller;
     }
 }

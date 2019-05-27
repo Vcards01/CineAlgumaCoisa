@@ -1,5 +1,10 @@
 package Controller.CRUDViewControllers;
 
+import Controller.TableGerControllers.TableGerFilmeController;
+import Controller.TableGerControllers.TableGerFuncionarioController;
+import DataBase.FilmeDAO;
+import DataBase.FuncionarioDAO;
+import Model.Filme;
 import Model.Funcionario;
 import Model.Sala;
 import javafx.collections.FXCollections;
@@ -29,6 +34,7 @@ public class FuncionarioCRUDViewController implements Initializable {
     @FXML
     public ComboBox CbTipo;
     private boolean editavel=false;
+    private TableGerFuncionarioController controller;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -44,11 +50,32 @@ public class FuncionarioCRUDViewController implements Initializable {
         TxtUsuario.setText(f.getUsuario());
         CbTipo.setValue(f.getTipo());
     }
+    public void SetController(TableGerFuncionarioController controller)
+    {
+        this.controller = controller;
+    }
     @FXML
     public void Cancelar(ActionEvent event)
     {
         Stage janela = (Stage)TxtNome.getScene().getWindow();
         janela.close();
+    }
+    public void Save(ActionEvent event)
+    {
+        FuncionarioDAO DAO = new FuncionarioDAO();
+        Funcionario f = new Funcionario(TxtCPF.getText(),TxtNome.getText(),TxtSenha.getText(),TxtUsuario.getText(),CbTipo.getValue().toString(),Double.parseDouble(TxtSalario.getText()));
+        if(!editavel)
+        {
+            DAO.create(f);
+        }
+        else
+        {
+            DAO.update(f);
+        }
+        controller.SetTable();
+        Stage janela = (Stage)TxtNome.getScene().getWindow();
+        janela.close();
+
     }
     public void FillCombobox()
     {

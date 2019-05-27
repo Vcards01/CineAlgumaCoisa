@@ -24,6 +24,16 @@ public class Sessao {
         this.precoEntradaMeia=precoEntradaMeia;
 
     }
+    public Sessao( String horario, Filme filme, Sala sala,double precoEntradaInteira,double precoEntradaMeia) {
+        this.horario = horario;
+        this.filme = filme;
+        this.sala = sala;
+        this.qtddVendidos=0;
+        this.lugaresDisponiveis= sala.getQtddLugares();
+        this.precoEntradaInteira=precoEntradaInteira;
+        this.precoEntradaMeia=precoEntradaMeia;
+
+    }
     public Sessao(int id, String horario, Filme filme, Sala sala,int qtddVendidos,double precoEntradaInteira,double precoEntradaMeia,int lugaresDisponiveis) {
         this.id = id;
         this.horario = horario;
@@ -91,5 +101,9 @@ public class Sessao {
 
     public int getLugaresDisponiveis() {
         return lugaresDisponiveis;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

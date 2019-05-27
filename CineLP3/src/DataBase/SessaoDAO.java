@@ -20,7 +20,7 @@ public class SessaoDAO {
     }
 
     public void create(Sessao s) {
-        String sql = "INSERT INTO Sessao(horario, filme, sala,qtddVendidos,precoIntera,precoMeia,lugaresDisponiveis) " + "VALUES (?, ?, ?, ?, ?, ?, ?);";
+        String sql = "INSERT INTO Sessao(horario,filme,sala,qtddVendidos,precoInteira,precoMeia,lugaresDisponiveis) " + "VALUES (?, ?, ?, ?, ?, ?,?);";
 
         try {
 

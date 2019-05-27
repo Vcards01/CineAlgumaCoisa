@@ -68,4 +68,8 @@ public class Funcionario {
     public void setQtddVendas(int qtddVendas) {
         this.qtddVendas = qtddVendas;
     }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
 }
