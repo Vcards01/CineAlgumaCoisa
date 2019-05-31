@@ -28,7 +28,9 @@ public class ProdutoCRUDViewController implements Initializable {
     public Spinner SpnQuantidade;
     @FXML
     public ComboBox CbTipo;
+    //Verificar se é editavel
     private boolean editavel=false;
+    //Controller da tela anterior
     private TableGerEstoqueController controller;
 
     @Override
@@ -76,6 +78,7 @@ public class ProdutoCRUDViewController implements Initializable {
         janela.close();
 
     }
+    @FXML
     public void Save(ActionEvent event)
     {
         ProdutoDAO DAO = new ProdutoDAO();

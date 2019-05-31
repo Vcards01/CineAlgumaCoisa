@@ -1,7 +1,13 @@
 package Controller;
 
+import DataBase.CaixaDAO;
+import DataBase.FuncionarioDAO;
 import DataBase.ProdutoDAO;
+import DataBase.VendaDAO;
+import Model.Caixa;
+import Model.Funcionario;
 import Model.Produto;
+import Model.Venda;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -13,6 +19,7 @@ import javafx.scene.effect.DropShadow;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class VendaAlimentosController implements Initializable {
@@ -42,6 +49,8 @@ public class VendaAlimentosController implements Initializable {
     public Button BtnRmv;
     //Valor total da compra
     private double total=0;
+    //Funcionario que esta vendadendo
+    private Funcionario f;
     //Lista de Produtos comprados
     ArrayList<Produto> list = new ArrayList<>();
 
@@ -51,18 +60,22 @@ public class VendaAlimentosController implements Initializable {
         SetTabelaCarrinho();
         Shadow();
     }
+    public void setFuncionario(Funcionario f)
+    {
+        this.f=f;
+    }
     //Define as cores quando a venda vem dos ingressos.
     public void SetCollors()
     {
         PnPrincipal.setStyle("-fx-background-color:  #80CBC4");
         BtnRmv.setStyle("-fx-background-color:  #009688" );
         btnAdd.setStyle("-fx-background-color:  #009688");
-        ColunaPrecoTP.setStyle("-fx-background-color:  #80CBC4;"+"-fx-font-weight: 14px;"+"-fx-border-color:  #009688;"+"-fx-font-weight:bold;");
-        ColunaTipoTP.setStyle("-fx-background-color:  #80CBC4;"+"-fx-font-weight: 14px;"+"-fx-border-color:  #009688;"+"-fx-font-weight:bold;");
-        ColunaProdutoTP.setStyle("-fx-background-color:  #80CBC4;"+"-fx-font-weight: 14px;"+"-fx-border-color:  #009688;"+"-fx-font-weight:bold;");
-        ColunaEstoqueTP.setStyle("-fx-background-color:  #80CBC4;"+"-fx-font-weight: 14px;"+"-fx-border-color:  #009688;"+"-fx-font-weight:bold;");
-        CProdutoQuantidade.setStyle("-fx-background-color:  #80CBC4;"+"-fx-font-weight: 14px;"+"-fx-border-color:  #009688;"+"-fx-font-weight:bold;");
-        CProdutoCarrinho.setStyle("-fx-background-color:  #80CBC4;"+"-fx-font-weight: 14px;"+"-fx-border-color:  #009688;"+"-fx-font-weight:bold;");
+        ColunaPrecoTP.setStyle("-fx-background-color:  #80CBC4;"+"-fx-font-size: 14px;"+"-fx-border-color:  #009688;"+"-fx-font-weight:bold;");
+        ColunaTipoTP.setStyle("-fx-background-color:  #80CBC4;"+"-fx-font-size: 14px;"+"-fx-border-color:  #009688;"+"-fx-font-weight:bold;");
+        ColunaProdutoTP.setStyle("-fx-background-color:  #80CBC4;"+"-fx-font-size: 14px;"+"-fx-border-color:  #009688;"+"-fx-font-weight:bold;");
+        ColunaEstoqueTP.setStyle("-fx-background-color:  #80CBC4;"+"-fx-font-size: 14px;"+"-fx-border-color:  #009688;"+"-fx-font-weight:bold;");
+        CProdutoQuantidade.setStyle("-fx-background-color:  #80CBC4;"+"-fx-font-size: 14px;"+"-fx-border-color:  #009688;"+"-fx-font-weight:bold;");
+        CProdutoCarrinho.setStyle("-fx-background-color:  #80CBC4;"+"-fx-font-size: 14px;"+"-fx-border-color:  #009688;"+"-fx-font-weight:bold;");
     }
 //Configura a tabela venda.
     public void SetTabelaVenda()
@@ -186,19 +199,60 @@ public class VendaAlimentosController implements Initializable {
         BtnRmv.setEffect(Shad);
         TxtTotal.setEffect(Shad);
     }
+    public void AttProdutos()
+    {
+        for(int i=0;i<list.size();i++)
+        {
+            ProdutoDAO PDAO = new ProdutoDAO();
+            list.get(i).setQuantidade(list.get(i).getQuantidade()-list.get(i).getQuantidadeDeVenda());
+            list.get(i).setQuantidadeDeVenda(list.get(i).getQuantidadeDeVenda()+PDAO.read(list.get(i).getId()).getQuantidadeDeVenda());
+            PDAO.update(list.get(i));
+        }
+    }
+    public void SetTable()
+    {
+        TabelaProduto.getItems().clear();
+        TabelaProduto.getItems().addAll(GetProdutos());
+        TabelaProduto.refresh();
+    }
 //Configura o botão finalizar
     @FXML
     public void Finalizar(ActionEvent event)
     {
+        //Configura Data e Hora
+        Date data = new Date(System.currentTimeMillis());
+        SimpleDateFormat formatarDate = new SimpleDateFormat("dd-MM-yyy");
+        SimpleDateFormat formatHora = new SimpleDateFormat("HH:mm:ss");
+        Date hora = Calendar.getInstance().getTime();
+        //Busca o caixa atual,para atualizar o valor
+        CaixaDAO DAO = new CaixaDAO();
+        Caixa c = DAO.read(formatarDate.format(data));
+        //Criar DAO do Funcionario para adicionar mais uma venda a ele
+        FuncionarioDAO FDAO = new FuncionarioDAO();
+        //Cria uma nova venda
+        VendaDAO VDAO = new VendaDAO();
+        Venda v = new Venda(formatarDate.format(data),formatHora.format(hora),Double.parseDouble(TxtTotal.getText()));
+        //Aviso de venda finalizada
         Alert alert =new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Venda finalizada");
         alert.setHeaderText(null);
         alert.setContentText("A venda no valor de R$"+TxtTotal.getText()+(",foi concluida com sucesso"));
         alert.showAndWait();
+        //Adiciona uma venda o funcionario e atualiza no banco
+        f.setQtddVendas(f.getQtddVendas()+1);
+        FDAO.update(f);
+        //Adiciona o valor da venda ao caixa e atualiza ele no banco
+        c.AddValor(Double.parseDouble(TxtTotal.getText()));
+        DAO.update(c);
+        //Cria a nova venda no banco e salva ela
+        VDAO.create(v);
+        //Reseta tudo
         TabelaCarrinho.getItems().removeAll(TabelaCarrinho.getItems());
         SetTotal(0,false);
+        AttProdutos();
         list.clear();
         total=0;
+        SetTable();
     }
 //Configura o botão cancelar
     @FXML

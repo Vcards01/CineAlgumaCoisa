@@ -1,6 +1,8 @@
 package Controller;
 
+import DataBase.CaixaDAO;
 import DataBase.FilmeDAO;
+import Model.Caixa;
 import Model.Filme;
 import Model.Funcionario;
 import javafx.animation.KeyFrame;
@@ -25,7 +27,6 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
-
 import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
@@ -58,15 +59,11 @@ public class HomeAtendenteController implements Initializable {
     @FXML
     public AnchorPane PnTopo;
     @FXML
-    private Label LbClose;
-    @FXML
     private Label LbVendasRealizadas;
     @FXML
     private AnchorPane PnJanelas;
     @FXML
     private ImageView ImgCapaFilme;
-    @FXML
-    private Button btnVerMais;
     @FXML
     private TableView<Filme> Tabela;
     @FXML
@@ -87,14 +84,7 @@ public class HomeAtendenteController implements Initializable {
     private Label LbDuracao;
     @FXML
     public Label LbSinopse;
-    @FXML
-    public Button BtnCancelar;
-    @FXML
-    public Button BtnConfirma;
-    @FXML
-    public Button BtnVoltar;
-    @FXML
-    public Button BtnProximo;
+    private Funcionario f;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -112,6 +102,7 @@ public class HomeAtendenteController implements Initializable {
     {
         lbUsuario.setText(f.getUsuario());
         LbVendasRealizadas.setText(Integer.toString(f.getQtddVendas()));
+        this.f=f;
     }
 //Configura a hota no painel
     @FXML
@@ -196,19 +187,6 @@ public class HomeAtendenteController implements Initializable {
     }
 //Configura ação dos botões do menu.
     @FXML
-    public void OpenVendaIngresso(MouseEvent Event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/VendaIngressos.fxml"));
-        AnchorPane pane = loader.load();
-        VendaIngressosController controller = loader.getController();
-        controller.SetMedidas(PnJanelas.getHeight(),PnJanelas.getWidth());
-        PnRoot.setStyle("-fx-background-color:  #80CBC4");
-        PnMenu.setStyle("-fx-background-color:  #009688");
-        PnTopo.setStyle("-fx-background-color:  #009688");
-        LbTituloJanela.setText("Venda");
-        PnJanelas.getChildren().setAll(pane);
-        IngressosHighlight();
-     }
-    @FXML
     public void OpenHome(MouseEvent Event){
         PnJanelas.getChildren().clear();
         PnRoot.setStyle("-fx-background-color:  #8DBFDA");
@@ -217,19 +195,69 @@ public class HomeAtendenteController implements Initializable {
         LbTituloJanela.setText("Home Screen");
         PnJanelas.getChildren().setAll(PnDataHora,PnVenda,Tabela,PnInfo,PnButton);
         HomeHighlight();
+        SetUser(f);
     }
     @FXML
+    public void OpenVendaIngresso(MouseEvent Event) throws IOException {
+        //Procura um caixa
+        CaixaDAO DAO = new CaixaDAO();
+        Date data = new Date(System.currentTimeMillis());
+        SimpleDateFormat formatarDate = new SimpleDateFormat("dd-MM-yyy");
+        Caixa c = DAO.read(formatarDate.format(data));
+        //Procura verifica se existe um caixa ou se ele esta aberto
+        if((c==null)||(!c.getStatus()))
+        {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Caixa fechado");
+            alert.setHeaderText(null);
+            alert.setContentText("O caixa esta fechado,não é possivel realizar vendas");
+            alert.showAndWait();
+        }
+        else
+        {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/VendaIngressos.fxml"));
+            AnchorPane pane = loader.load();
+            VendaIngressosController controller = loader.getController();
+            controller.SetMedidas(PnJanelas.getHeight(),PnJanelas.getWidth());
+            controller.setFuncionario(f);
+            PnRoot.setStyle("-fx-background-color:  #80CBC4");
+            PnMenu.setStyle("-fx-background-color:  #009688");
+            PnTopo.setStyle("-fx-background-color:  #009688");
+            LbTituloJanela.setText("Venda");
+            PnJanelas.getChildren().setAll(pane);
+            IngressosHighlight();
+        }
+     }
+    @FXML
     public void OpenAlimentos(MouseEvent Event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/VendaAlimentos.fxml"));
-        AnchorPane pane = loader.load();
-        VendaAlimentosController controller = loader.getController();
-        controller.GetMedidas(PnJanelas.getHeight(),PnJanelas.getWidth());
-        PnRoot.setStyle("-fx-background-color:   #B32F3D");
-        PnMenu.setStyle("-fx-background-color:   #81001F");
-        PnTopo.setStyle("-fx-background-color:   #81001F");
-        LbTituloJanela.setText("Venda");
-        PnJanelas.getChildren().setAll(pane);
-        AlimentosHighlight();
+        //Procura um caixa
+        CaixaDAO DAO = new CaixaDAO();
+        Date data = new Date(System.currentTimeMillis());
+        SimpleDateFormat formatarDate = new SimpleDateFormat("dd-MM-yyy");
+        Caixa c = DAO.read(formatarDate.format(data));
+        //Procura verifica se existe um caixa ou se ele esta aberto
+        if((c==null)||(!c.getStatus()))
+        {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Caixa fechado");
+            alert.setHeaderText(null);
+            alert.setContentText("O caixa esta fechado,não é possivel realizar vendas");
+            alert.showAndWait();
+        }
+        else
+        {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/VendaAlimentos.fxml"));
+            AnchorPane pane = loader.load();
+            VendaAlimentosController controller = loader.getController();
+            controller.GetMedidas(PnJanelas.getHeight(),PnJanelas.getWidth());
+            controller.setFuncionario(f);
+            PnRoot.setStyle("-fx-background-color:   #B32F3D");
+            PnMenu.setStyle("-fx-background-color:   #81001F");
+            PnTopo.setStyle("-fx-background-color:   #81001F");
+            LbTituloJanela.setText("Venda");
+            PnJanelas.getChildren().setAll(pane);
+            AlimentosHighlight();
+        }
     }
 //Configurar o Destaque dos botões do menu.
     private void HomeHighlight() {

@@ -1,8 +1,7 @@
 package Model;
 
-import java.util.ArrayList;
-
 public class Funcionario {
+
     private String cpf;
     private String nome;
     private String senha;
@@ -35,7 +34,6 @@ public class Funcionario {
     }
 
     //Getters
-
     public String getCpf() {
         return cpf;
     }
@@ -63,13 +61,9 @@ public class Funcionario {
     public double getSalario() {
         return salario;
     }
-    //Setters
 
+    //Setters
     public void setQtddVendas(int qtddVendas) {
         this.qtddVendas = qtddVendas;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
     }
 }

@@ -35,8 +35,7 @@ public class Produto {
     {
 
     }
-    //Getters e Setters
-
+    //Getters
     public int getId() {
         return id;
     }
@@ -60,9 +59,13 @@ public class Produto {
     public int getQuantidadeDeVenda() {
         return quantidadeDeVenda;
     }
-
+    //Setters
     public void setQuantidadeDeVenda(int quantidadeDeVenda) {
         this.quantidadeDeVenda = quantidadeDeVenda;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
     }
 
     public void setId(int id) {

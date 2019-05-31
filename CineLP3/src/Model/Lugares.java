@@ -10,7 +10,7 @@ public class Lugares {
         this.ocupado = ocupado;
         this.sessao=sessao;
     }
-
+//Getters
     public Sessao getSessao() {
         return sessao;
     }
@@ -22,7 +22,7 @@ public class Lugares {
     public boolean isOcupado() {
         return ocupado;
     }
-
+//Setters
     public void setOcupado(boolean ocupado) {
         this.ocupado = ocupado;
     }

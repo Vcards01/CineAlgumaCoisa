@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-
 import DataBase.FuncionarioDAO;
 import DataBase.LugarDAO;
 import DataBase.SessaoDAO;
@@ -24,11 +23,7 @@ import javafx.stage.StageStyle;
 
 public class LoginController implements Initializable{
     @FXML
-    private Label BtnClose;
-    @FXML
     private Button BtnEntrar;
-    @FXML
-    private Label LbEsqueceuSenha;
     @FXML
     private TextField txtUsuario;
     @FXML
@@ -42,8 +37,6 @@ public class LoginController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         LbSenhaIncorreta.setVisible(false);
         imgAviso.setVisible(false);
-        SessaoDAO sDAO = new SessaoDAO();
-        LugarDAO lDAO = new LugarDAO();
     }
     @FXML
     public void HandleClose(MouseEvent Event)
@@ -56,7 +49,7 @@ public class LoginController implements Initializable{
     {
         Alert aviso = new Alert(Alert.AlertType.INFORMATION);
         aviso.setTitle("Esqueceu sua senha?");
-        aviso.setHeaderText("Como recupera-la:");
+        aviso.setHeaderText(null);
         aviso.setContentText("Entre em contato com o Administrador de seu estabelecimento relatando o esquecimento,apenas ele tem acesso a essa infromação.");
         aviso.show();
     }

@@ -7,7 +7,6 @@ public class Sala {
     private int qtddLugares;
     private ArrayList<Sessao> sessoes= new ArrayList<Sessao>();
 
-
     public Sala(int id, int qtddLugares) {
         this.id = id;
         this.qtddLugares = qtddLugares;
@@ -19,23 +18,12 @@ public class Sala {
     {
 
     }
-    public void AddSessao(Sessao s)
-    {
-        sessoes.add(s);
-    }
-    public void RmvSessao(Sessao s)
-    {
-        sessoes.remove(s);
-    }
     @Override
     public String toString()
     {
         return Integer.toString(id);
     }
-    //Getters e Setters
-
-
-
+    //Getters
     public int getId() {
         return id;
     }
@@ -43,11 +31,7 @@ public class Sala {
     public int getQtddLugares() {
         return qtddLugares;
     }
-
-    public ArrayList<Sessao> getSessoes() {
-        return sessoes;
-    }
-
+    //Setters
     public void setId(int id) {
         this.id = id;
     }

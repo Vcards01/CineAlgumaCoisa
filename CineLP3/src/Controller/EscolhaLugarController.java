@@ -12,7 +12,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
-
 import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -37,11 +36,13 @@ public class EscolhaLugarController implements Initializable {
     private LugarDAO LDAO = new LugarDAO();
     //Quantidade de Ingressos Comprados pelo Cliente
     private int QuantidadeIngressos;
+    //Preço dos ingressos
     private double precoIngressos;
+    //Lista com os lugares selecionados
     private ArrayList<ImageView> LugaresEscolhidos = new ArrayList<>();
+    //Sessao atual
     private Sessao sessao;
-    public EscolhaLugarController() throws FileNotFoundException {
-    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -165,7 +166,6 @@ public class EscolhaLugarController implements Initializable {
                 if (s.getLugares().get(i).isOcupado()) {
                         Poltronas.get(i).setImage(Ocupada);
                 }
-
             }
         }
     }

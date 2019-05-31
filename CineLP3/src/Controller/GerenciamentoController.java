@@ -48,35 +48,30 @@ public class GerenciamentoController implements Initializable {
     public void OpenFilmeTable(MouseEvent Event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/TablesGerenciar/FilmesGerTable.fxml"));
         AnchorPane pane = loader.load();
-        TableGerFilmeController controller = loader.getController();
         RenderTable.getChildren().setAll(pane);
     }
     @FXML
     public void OpenSalasTable(MouseEvent Event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/TablesGerenciar/SalasGerTable.fxml"));
         AnchorPane pane = loader.load();
-        TableGerSalaController controller = loader.getController();
         RenderTable.getChildren().setAll(pane);
     }
     @FXML
     public void OpenSessaoTable(MouseEvent Event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/TablesGerenciar/SessaoGerTable.fxml"));
         AnchorPane pane = loader.load();
-        TableGerSessaoController controller = loader.getController();
         RenderTable.getChildren().setAll(pane);
     }
     @FXML
     public void OpenFuncTable(MouseEvent Event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/TablesGerenciar/FuncGerTable.fxml"));
         AnchorPane pane = loader.load();
-        TableGerFuncionarioController controller = loader.getController();
         RenderTable.getChildren().setAll(pane);
     }
     @FXML
     public void OpenEstoqueTable(MouseEvent Event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/TablesGerenciar/EstoqueGerTable.fxml"));
         AnchorPane pane = loader.load();
-        TableGerEstoqueController controller = loader.getController();
         RenderTable.getChildren().setAll(pane);
     }
     //Adiciona Sombra aos paineis

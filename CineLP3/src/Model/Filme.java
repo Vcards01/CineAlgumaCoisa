@@ -1,21 +1,17 @@
 package Model;
-import Main.Main;
 import javafx.scene.image.Image;
-
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class Filme {
     private int id;
+    private int qtddVendida;
     private String nome;
     private String genero;
     private String sinopse;
     private String duracao;
-    private int qtddVendida;
-    private ArrayList<Sessao> sessoes= new ArrayList<Sessao>();
     private String Img;
     private Image image ;
+    private ArrayList<Sessao> sessoes= new ArrayList<Sessao>();
 
     public Filme(int id, String nome, String genero, String sinopse, String duracao,String Img)  {
         this.id = id;
@@ -46,18 +42,16 @@ public class Filme {
         this.Img=Img;
         image=new Image(Img);
     }
-    public Filme()  {
+    public Filme()
+    {
 
     }
-    public void AddSessao(Sessao s)
+    @Override
+    public String toString()
     {
-        sessoes.add(s);
+        return nome;
     }
-    public void RmvSessao(Sessao s)
-    {
-        sessoes.remove(s);
-    }
-// Getters e Setters
+// Getters
     public int getId() {
         return id;
     }
@@ -97,18 +91,12 @@ public class Filme {
     public String getImg() {
         return Img;
     }
-
+//Setters
     public void setSessoes(ArrayList<Sessao> sessoes) {
         this.sessoes = sessoes;
     }
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    @Override
-    public String toString()
-    {
-        return nome;
     }
 }

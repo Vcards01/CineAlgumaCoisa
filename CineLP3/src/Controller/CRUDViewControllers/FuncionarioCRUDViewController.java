@@ -33,13 +33,16 @@ public class FuncionarioCRUDViewController implements Initializable {
     public TextField TxtCPF;
     @FXML
     public ComboBox CbTipo;
+    //Verifica se editavel
     private boolean editavel=false;
+    //Controller da tela anterior
     private TableGerFuncionarioController controller;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         FillCombobox();
     }
+    //Abre em modo edição
     public void OpenEditable(Funcionario f)
     {
         editavel=true;
@@ -60,14 +63,17 @@ public class FuncionarioCRUDViewController implements Initializable {
         Stage janela = (Stage)TxtNome.getScene().getWindow();
         janela.close();
     }
+    @FXML
     public void Save(ActionEvent event)
     {
         FuncionarioDAO DAO = new FuncionarioDAO();
         Funcionario f = new Funcionario(TxtCPF.getText(),TxtNome.getText(),TxtSenha.getText(),TxtUsuario.getText(),CbTipo.getValue().toString(),Double.parseDouble(TxtSalario.getText()));
+        //Salva um novo funcinario
         if(!editavel)
         {
             DAO.create(f);
         }
+        //Atualiza um funcionario
         else
         {
             DAO.update(f);

@@ -1,26 +1,21 @@
 package Controller.CRUDViewControllers;
 
-import Controller.TableGerControllers.TableGerFilmeController;
 import Controller.TableGerControllers.TableGerSessaoController;
 import DataBase.FilmeDAO;
-import DataBase.LugarDAO;
 import DataBase.SalaDAO;
 import DataBase.SessaoDAO;
 import Model.Filme;
-import Model.Lugares;
 import Model.Sala;
 import Model.Sessao;
+import Support.CriarLugares;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Spinner;
-import javafx.scene.control.SpinnerValueFactory;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -39,12 +34,16 @@ public class SessaoCRUDViewController implements Initializable {
     public Spinner SpnMin;
     @FXML
     public TextField TxtId;
+    //verifica se é editavel
     private boolean editavel = false;
+    //controlador da tela anterior
     private TableGerSessaoController controller;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         FillComboBox();
         SetSpinner();
+
     }
     private void SetSpinner()
     {
@@ -62,6 +61,7 @@ public class SessaoCRUDViewController implements Initializable {
         CbSala.setItems(Salas);
 
     }
+    //Abre em modo edição
     public void OpenEditable(Sessao s)
     {
         String hora,min;
@@ -82,24 +82,23 @@ public class SessaoCRUDViewController implements Initializable {
         Stage janela = (Stage)TxtMeia.getScene().getWindow();
         janela.close();
     }
-
+    @FXML
     public void Save(ActionEvent event)
     {
        SessaoDAO DAO = new SessaoDAO();
-        LugarDAO LDAO = new LugarDAO();
-        String hora;
-        hora=SpnHora.getValue()+":"+SpnMin.getValue();
-        Sessao s = new Sessao(hora,(Filme)CbFilme.getValue(),(Sala)CbSala.getValue(),Double.parseDouble(TxtInteira.getText()),Double.parseDouble(TxtMeia.getText()));
-        if(!editavel)
+       String hora;
+       hora=SpnHora.getValue()+":"+SpnMin.getValue();
+       Sessao s = new Sessao(hora,(Filme)CbFilme.getValue(),(Sala)CbSala.getValue(),Double.parseDouble(TxtInteira.getText()),Double.parseDouble(TxtMeia.getText()));
+       //Cria um nova sessão e tambem cria os lugares usando uma thread
+       if(!editavel)
         {
             DAO.create(s);
-            for(int i=0;i<s.getSala().getQtddLugares();i++)
-            {
-
-                Lugares l = new Lugares(i+1,false,DAO.getSessao().get(DAO.getSessao().size()-1));
-                LDAO.create(l);
-            }
+            CriarLugares l = new CriarLugares();
+            l.SetSessao(DAO.getSessao().get(DAO.getSessao().size()-1));
+            Thread t = new Thread(l);
+            t.start();
         }
+       //Atualiza um lugar
         else
         {
             s.setId(Integer.parseInt(TxtId.getText()));

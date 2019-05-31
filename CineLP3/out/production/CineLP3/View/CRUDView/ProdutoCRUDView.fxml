@@ -18,7 +18,7 @@
       <Label layoutX="286.0" layoutY="195.0" text="Preço: R$" />
       <Label layoutX="75.0" layoutY="195.0" text="Tipo:" />
       <Label layoutX="293.0" layoutY="86.0" text="Nome:" />
-      <Button layoutX="174.0" layoutY="398.0" mnemonicParsing="false" onAction="#Cancelar" text="Cancelar" />
+      <Button layoutX="174.0" layoutY="398.0" mnemonicParsing="false" onAction="#Cancel" text="Cancelar" />
       <Button layoutX="344.0" layoutY="398.0" mnemonicParsing="false" onAction="#Save" text="Salvar" />
       <ComboBox fx:id="CbTipo" layoutX="106.0" layoutY="191.0" prefWidth="150.0" />
    </children>

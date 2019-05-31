@@ -1,11 +1,11 @@
 package Model;
-import java.time.LocalDate;
 public class Caixa {
 
     private String data;
     private double valorInicial;
     private double lucro;
     private double valorAtual;
+    private boolean status;
 
     public Caixa(String data, double valorInicial, double lucro, double valorAtual)
     {
@@ -15,32 +15,31 @@ public class Caixa {
         this.valorAtual = valorAtual;
 
     }
+    public Caixa(String data, double valorInicial, double lucro, double valorAtual,boolean status)
+    {
+        this.data = data;
+        this.valorInicial = valorInicial;
+        this.lucro = lucro;
+        this.valorAtual = valorAtual;
+        this.status=status;
+
+    }
     public  Caixa()
     {
 
     }
-    public void AbrirCaixa(float ValorInicial)
+    public void AbrirCaixa(double ValorInicial)
     {
         this.valorInicial=ValorInicial;
         lucro = 0;
         valorAtual = valorInicial + lucro;
-        data = LocalDate.now().toString();
-    }
-    public void RetirarValor(double valor)
-    {
-        valorAtual -= valor;
     }
     public void AddValor(double valor)
     {
         valorAtual += valor;
         lucro= valorAtual - valorInicial;
     }
-    public void FecharCaixa()
-    {
-        lucro = valorAtual - valorInicial;
-    }
-    //Getters e Setters
-
+    //Getters
     public String getData() {
         return data;
     }
@@ -57,4 +56,11 @@ public class Caixa {
         return valorAtual;
     }
 
+    public boolean getStatus() {
+        return status;
+    }
+    //Setters
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
 }

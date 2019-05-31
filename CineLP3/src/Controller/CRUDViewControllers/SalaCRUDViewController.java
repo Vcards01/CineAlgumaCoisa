@@ -8,7 +8,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -17,12 +16,16 @@ public class SalaCRUDViewController implements Initializable {
     public TextField Txtid;
     @FXML
     public TextField TxtQuantidadeLugares;
+    //Variavel para verificar se é editavel ou não
     private boolean editavel = false;
+    //Controlador da tela anterior
     private TableGerSalaController controller;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
+    //Abre em modo edição
     public void OpenEditable(Sala s)
     {
         editavel=true;
@@ -35,19 +38,23 @@ public class SalaCRUDViewController implements Initializable {
         Stage janela = (Stage)Txtid.getScene().getWindow();
         janela.close();
     }
+    @FXML
     public void Save(ActionEvent event)
     {
         SalaDAO DAO = new SalaDAO();
         Sala s = new Sala(Integer.parseInt(TxtQuantidadeLugares.getText()));
+        //Salva para uma nova Sala
         if(!editavel)
         {
             DAO.create(s);
         }
+        //Edita uma sala ja existente
         else
         {
             s.setId(Integer.parseInt(Txtid.getText()));
             DAO.update(s);
         }
+        //Atualiza a tabela da tela anterior
         controller.SetTable();
         Stage janela = (Stage)TxtQuantidadeLugares.getScene().getWindow();
         janela.close();

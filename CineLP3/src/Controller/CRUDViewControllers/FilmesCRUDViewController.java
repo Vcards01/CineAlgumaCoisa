@@ -36,8 +36,11 @@ public class FilmesCRUDViewController implements Initializable {
     public TextField TxtDuracao;
     @FXML
     public ImageView ImgCapa;
+    //URL da imagem
     private String url;
+    //Controlador da tela anterior
     private TableGerFilmeController controller;
+    //Verificar se é editavel
     private boolean editavel = false;
 
     @Override
@@ -62,6 +65,7 @@ public class FilmesCRUDViewController implements Initializable {
        ObservableList<String> generos = FXCollections.observableArrayList(Generos);
        CbGenero.setItems(generos);
    }
+   //Abre em modo edição
     public void OpenEditable(Filme f)
     {
         editavel=true;
@@ -72,6 +76,7 @@ public class FilmesCRUDViewController implements Initializable {
         ImgCapa.setImage(f.getImage());
         CbGenero.setValue(f.getGenero());
     }
+    //Seleciona o arquivo imagem
     @FXML
     public void fileChooser(ActionEvent event) throws IOException {
         FileChooser fc = new FileChooser();
@@ -97,14 +102,17 @@ public class FilmesCRUDViewController implements Initializable {
         janela.close();
 
     }
+    @FXML
     public void Save(ActionEvent event)
     {
         FilmeDAO DAO = new FilmeDAO();
         Filme f = new Filme(TxtTitulo.getText(),CbGenero.getValue().toString(),TxtSinopse.getText(),TxtDuracao.getText(),"file:///"+url);
+        //Salva um novo filme
         if(!editavel)
         {
             DAO.create(f);
         }
+        //Edita um filme
         else
         {
             f.setId(Integer.parseInt(TxtId.getText()));
