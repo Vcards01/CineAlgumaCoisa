@@ -1,6 +1,7 @@
 package Controller.TableGerControllers;
 
 import Controller.CRUDViewControllers.SessaoCRUDViewController;
+import DataBase.LugarDAO;
 import DataBase.SessaoDAO;
 import Model.Filme;
 import Model.Sala;
@@ -95,6 +96,8 @@ public class TableGerSessaoController implements Initializable {
     public void RmvSessao(MouseEvent event)
     {
         SessaoDAO DAO = new SessaoDAO();
+        LugarDAO LDAO = new LugarDAO();
+        LDAO.Delete(TabelaSessao.getSelectionModel().getSelectedItem());
         DAO.delete(TabelaSessao.getSelectionModel().getSelectedItem());
         SetTable();
     }

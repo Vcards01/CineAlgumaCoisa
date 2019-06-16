@@ -47,7 +47,11 @@ public class EscolhaLugarController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
     }
-
+//Retorna os lugares selecionados
+    public int GetSelecionados()
+    {
+        return LugaresEscolhidos.size();
+    }
 //Configura todas as poltronas na tela
     @FXML
     public void SetLugares(Sessao s) throws FileNotFoundException {
@@ -165,6 +169,13 @@ public class EscolhaLugarController implements Initializable {
             for (int i = 0; i < s.getLugares().size(); i++) {
                 if (s.getLugares().get(i).isOcupado()) {
                         Poltronas.get(i).setImage(Ocupada);
+                        Poltronas.get(i).setOnMouseClicked(event -> {
+                        Alert alert =new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Lugar Ocupado");
+                        alert.setHeaderText(null);
+                        alert.setContentText("Escolha um dos lugares disponiveis");
+                        alert.showAndWait();
+                        });
                 }
             }
         }

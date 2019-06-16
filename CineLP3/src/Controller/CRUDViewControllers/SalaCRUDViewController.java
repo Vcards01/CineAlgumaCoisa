@@ -6,6 +6,7 @@ import Model.Sala;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.net.URL;
@@ -41,25 +42,59 @@ public class SalaCRUDViewController implements Initializable {
     @FXML
     public void Save(ActionEvent event)
     {
-        SalaDAO DAO = new SalaDAO();
-        Sala s = new Sala(Integer.parseInt(TxtQuantidadeLugares.getText()));
-        //Salva para uma nova Sala
-        if(!editavel)
+        if(TxtQuantidadeLugares.getText().isEmpty())
         {
-            DAO.create(s);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Campos em branco");
+            alert.setHeaderText(null);
+            alert.setContentText("Não deixe nenhum campo em branco!");
+            alert.showAndWait();
         }
-        //Edita uma sala ja existente
         else
         {
-            s.setId(Integer.parseInt(Txtid.getText()));
-            DAO.update(s);
+            if(!CheckNumber(TxtQuantidadeLugares.getText()))
+            {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Lugares invalido");
+                alert.setHeaderText(null);
+                alert.setContentText("Apenas numeros são permitidos!");
+                alert.showAndWait();
+            }
+            else
+            {
+                SalaDAO DAO = new SalaDAO();
+                Sala s = new Sala(Integer.parseInt(TxtQuantidadeLugares.getText()));
+                //Salva para uma nova Sala
+                if(!editavel)
+                {
+                    DAO.create(s);
+                }
+                //Edita uma sala ja existente
+                else
+                {
+                    s.setId(Integer.parseInt(Txtid.getText()));
+                    DAO.update(s);
+                }
+                //Atualiza a tabela da tela anterior
+                controller.SetTable();
+                Stage janela = (Stage)TxtQuantidadeLugares.getScene().getWindow();
+                janela.close();
+            }
         }
-        //Atualiza a tabela da tela anterior
-        controller.SetTable();
-        Stage janela = (Stage)TxtQuantidadeLugares.getScene().getWindow();
-        janela.close();
+     }
+    public boolean CheckNumber( String s ) {
+        // cria um array de char
+        char[] c = s.toCharArray();
+        boolean d = true;
+        for ( int i = 0; i < c.length; i++ ){
+            // verifica se o char não é um dígito
+            if ( !Character.isDigit( c[ i ] ) ) {
+                d = false;
+                break;
+            }
+        }
+        return d;
     }
-
     public void SetController(TableGerSalaController controller)
     {
         this.controller = controller;

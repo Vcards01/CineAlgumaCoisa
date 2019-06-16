@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane fx:id="root" prefHeight="263.0" prefWidth="770.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TableRelatorioControllers.RelatorioFilmesTableController">
+   <children>
+      <TableView fx:id="TableFilmes" prefHeight="271.0" prefWidth="771.0" style="-fx-background-color: #1F72A6;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columns>
+          <TableColumn fx:id="Filmes" prefWidth="386.0" style="-fx-background-color: #1F72A6; -fx-font-weight: bold; -fx-font-size: 16px; -fx-border-color: White;" text="Filme" />
+          <TableColumn fx:id="Ingressos" prefWidth="383.0" style="-fx-background-color: #1F72A6; -fx-font-weight: bold; -fx-font-size: 16px; -fx-border-color: white;" text="Ingressos Vendidos" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+   </children>
+</AnchorPane>

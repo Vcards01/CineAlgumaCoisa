@@ -85,29 +85,70 @@ public class SessaoCRUDViewController implements Initializable {
     @FXML
     public void Save(ActionEvent event)
     {
-       SessaoDAO DAO = new SessaoDAO();
-       String hora;
-       hora=SpnHora.getValue()+":"+SpnMin.getValue();
-       Sessao s = new Sessao(hora,(Filme)CbFilme.getValue(),(Sala)CbSala.getValue(),Double.parseDouble(TxtInteira.getText()),Double.parseDouble(TxtMeia.getText()));
-       //Cria um nova sessão e tambem cria os lugares usando uma thread
-       if(!editavel)
+        String hora;
+        hora=SpnHora.getValue()+":"+SpnMin.getValue();
+        if((hora.equals("0:0")||CbFilme.getValue()==null||CbSala.getValue()==null||TxtInteira.getText().isEmpty()||TxtMeia.getText().isEmpty()))
         {
-            DAO.create(s);
-            CriarLugares l = new CriarLugares();
-            l.SetSessao(DAO.getSessao().get(DAO.getSessao().size()-1));
-            Thread t = new Thread(l);
-            t.start();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Campos em branco");
+            alert.setHeaderText(null);
+            alert.setContentText("Não deixe nenhum campo em branco!");
+            alert.showAndWait();
         }
-       //Atualiza um lugar
         else
         {
-            s.setId(Integer.parseInt(TxtId.getText()));
-            DAO.update(s);
-        }
-        controller.SetTable();
-        Stage janela = (Stage)TxtMeia.getScene().getWindow();
-        janela.close();
+            if(!CheckNumber(TxtInteira.getText())||!CheckNumber(TxtMeia.getText()))
+            {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Preço invalido");
+                alert.setHeaderText(null);
+                alert.setContentText("Apenas numeros são permitidos!");
+                alert.showAndWait();
+            }
+            else
+            {
+                SessaoDAO DAO = new SessaoDAO();
+                Sessao s = new Sessao(hora,(Filme)CbFilme.getValue(),(Sala)CbSala.getValue(),Double.parseDouble(TxtInteira.getText()),Double.parseDouble(TxtMeia.getText()));
+                //Cria um nova sessão e tambem cria os lugares usando uma thread
+                if(!editavel)
+                {
+                    DAO.create(s);
+                    CriarLugares l = new CriarLugares();
+                    l.SetSessao(DAO.getSessao().get(DAO.getSessao().size()-1));
+                    Thread t = new Thread(l);
+                    t.start();
+                }
+                //Atualiza um lugar
+                else
+                {
+                    s.setId(Integer.parseInt(TxtId.getText()));
+                    DAO.update(s);
+                }
+                controller.SetTable();
+                Stage janela = (Stage)TxtMeia.getScene().getWindow();
+                janela.close();
+            }
+            }
+
+
     }
+    public boolean CheckNumber( String s ) {
+        // cria um array de char
+        char[] c = s.toCharArray();
+        boolean d = true;
+        for ( int i = 0; i < c.length; i++ ){
+            // verifica se o char não é um dígito
+            if(c[i]=='.')
+            {
+                continue;
+            }
+            else if ( !Character.isDigit( c[ i ] ) ) {
+                d = false;
+                break;
+            }
+    }
+    return d;
+}
     public void SetController(TableGerSessaoController controller)
     {
         this.controller = controller;

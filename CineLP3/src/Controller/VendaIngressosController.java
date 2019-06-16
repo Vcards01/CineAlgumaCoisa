@@ -73,6 +73,8 @@ public class VendaIngressosController implements Initializable {
     private Funcionario f;
     //Sessão atual
     private Sessao s;
+    //Construtor
+    private EscolhaLugarController controller;
 
 
     @Override
@@ -220,7 +222,7 @@ public class VendaIngressosController implements Initializable {
         if (Double.parseDouble(LbValorTotal.getText()) != 0.0) {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/EscolhaLugar.fxml"));
             AnchorPane pane = loader.load();
-            EscolhaLugarController controller = loader.getController();
+            controller = loader.getController();
             s = (Sessao) CbSessao.getValue();
             controller.SetLugares(s);
             controller.SetIngressos((double) SpnInt.getValue() + (double) SpnMeia.getValue(), Double.parseDouble(LbValorTotal.getText()));
@@ -242,74 +244,87 @@ public class VendaIngressosController implements Initializable {
     }
 //Configura o botão de Confirmar.
     public void Confirmar(ActionEvent event) throws IOException {
-        //Configura Data e Hora
-        Date data = new Date(System.currentTimeMillis());
-        SimpleDateFormat formatarDate = new SimpleDateFormat("dd-MM-yyy");
-        SimpleDateFormat formatHora = new SimpleDateFormat("HH:mm:ss");
-        Date hora = Calendar.getInstance().getTime();
-        //Pega o caixa aberto, para atualizar seus valores
-        CaixaDAO CDAO = new CaixaDAO();
-        Caixa c = CDAO.read(formatarDate.format(data));
-        //DAO do funcionario para atualizar suas vendas.
-        FuncionarioDAO FDAO = new FuncionarioDAO();
-        //DAO do Filme para atualizar a quantidade de ingressos dele que foi vendido
-        FilmeDAO FilDAO = new FilmeDAO();
-        //Pegunta se deseja continuar comprando
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Continuar comprando?");
-        alert.setHeaderText(null);
-        alert.setContentText("Deseja obter alimentos ou acompanhamentos para saborear enquanto assiste o filme?");
-        ButtonType buttonTypeNao = new ButtonType("Não,finalizar compra");
-        ButtonType buttonTypeSim = new ButtonType("Sim,continuar comprando");
-        alert.getButtonTypes().setAll(buttonTypeNao, buttonTypeSim);
-        Optional<ButtonType> result = alert.showAndWait();
-        //Verifica se o usuario quer continuar comprando ou não
-        if (result.get() == buttonTypeNao) {
-            //Cria um nova venda
-            VendaDAO VDAO = new VendaDAO();
-            Venda v = new Venda(formatarDate.format(data),formatHora.format(hora),Double.parseDouble(LbValorTotal.getText()));
-            alert.close();
-            //Fecha a janela de selecionar lugares e finaliza a venda
-            PnFundo.getChildren().clear();
-            PnFundo.getChildren().setAll(PnIngressos,PnSelecionar);
-            BtnConfirma.setVisible(false);
-            BtnVoltar.setVisible(false);
-            BtnProximo.setVisible(true);
-            BtnCancelar.setVisible(true);
-            Alert aviso = new Alert(Alert.AlertType.INFORMATION);
-            aviso.setTitle("Venda finalizada");
-            aviso.setHeaderText(null);
-            aviso.setContentText("A venda no valor de R$" + Double.parseDouble(LbValorTotal.getText()) + ",foi concluida com sucesso");
-            aviso.showAndWait();
-            //Atualiza o valor no caixa
-            c.AddValor(Double.parseDouble(LbValorTotal.getText()));
-            CDAO.update(c);
-            //Cria a nova venda
-            VDAO.create(v);
-            //Atualiza as vendas do funcionario
-            f.setQtddVendas(f.getQtddVendas()+1);
-            //Atualiza a quantidade de ingressos vendidos para o filme
-            FDAO.update(f);
-            Filme f= s.getFilme();
-            int qtdd = (int)((double)SpnInt.getValue()+(double)SpnMeia.getValue());
-            f.setQtddVendida(f.getQtddVendida()+qtdd);
-            FilDAO.update(f);
-            //Reseta
-            SpnInt.getValueFactory().setValue(0.0);
-            SpnMeia.getValueFactory().setValue(0.0);
-        }
-        else if (result.get() == buttonTypeSim)
+        int ingressos = (int)((double) SpnInt.getValue() + (double) SpnMeia.getValue());
+        if(controller.GetSelecionados()<ingressos)
         {
-            //Segue para a tela de alimentos porque o usuario escolheu continuar
-            FXMLLoader loaderA = new FXMLLoader(getClass().getResource("../View/VendaAlimentos.fxml"));
-            AnchorPane pane = loaderA.load();
-            VendaAlimentosController controller = loaderA.getController();
-            controller.GetMedidas(PnPrincipal.getHeight(),PnPrincipal.getWidth());
-            controller.SetTotal(Double.parseDouble(LbValorTotal.getText()));
-            controller.setFuncionario(f);
-            controller.SetCollors();
-            PnPrincipal.getChildren().setAll(pane);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Lugares não selecionados");
+            alert.setHeaderText(null);
+            alert.setContentText("Verifique se todos os lugares foram selecionados!");
+            alert.showAndWait();
         }
+        else
+        {
+            //Configura Data e Hora
+            Date data = new Date(System.currentTimeMillis());
+            SimpleDateFormat formatarDate = new SimpleDateFormat("dd-MM-yyy");
+            SimpleDateFormat formatHora = new SimpleDateFormat("HH:mm:ss");
+            Date hora = Calendar.getInstance().getTime();
+            //Pega o caixa aberto, para atualizar seus valores
+            CaixaDAO CDAO = new CaixaDAO();
+            Caixa c = CDAO.read(formatarDate.format(data));
+            //DAO do funcionario para atualizar suas vendas.
+            FuncionarioDAO FDAO = new FuncionarioDAO();
+            //DAO do Filme para atualizar a quantidade de ingressos dele que foi vendido
+            FilmeDAO FilDAO = new FilmeDAO();
+            //Pegunta se deseja continuar comprando
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Continuar comprando?");
+            alert.setHeaderText(null);
+            alert.setContentText("Deseja obter alimentos ou acompanhamentos para saborear enquanto assiste o filme?");
+            ButtonType buttonTypeNao = new ButtonType("Não,finalizar compra");
+            ButtonType buttonTypeSim = new ButtonType("Sim,continuar comprando");
+            alert.getButtonTypes().setAll(buttonTypeNao, buttonTypeSim);
+            Optional<ButtonType> result = alert.showAndWait();
+            //Verifica se o usuario quer continuar comprando ou não
+            if (result.get() == buttonTypeNao) {
+                //Cria um nova venda
+                VendaDAO VDAO = new VendaDAO();
+                Venda v = new Venda(formatarDate.format(data),formatHora.format(hora),Double.parseDouble(LbValorTotal.getText()));
+                alert.close();
+                //Fecha a janela de selecionar lugares e finaliza a venda
+                PnFundo.getChildren().clear();
+                PnFundo.getChildren().setAll(PnIngressos,PnSelecionar);
+                BtnConfirma.setVisible(false);
+                BtnVoltar.setVisible(false);
+                BtnProximo.setVisible(true);
+                BtnCancelar.setVisible(true);
+                Alert aviso = new Alert(Alert.AlertType.INFORMATION);
+                aviso.setTitle("Venda finalizada");
+                aviso.setHeaderText(null);
+                aviso.setContentText("A venda no valor de R$" + Double.parseDouble(LbValorTotal.getText()) + ",foi concluida com sucesso");
+                aviso.showAndWait();
+                //Atualiza o valor no caixa
+                c.AddValor(Double.parseDouble(LbValorTotal.getText()));
+                CDAO.update(c);
+                //Cria a nova venda
+                VDAO.create(v);
+                //Atualiza as vendas do funcionario
+                f.setQtddVendas(f.getQtddVendas()+1);
+                //Atualiza a quantidade de ingressos vendidos para o filme
+                FDAO.update(f);
+                Filme f= s.getFilme();
+                int qtdd = (int)((double)SpnInt.getValue()+(double)SpnMeia.getValue());
+                f.setQtddVendida(f.getQtddVendida()+qtdd);
+                FilDAO.update(f);
+                //Reseta
+                SpnInt.getValueFactory().setValue(0.0);
+                SpnMeia.getValueFactory().setValue(0.0);
+            }
+            else if (result.get() == buttonTypeSim)
+            {
+                //Segue para a tela de alimentos porque o usuario escolheu continuar
+                FXMLLoader loaderA = new FXMLLoader(getClass().getResource("../View/VendaAlimentos.fxml"));
+                AnchorPane pane = loaderA.load();
+                VendaAlimentosController controller = loaderA.getController();
+                controller.GetMedidas(PnPrincipal.getHeight(),PnPrincipal.getWidth());
+                controller.SetTotal(Double.parseDouble(LbValorTotal.getText()));
+                controller.setFuncionario(f);
+                controller.SetCollors();
+                PnPrincipal.getChildren().setAll(pane);
+            }
+        }
+
     }
 //Configura o botão voltar.
     public void Voltar(ActionEvent event)

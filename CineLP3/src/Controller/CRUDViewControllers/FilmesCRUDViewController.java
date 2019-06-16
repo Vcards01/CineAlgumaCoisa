@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -105,22 +106,34 @@ public class FilmesCRUDViewController implements Initializable {
     @FXML
     public void Save(ActionEvent event)
     {
-        FilmeDAO DAO = new FilmeDAO();
-        Filme f = new Filme(TxtTitulo.getText(),CbGenero.getValue().toString(),TxtSinopse.getText(),TxtDuracao.getText(),"file:///"+url);
-        //Salva um novo filme
-        if(!editavel)
-        {
-            DAO.create(f);
-        }
-        //Edita um filme
-        else
-        {
-            f.setId(Integer.parseInt(TxtId.getText()));
-            DAO.update(f);
-        }
-        controller.SetTable();
-        Stage janela = (Stage)TxtTitulo.getScene().getWindow();
-        janela.close();
+       if(TxtTitulo.getText().isEmpty()||CbGenero.getValue()==null||TxtDuracao.getText().isEmpty())
+       {
+           Alert alert = new Alert(Alert.AlertType.INFORMATION);
+           alert.setTitle("Campos em branco");
+           alert.setHeaderText(null);
+           alert.setContentText("Não deixe nenhum campo em branco!");
+           alert.showAndWait();
+       }
+       else
+       {
+           FilmeDAO DAO = new FilmeDAO();
+           Filme f = new Filme(TxtTitulo.getText(),CbGenero.getValue().toString(),TxtSinopse.getText(),TxtDuracao.getText(),"file:///"+url);
+           //Salva um novo filme
+           if(!editavel)
+           {
+               DAO.create(f);
+           }
+           //Edita um filme
+           else
+           {
+               f.setId(Integer.parseInt(TxtId.getText()));
+               DAO.update(f);
+           }
+           controller.SetTable();
+           Stage janela = (Stage)TxtTitulo.getScene().getWindow();
+           janela.close();
+       }
+
 
     }
 }

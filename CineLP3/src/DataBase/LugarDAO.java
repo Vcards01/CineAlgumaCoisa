@@ -87,7 +87,18 @@ public class LugarDAO {
         }
         return null;
     }
-
+    public void Delete(Sessao s)
+    {
+        try {
+            String sql = "DELETE FROM Lugares WHERE sessao = ?";
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, s.getId());
+            stmt.execute();
+            stmt.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
     public ArrayList <Lugares> getLugares(Sessao s) {
         boolean status;
         SessaoDAO sDAO = new SessaoDAO();

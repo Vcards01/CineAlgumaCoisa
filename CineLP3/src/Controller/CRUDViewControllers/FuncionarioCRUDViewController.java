@@ -12,6 +12,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -66,21 +67,44 @@ public class FuncionarioCRUDViewController implements Initializable {
     @FXML
     public void Save(ActionEvent event)
     {
-        FuncionarioDAO DAO = new FuncionarioDAO();
-        Funcionario f = new Funcionario(TxtCPF.getText(),TxtNome.getText(),TxtSenha.getText(),TxtUsuario.getText(),CbTipo.getValue().toString(),Double.parseDouble(TxtSalario.getText()));
-        //Salva um novo funcinario
-        if(!editavel)
+        if(TxtCPF.getText().isEmpty()||TxtNome.getText().isEmpty()||TxtSenha.getText().isEmpty()||TxtUsuario.getText().isEmpty()||CbTipo.getValue()==null||TxtSalario.getText().isEmpty())
         {
-            DAO.create(f);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Campos em branco");
+            alert.setHeaderText(null);
+            alert.setContentText("Não deixe nenhum campo em branco!");
+            alert.showAndWait();
         }
-        //Atualiza um funcionario
         else
         {
-            DAO.update(f);
+            if(!CheckNumber(TxtCPF.getText())||!CheckNumber(TxtSalario.getText()))
+            {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("CPF ou Salario invalido");
+                alert.setHeaderText(null);
+                alert.setContentText("Apenas numeros são permitidos!");
+                alert.showAndWait();
+            }
+            else
+            {
+                FuncionarioDAO DAO = new FuncionarioDAO();
+                Funcionario f = new Funcionario(TxtCPF.getText(),TxtNome.getText(),TxtSenha.getText(),TxtUsuario.getText(),CbTipo.getValue().toString(),Double.parseDouble(TxtSalario.getText()));
+                //Salva um novo funcinario
+                if(!editavel)
+                {
+                    DAO.create(f);
+                }
+                //Atualiza um funcionario
+                else
+                {
+                    DAO.update(f);
+                }
+                controller.SetTable();
+                Stage janela = (Stage)TxtNome.getScene().getWindow();
+                janela.close();
+
+            }
         }
-        controller.SetTable();
-        Stage janela = (Stage)TxtNome.getScene().getWindow();
-        janela.close();
 
     }
     public void FillCombobox()
@@ -90,5 +114,22 @@ public class FuncionarioCRUDViewController implements Initializable {
         Tipo.add("Atendente");
         ObservableList<String>Tipos = FXCollections.observableArrayList(Tipo);
         CbTipo.setItems(Tipos);
+    }
+    public boolean CheckNumber( String s ) {
+        // cria um array de char
+        char[] c = s.toCharArray();
+        boolean d = true;
+        for ( int i = 0; i < c.length; i++ ){
+            // verifica se o char não é um dígito
+            if(c[i]=='.')
+            {
+                continue;
+            }
+            else if ( !Character.isDigit( c[ i ] ) ) {
+                d = false;
+                break;
+            }
+        }
+        return d;
     }
 }
